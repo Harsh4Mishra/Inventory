@@ -44,11 +44,6 @@ namespace Inventory.Application.Features.Organization.Commands.UpdateOrganizatio
                 var organization = await _organizationRepository.GetByIdToMutateAsync(request.Id, cancellationToken)
                     ?? throw new InvalidOperationException($"No organization found with Id '{request.Id}'.");
 
-                // 2. Check if organization is soft deleted
-                if (organization.DeletedOn != null)
-                {
-                    throw new InvalidOperationException("Cannot update a deleted organization.");
-                }
 
                 // 3. Check for duplicate name (if name is being changed)
                 if (!string.Equals(organization.Name, request.Name, StringComparison.OrdinalIgnoreCase))

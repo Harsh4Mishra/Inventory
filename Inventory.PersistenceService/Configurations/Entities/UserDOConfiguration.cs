@@ -73,26 +73,52 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasColumnType("BIT")
                 .HasColumnOrder(7);
 
+            // New password-related fields
+            builder
+                .Property(e => e.PasswordHashKey)
+                .HasColumnType("VARCHAR(500)")
+                .IsRequired(false)
+                .HasColumnOrder(8);
+
+            builder
+                .Property(e => e.PasswordSaltKey)
+                .HasColumnType("VARCHAR(500)")
+                .IsRequired(false)
+                .HasColumnOrder(9);
+
+            builder
+                .Property(e => e.NumberOfAttempts)
+                .HasColumnType("INT")
+                .HasDefaultValue(0)
+                .HasColumnOrder(10);
+
+            builder
+                .Property(e => e.IsPasswordSet)
+                .HasColumnType("BIT")
+                .HasDefaultValue(false)
+                .HasColumnOrder(11);
+
+            // Audit fields
             builder
                 .Property(e => e.CreatedBy)
                 .HasColumnType("VARCHAR(50)")
-                .HasColumnOrder(8);
+                .HasColumnOrder(12);
 
             builder
                 .Property(e => e.CreatedOn)
                 .HasColumnType("DATETIME")
-                .HasColumnOrder(9);
+                .HasColumnOrder(13);
 
             builder
                 .Property(e => e.UpdatedBy)
                 .HasColumnType("VARCHAR(50)")
-                .HasColumnOrder(10)
+                .HasColumnOrder(14)
                 .IsRequired(false);
 
             builder
                 .Property(e => e.UpdatedOn)
                 .HasColumnType("DATETIME")
-                .HasColumnOrder(11)
+                .HasColumnOrder(15)
                 .IsRequired(false);
 
             // Configure primary key
@@ -100,26 +126,27 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasKey(e => e.Id)
                 .HasName("PK_User_Id");
 
-            // Configure index(s)
-            //builder.HasIndex("PhoneNo_PhoneNo")  // Shadow property name
-            // .IsUnique()
-            // .HasDatabaseName("IX_User_PhoneNo");
+            // Configure additional indexes for new fields
+            builder
+                .HasIndex(e => e.IsActive)
+                .HasDatabaseName("IX_User_IsActive");
 
-            //builder.HasIndex("EmailId_EmailId")  // Shadow property name
-            //    .IsUnique()
-            //    .HasDatabaseName("IX_User_EmailId");
+            builder
+                .HasIndex(e => e.IsPasswordSet)
+                .HasDatabaseName("IX_User_IsPasswordSet");
 
+            builder
+                .HasIndex(e => e.NumberOfAttempts)
+                .HasDatabaseName("IX_User_NumberOfAttempts");
 
-            // Configure value object conversions
-            //builder
-            //    .OwnsOne(e => e.PhoneNo)
-            //    .Property(p => p.PhoneNo)
-            //    .HasColumnName("PhoneNo");
+            // Configure check constraints
+            builder
+                .HasCheckConstraint("CK_User_NumberOfAttempts_Range", "[NumberOfAttempts] >= 0 AND [NumberOfAttempts] <= 10")
+                .HasCheckConstraint("CK_User_PasswordFields_Consistency",
+                    "([PasswordHashKey] IS NULL AND [PasswordSaltKey] IS NULL AND [IsPasswordSet] = 0) OR " +
+                    "([PasswordHashKey] IS NOT NULL AND [PasswordSaltKey] IS NOT NULL AND [IsPasswordSet] = 1)");
 
-            //builder
-            //    .OwnsOne(e => e.EmailId)
-            //    .Property(e => e.EmailId)
-            //    .HasColumnName("EmailId");
+            // Configure value object conversions (already handled by OwnsOne)
         }
 
         #endregion

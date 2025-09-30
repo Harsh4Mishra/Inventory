@@ -38,7 +38,7 @@ namespace Inventory.Application.Features.Organization.Queries.GetActiveOrganizat
                 var organizations = await _organizationRepository.GetAllActiveAsync(cancellationToken);
 
                 // 2. Filter out any soft deleted organizations (additional safety check)
-                var activeOrganizations = organizations.Where(o => o.DeletedOn == null);
+                var activeOrganizations = organizations;
 
                 // 3. Project to the query result and return
                 return _mapper.Map<IEnumerable<GetActiveOrganizationQueryResult>>(activeOrganizations);

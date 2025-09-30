@@ -39,11 +39,7 @@ namespace Inventory.Application.Features.Role.Commands.DeleteRoleCommand
                 var Role = await _roleRepository.GetByIdAsync(request.Id, cancellationToken) ?? throw new InvalidOperationException($"No Role found with Id '{request.Id}'.");
 
                 //2. Remove and persist
-                //_roleRepository.Remove(Role);
-                Guid deletedBy = new Guid();
-
-                //_enumTypeRepository.Remove(enumType);
-                Role.SoftDelete(deletedBy);
+                _roleRepository.Remove(Role);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

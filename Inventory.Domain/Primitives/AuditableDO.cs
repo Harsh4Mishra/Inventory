@@ -13,9 +13,6 @@ namespace Inventory.Domain.Primitives
         public DateTime CreatedOn { get; private set; } = default!;
         public string? UpdatedBy { get; private set; }
         public DateTime? UpdatedOn { get; private set; }
-        public bool IsDeleted { get; private set; } = false;
-        public DateTime? DeletedOn { get; private set; }
-        public string? DeletedBy { get; private set; }
 
         #endregion
 
@@ -33,12 +30,6 @@ namespace Inventory.Domain.Primitives
             UpdatedOn = DateTime.Now;
         }
 
-        protected void MarkDeleted(string updatedBy)
-        {
-            IsDeleted = true;
-            DeletedBy = updatedBy;
-            DeletedOn = DateTime.Now;
-        }
 
         #endregion
     }

@@ -93,13 +93,6 @@ namespace Inventory.Domain.DomainObjects
             }
         }
 
-        public void SoftDelete(Guid deletedBy)
-        {
-            if (DeletedOn == null)
-            {
-                MarkDeleted(deletedBy.ToString()); // Assuming updatedBy is string, adjust if needed
-            }
-        }
 
         //public void Restore(string updatedBy)
         //{

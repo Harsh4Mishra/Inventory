@@ -41,7 +41,7 @@ namespace Inventory.Application.Features.EnumValue.Commands.DeleteEnumValueComma
                     ?? throw new InvalidOperationException($"No enum type found with Id '{request.EnumTypeId}'.");
 
                 // 2. Delete and persist
-                enumType.SoftDelete(request.Id);
+                enumType.DeleteEnumValue(request.Id);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

@@ -44,11 +44,7 @@ namespace Inventory.Application.Features.User.Commands.DeleteUserCommand
                 }
 
                 // 3. Remove and persist
-                Guid deletedBy = new Guid();
-
-                //_enumTypeRepository.Remove(enumType);
-                user.SoftDelete(deletedBy);
-                //_userRepository.Remove(user);
+                _userRepository.Remove(user);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

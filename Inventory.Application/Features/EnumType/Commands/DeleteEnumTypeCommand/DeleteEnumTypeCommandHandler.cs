@@ -44,12 +44,7 @@ namespace Inventory.Application.Features.EnumType.Commands.DeleteEnumTypeCommand
                 }
 
                 // 3. Remove and persist
-                // 3. Identify who's performing the deletion
-                // If DeletedBy is provided in command, use it; otherwise, try to get from context
-                Guid deletedBy = new Guid();
-
-                //_enumTypeRepository.Remove(enumType);
-                enumType.SoftDelete(deletedBy);
+                _enumTypeRepository.Remove(enumType);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

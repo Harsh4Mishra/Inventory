@@ -16,6 +16,10 @@ namespace Inventory.Domain.DomainObjects
         public DateOnly DateOfBirth { get; private set; } = default;
         public Gender Gender { get; private set; } = default!;
         public bool IsActive { get; private set; } = default;
+        public string? PasswordHashKey { get; private set; }
+        public string? PasswordSaltKey { get; private set; }
+        public int NumberOfAttempts { get; private set; } = default;
+        public bool IsPasswordSet { get; private set; } = default;
 
         #endregion
 
@@ -28,7 +32,11 @@ namespace Inventory.Domain.DomainObjects
             PhoneVO phoneNo,
             EmailVO emailId,
             DateOnly dateOfBirth,
-            Gender gender)
+            Gender gender,
+            string? passwordHashKey = null,
+            string? passwordSaltKey = null,
+            int numberOfAttempts = 0,
+            bool isPasswordSet = false)
         {
             Name = name.Trim();
             PhoneNo = phoneNo;
@@ -36,6 +44,12 @@ namespace Inventory.Domain.DomainObjects
             DateOfBirth = dateOfBirth;
             Gender = gender;
             IsActive = true;
+
+            // Initialize new fields with parameters
+            PasswordHashKey = passwordHashKey;
+            PasswordSaltKey = passwordSaltKey;
+            NumberOfAttempts = numberOfAttempts;
+            IsPasswordSet = isPasswordSet;
         }
 
         #endregion
@@ -48,9 +62,22 @@ namespace Inventory.Domain.DomainObjects
            EmailVO emailId,
            DateOnly dateOfBirth,
            Gender gender,
-           string createdBy)
+           string createdBy,
+           string? passwordHashKey = null,
+           string? passwordSaltKey = null,
+           int numberOfAttempts = 0,
+           bool isPasswordSet = false)
         {
-            var user = new UserDO(name, phoneNo, emailId, dateOfBirth, gender);
+            var user = new UserDO(
+                name: name,
+                phoneNo: phoneNo,
+                emailId: emailId,
+                dateOfBirth: dateOfBirth,
+                gender: gender,
+                passwordHashKey: passwordHashKey,
+                passwordSaltKey: passwordSaltKey,
+                numberOfAttempts: numberOfAttempts,
+                isPasswordSet: isPasswordSet);
 
             user.MarkCreated(createdBy);
 
@@ -63,13 +90,30 @@ namespace Inventory.Domain.DomainObjects
             EmailVO emailId,
             DateOnly dateOfBirth,
             Gender gender,
-            string updatedBy)
+            string updatedBy,
+            string? passwordHashKey = null,
+            string? passwordSaltKey = null,
+            int? numberOfAttempts = null,
+            bool? isPasswordSet = null)
         {
             Name = name.Trim();
             PhoneNo = phoneNo;
             EmailId = emailId;
             DateOfBirth = dateOfBirth;
             Gender = gender;
+
+            // Update password fields only if provided
+            if (passwordHashKey != null)
+                PasswordHashKey = passwordHashKey;
+
+            if (passwordSaltKey != null)
+                PasswordSaltKey = passwordSaltKey;
+
+            if (numberOfAttempts.HasValue)
+                NumberOfAttempts = numberOfAttempts.Value;
+
+            if (isPasswordSet.HasValue)
+                IsPasswordSet = isPasswordSet.Value;
 
             MarkUpdated(updatedBy);
         }
@@ -87,13 +131,46 @@ namespace Inventory.Domain.DomainObjects
 
             MarkUpdated(updatedBy);
         }
-
-        public void SoftDelete(Guid deletedBy)
+        public void SetPassword(string passwordHashKey, string passwordSaltKey, string updatedBy)
         {
-            if (!IsDeleted)
-            {
-                MarkDeleted(deletedBy.ToString());
-            }
+            PasswordHashKey = passwordHashKey;
+            PasswordSaltKey = passwordSaltKey;
+            IsPasswordSet = true;
+            NumberOfAttempts = 0; // Reset attempts when password is set
+
+            MarkUpdated(updatedBy);
+        }
+
+        public void UpdatePassword(string newPasswordHashKey, string newPasswordSaltKey, string updatedBy)
+        {
+            PasswordHashKey = newPasswordHashKey;
+            PasswordSaltKey = newPasswordSaltKey;
+            NumberOfAttempts = 0; // Reset attempts when password is updated
+            IsPasswordSet = true;
+
+            MarkUpdated(updatedBy);
+        }
+
+        public void ClearPassword(string updatedBy)
+        {
+            PasswordHashKey = null;
+            PasswordSaltKey = null;
+            IsPasswordSet = false;
+            NumberOfAttempts = 0;
+
+            MarkUpdated(updatedBy);
+        }
+
+        public void IncrementAttempts(string updatedBy)
+        {
+            NumberOfAttempts++;
+            MarkUpdated(updatedBy);
+        }
+
+        public void ResetAttempts(string updatedBy)
+        {
+            NumberOfAttempts = 0;
+            MarkUpdated(updatedBy);
         }
 
         #endregion

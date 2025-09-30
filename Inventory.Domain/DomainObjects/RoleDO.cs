@@ -72,15 +72,6 @@ namespace Inventory.Domain.DomainObjects
             MarkUpdated(updatedBy);
         }
 
-        public void SoftDelete(Guid deletedBy)
-        {
-            if (!IsDeleted)
-            {
-                MarkDeleted(deletedBy.ToString());
-            }
-        }
-
-
         #endregion
     }
 }

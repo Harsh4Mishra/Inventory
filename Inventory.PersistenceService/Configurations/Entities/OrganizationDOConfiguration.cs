@@ -48,24 +48,6 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasDefaultValue(true)
                 .HasColumnOrder(5);
 
-            // Soft delete properties
-            builder.Property(e => e.IsDeleted)
-                .HasColumnName("is_deleted")
-                .HasColumnType("boolean")
-                .HasDefaultValue(false)
-                .HasColumnOrder(6);
-
-            builder.Property(e => e.DeletedOn)
-                .HasColumnName("deleted_on")
-                .HasColumnType("timestamptz")
-                .IsRequired(false)
-                .HasColumnOrder(7);
-
-            builder.Property(e => e.DeletedBy)
-                .HasColumnName("deleted_by")
-                .HasColumnType("uuid")
-                .IsRequired(false)
-                .HasColumnOrder(8);
 
             // Audit properties (from AuditableDO base class)
             builder.Property(e => e.CreatedOn)
@@ -73,25 +55,25 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasColumnType("timestamptz")
                 .HasDefaultValueSql("now()")
                 .ValueGeneratedOnAdd()
-                .HasColumnOrder(9);
+                .HasColumnOrder(6);
 
             builder.Property(e => e.CreatedBy)
                 .HasColumnName("created_by")
                 .HasColumnType("uuid")
                 .IsRequired()
-                .HasColumnOrder(10);
+                .HasColumnOrder(7);
 
             builder.Property(e => e.UpdatedOn)
                 .HasColumnName("updated_on")
                 .HasColumnType("timestamptz")
                 .IsRequired(false)
-                .HasColumnOrder(11);
+                .HasColumnOrder(8);
 
             builder.Property(e => e.UpdatedBy)
                 .HasColumnName("updated_by")
                 .HasColumnType("uuid")
                 .IsRequired(false)
-                .HasColumnOrder(12);
+                .HasColumnOrder(9);
 
             // Configure indexes
             builder.HasIndex(e => e.Name)
@@ -108,15 +90,6 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasDatabaseName("IX_organization_is_active")
                 .HasFilter("[is_deleted] = false"); // Only index active non-deleted records
 
-            builder.HasIndex(e => e.IsDeleted)
-                .HasDatabaseName("IX_organization_is_deleted");
-
-            builder.HasIndex(e => e.DeletedOn)
-                .HasDatabaseName("IX_organization_deleted_on")
-                .HasFilter("[is_deleted] = true"); // Only index deleted records
-
-            // Configure query filter to automatically filter out soft deleted records
-            builder.HasQueryFilter(o => !o.IsDeleted);
 
             // Configure relationships (commented out as per your domain object)
             // builder.HasMany(e => e.Employees)

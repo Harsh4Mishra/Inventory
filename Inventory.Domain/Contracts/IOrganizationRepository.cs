@@ -112,7 +112,7 @@ namespace Inventory.Domain.Contracts
         /// <summary>
         /// Soft deletes an organization
         /// </summary>
-        void SoftDelete(OrganizationDO organization);
+        void Remove(OrganizationDO organization);
 
         /// <summary>
         /// Checks whether any organization exists with the given name (including inactive and deleted)

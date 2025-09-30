@@ -2,11 +2,6 @@
 using Inventory.Domain.Contracts;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Organization.Commands.DeleteOrganizationCommand
 {
@@ -44,21 +39,8 @@ namespace Inventory.Application.Features.Organization.Commands.DeleteOrganizatio
                 var organization = await _organizationRepository.GetByIdToMutateAsync(request.Id, cancellationToken)
                     ?? throw new InvalidOperationException($"No organization found with Id '{request.Id}'.");
 
-                // 2. Check if organization is already soft deleted
-                if (organization.DeletedOn != null)
-                {
-                    throw new InvalidOperationException($"Organization with Id '{request.Id}' is already deleted.");
-                }
-
-                // 3. Identify who's performing the deletion
-                // If DeletedBy is provided in command, use it; otherwise, try to get from context
-                Guid deletedBy = new Guid();
-
-                // 4. Perform soft delete instead of hard delete
-                organization.SoftDelete(deletedBy);
-
-                // 5. Update the repository (soft delete is an update operation)
-                _organizationRepository.Update(organization);
+                //2. Remove and persist
+                _organizationRepository.Remove(organization);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

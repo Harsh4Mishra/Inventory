@@ -46,10 +46,7 @@ namespace Inventory.Application.Features.Organization.Commands.ToggleOrganizatio
                     ?? throw new InvalidOperationException($"No organization found with Id '{request.Id}'.");
 
                 // 2. Check if organization is soft deleted
-                if (organization.DeletedOn != null)
-                {
-                    throw new InvalidOperationException("Cannot toggle status of a deleted organization. Restore it first.");
-                }
+            
 
                 // 3. Check if the status is already in the desired state
                 if (organization.IsActive == request.IsActive)

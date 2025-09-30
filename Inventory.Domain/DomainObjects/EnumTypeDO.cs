@@ -69,13 +69,12 @@ namespace Inventory.Domain.DomainObjects
             IsActive = false;
             MarkUpdated(updatedBy);
         }
-        public void SoftDelete(Guid deletedBy)
+        public void DeleteEnumValue(Guid enumValueId)
         {
-            if (!IsDeleted)
-            {
-                MarkUpdated(deletedBy.ToString());
-                MarkDeleted(deletedBy.ToString());
-            }
+            var enumValue = _enumValues.FirstOrDefault(ev => ev.Id == enumValueId)
+                ?? throw new InvalidOperationException("Enum value not found");
+
+            _enumValues.Remove(enumValue);
         }
         public EnumValueDO CreateEnumValue(
             string name,
@@ -107,16 +106,6 @@ namespace Inventory.Domain.DomainObjects
             return enumValue;
         }
 
-        public void DeleteEnumValue(Guid enumValueId, string deletedBy)
-        {
-            if (IsDeleted)
-                throw new InvalidOperationException("Cannot delete value from deleted enum type");
-
-            var enumValue = _enumValues.FirstOrDefault(ev => ev.Id == enumValueId)
-                ?? throw new InvalidOperationException("Enum value not found");
-
-            enumValue.SoftDeleteEnumValue(deletedBy);
-        }
         public void ActivateEnumValue(Guid enumValueId, string updatedBy)
         {
             if (!IsActive)

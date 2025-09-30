@@ -20,6 +20,10 @@ namespace Inventory.PersistenceService.Configurations
         public DbSet<OrganizationDO> Organizations { get; set; }
         public DbSet<RoleDO> Roles { get; set; }
         public DbSet<UserDO> Users { get; set; }
+        public DbSet<UserRoleDO> UserRoles { get; set; }
+        public DbSet<AppModuleDO> AppModules { get; set; }
+        public DbSet<PermissionDO> Permissions { get; set; }
+        public DbSet<RolePermissionDO> RolePermissions { get; set; }
 
         #endregion
 
@@ -38,6 +42,10 @@ namespace Inventory.PersistenceService.Configurations
             modelBuilder.Entity<OrganizationDO>().ToTable("RefOrganization", schema: "master");
             modelBuilder.Entity<UserDO>().ToTable("RefUser", schema: "master");
             modelBuilder.Entity<RoleDO>().ToTable("RefRole", schema: "system");
+            modelBuilder.Entity<UserRoleDO>().ToTable("RefUserRole", schema: "system");
+            modelBuilder.Entity<AppModuleDO>().ToTable("RefAppModule", schema: "system");
+            modelBuilder.Entity<PermissionDO>().ToTable("RefPermission", schema: "system");
+            modelBuilder.Entity<RolePermissionDO>().ToTable("RefRolePermission", schema: "system");
 
         }
 

@@ -66,16 +66,6 @@ namespace Inventory.Domain.DomainObjects
         }
 
 
-        public void SoftDeleteEnumValue(string deletedBy)
-        {
-            if (!IsDeleted)
-            {
-                // Parse deletedBy to Guid if needed, or store as string
-                // DeletedBy = Guid.Parse(deletedBy);
-                MarkDeleted(deletedBy);
-            }
-        }
-
         #endregion
     }
 }

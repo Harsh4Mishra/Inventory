@@ -38,6 +38,10 @@ namespace Inventory.PersistenceService.Configurations
             services.AddScoped<IEnumValueRepository, EnumValueRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+            services.AddScoped<IAppModuleRepository, AppModuleRepository>();
+            services.AddScoped<IPermissionRepository, PermissionRepository>();
+            services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
 
             return services;
         }

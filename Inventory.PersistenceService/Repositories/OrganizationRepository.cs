@@ -31,7 +31,6 @@ namespace Inventory.PersistenceService.Repositories
             {
                 return await _dbContext.Organizations
                     .AsNoTracking()
-                    .Where(o => o.DeletedOn == null) // Exclude soft deleted
                     .ToListAsync(cancellationToken);
             }
             catch (Exception ex)
@@ -45,7 +44,6 @@ namespace Inventory.PersistenceService.Repositories
             try
             {
                 return await _dbContext.Organizations
-                    .Where(o => o.DeletedOn == null) // Exclude soft deleted
                     .ToListAsync(cancellationToken);
             }
             catch (Exception ex)
@@ -60,7 +58,7 @@ namespace Inventory.PersistenceService.Repositories
             {
                 return await _dbContext.Organizations
                     .AsNoTracking()
-                    .Where(o => o.IsActive && o.DeletedOn == null) // Active and not deleted
+                    .Where(o => o.IsActive) // Active and not deleted
                     .ToListAsync(cancellationToken);
             }
             catch (Exception ex)
@@ -74,7 +72,7 @@ namespace Inventory.PersistenceService.Repositories
             try
             {
                 return await _dbContext.Organizations
-                    .Where(o => o.IsActive && o.DeletedOn == null) // Active and not deleted
+                    .Where(o => o.IsActive ) // Active and not deleted
                     .ToListAsync(cancellationToken);
             }
             catch (Exception ex)
@@ -88,8 +86,7 @@ namespace Inventory.PersistenceService.Repositories
             try
             {
                 return await _dbContext.Organizations
-                    .AsNoTracking()
-                    .Where(o => o.DeletedOn == null) // Not deleted (includes both active and inactive)
+                    .AsNoTracking()// Not deleted (includes both active and inactive)
                     .ToListAsync(cancellationToken);
             }
             catch (Exception ex)
@@ -103,7 +100,6 @@ namespace Inventory.PersistenceService.Repositories
             try
             {
                 return await _dbContext.Organizations
-                    .Where(o => o.DeletedOn == null) // Not deleted (includes both active and inactive)
                     .ToListAsync(cancellationToken);
             }
             catch (Exception ex)
@@ -125,7 +121,7 @@ namespace Inventory.PersistenceService.Repositories
 
                 return await _dbContext.Organizations
                     .AsNoTracking()
-                    .FirstOrDefaultAsync(o => o.Id == id && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Id == id , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -145,7 +141,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .FirstOrDefaultAsync(o => o.Id == id && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Id == id , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -166,7 +162,7 @@ namespace Inventory.PersistenceService.Repositories
 
                 return await _dbContext.Organizations
                     .AsNoTracking()
-                    .FirstOrDefaultAsync(o => o.Id == id && o.IsActive && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Id == id && o.IsActive , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -187,7 +183,7 @@ namespace Inventory.PersistenceService.Repositories
 
                 return await _dbContext.Organizations
                     .AsNoTracking()
-                    .FirstOrDefaultAsync(o => o.Name == name && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Name == name , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -207,7 +203,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .FirstOrDefaultAsync(o => o.Name == name && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Name == name , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -228,7 +224,7 @@ namespace Inventory.PersistenceService.Repositories
 
                 return await _dbContext.Organizations
                     .AsNoTracking()
-                    .FirstOrDefaultAsync(o => o.Name == name && o.IsActive && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Name == name && o.IsActive , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -249,7 +245,7 @@ namespace Inventory.PersistenceService.Repositories
 
                 return await _dbContext.Organizations
                     .AsNoTracking()
-                    .FirstOrDefaultAsync(o => o.Code == code && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Code == code , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -269,7 +265,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .FirstOrDefaultAsync(o => o.Code == code && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Code == code , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -290,7 +286,7 @@ namespace Inventory.PersistenceService.Repositories
 
                 return await _dbContext.Organizations
                     .AsNoTracking()
-                    .FirstOrDefaultAsync(o => o.Code == code && o.IsActive && o.DeletedOn == null, cancellationToken);
+                    .FirstOrDefaultAsync(o => o.Code == code && o.IsActive , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -351,7 +347,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .AnyAsync(o => o.Name == name && o.DeletedOn == null, cancellationToken);
+                    .AnyAsync(o => o.Name == name , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -371,7 +367,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .AnyAsync(o => o.Name == name && o.IsActive && o.DeletedOn == null, cancellationToken);
+                    .AnyAsync(o => o.Name == name && o.IsActive , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -391,7 +387,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .AnyAsync(o => o.Code == code && o.DeletedOn == null, cancellationToken);
+                    .AnyAsync(o => o.Code == code , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -411,7 +407,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .AnyAsync(o => o.Code == code && o.IsActive && o.DeletedOn == null, cancellationToken);
+                    .AnyAsync(o => o.Code == code && o.IsActive , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -431,7 +427,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .AnyAsync(o => o.Id == id && o.DeletedOn == null, cancellationToken);
+                    .AnyAsync(o => o.Id == id , cancellationToken);
             }
             catch (Exception ex)
             {
@@ -451,7 +447,7 @@ namespace Inventory.PersistenceService.Repositories
                 }
 
                 return await _dbContext.Organizations
-                    .AnyAsync(o => o.Id == id && o.IsActive && o.DeletedOn == null, cancellationToken);
+                    .AnyAsync(o => o.Id == id && o.IsActive , cancellationToken);
             }
             catch (Exception ex)
             {
