@@ -48,6 +48,13 @@ namespace Inventory.Domain.Contracts
             CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Retrieves a user by its email to make changes.
+        /// </summary>
+        Task<UserDO?> GetByEmailToMutateAsync(
+            string emailId,
+            CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Retrieves an pin location by its pincode.
         /// </summary>
         //Task<UserDO?> GetByNameAsync(
@@ -76,6 +83,13 @@ namespace Inventory.Domain.Contracts
         /// </summary>
         Task<bool> ExistsByMobileNumberAsync(
             string mobileNumber,
+            CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Checks whether any user exists with the given emailid.
+        /// </summary>
+        Task<bool> ExistsByEmailAsync(
+            string emailid,
             CancellationToken cancellationToken = default);
 
         #endregion

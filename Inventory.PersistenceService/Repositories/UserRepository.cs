@@ -145,6 +145,28 @@ namespace Inventory.PersistenceService.Repositories
             }
         }
 
+        public async Task<UserDO?> GetByEmailToMutateAsync(
+            string emailId,
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(emailId))
+                {
+                    throw new ArgumentException("Invalid emailId provided");
+                }
+                // Validate and wrap into EmailVO
+                EmailVO emailIdVO = EmailVO.From(emailId);
+
+                return await _dbContext.Users
+                    .FirstOrDefaultAsync(e => e.PhoneNo.PhoneNo == emailIdVO.EmailId, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"EFCore error while fetching user by id : {ex.Message}");
+            }
+        }
+
         //public async Task<UserDO?> GetByNameAsync(
         //    string name,
         //    CancellationToken cancellationToken = default)
@@ -231,6 +253,29 @@ namespace Inventory.PersistenceService.Repositories
                 PhoneVO phoneVO = PhoneVO.From(mobileNumber);
 
                 return await _dbContext.Users.AnyAsync(i => i.PhoneNo.PhoneNo == mobileNumber, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"EFCore error while checking user by name : {ex.Message}");
+            }
+        }
+
+        public async Task<bool> ExistsByEmailAsync(
+            string emailid,
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                if (emailid is null)
+                {
+                    throw new ArgumentNullException("Invalid emailid provided");
+                }
+
+
+                // Validate and wrap into EmailVO
+                EmailVO emailVO = EmailVO.From(emailid);
+
+                return await _dbContext.Users.AnyAsync(i => i.EmailId.EmailId == emailid, cancellationToken);
             }
             catch (Exception ex)
             {

@@ -151,6 +151,14 @@ namespace Inventory.Domain.DomainObjects
             MarkUpdated(updatedBy);
         }
 
+        public void UpdateNumberOfAttempts(int numberOfAttempts, string updatedBy)
+        {
+            NumberOfAttempts = numberOfAttempts;
+            IsPasswordSet = true;
+
+            MarkUpdated(updatedBy);
+        }
+
         public void ClearPassword(string updatedBy)
         {
             PasswordHashKey = null;
