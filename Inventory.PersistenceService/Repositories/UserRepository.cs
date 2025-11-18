@@ -283,6 +283,29 @@ namespace Inventory.PersistenceService.Repositories
             }
         }
 
+        public async Task<bool> ExistsByEmailAndLinkVisitedAsync(
+            string emailid,
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                if (emailid is null)
+                {
+                    throw new ArgumentNullException("Invalid emailid provided");
+                }
+
+
+                // Validate and wrap into EmailVO
+                EmailVO emailVO = EmailVO.From(emailid);
+
+                return await _dbContext.Users.AnyAsync(i => i.EmailId.EmailId == emailid && i.IsPasswordLinkVisited == true, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"EFCore error while checking user by name : {ex.Message}");
+            }
+        }
+
         #endregion
     }
 }

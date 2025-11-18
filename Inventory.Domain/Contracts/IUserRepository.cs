@@ -92,6 +92,10 @@ namespace Inventory.Domain.Contracts
             string emailid,
             CancellationToken cancellationToken = default);
 
+        Task<bool> ExistsByEmailAndLinkVisitedAsync(
+            string emailid,
+            CancellationToken cancellationToken = default);
+
         #endregion
     }
 }

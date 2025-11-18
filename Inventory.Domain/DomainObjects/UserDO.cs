@@ -20,6 +20,7 @@ namespace Inventory.Domain.DomainObjects
         public string? PasswordSaltKey { get; private set; }
         public int NumberOfAttempts { get; private set; } = default;
         public bool IsPasswordSet { get; private set; } = default;
+        public bool IsPasswordLinkVisited { get; private set; } = default;
 
         #endregion
 
@@ -36,7 +37,8 @@ namespace Inventory.Domain.DomainObjects
             string? passwordHashKey = null,
             string? passwordSaltKey = null,
             int numberOfAttempts = 0,
-            bool isPasswordSet = false)
+            bool isPasswordSet = false,
+            bool isPasswordLinkVisited = false)
         {
             Name = name.Trim();
             PhoneNo = phoneNo;
@@ -50,6 +52,7 @@ namespace Inventory.Domain.DomainObjects
             PasswordSaltKey = passwordSaltKey;
             NumberOfAttempts = numberOfAttempts;
             IsPasswordSet = isPasswordSet;
+            IsPasswordLinkVisited=isPasswordLinkVisited;
         }
 
         #endregion
@@ -66,7 +69,8 @@ namespace Inventory.Domain.DomainObjects
            string? passwordHashKey = null,
            string? passwordSaltKey = null,
            int numberOfAttempts = 0,
-           bool isPasswordSet = false)
+           bool isPasswordSet = false,
+           bool isPasswordLinkVisited=false)
         {
             var user = new UserDO(
                 name: name,
@@ -77,7 +81,8 @@ namespace Inventory.Domain.DomainObjects
                 passwordHashKey: passwordHashKey,
                 passwordSaltKey: passwordSaltKey,
                 numberOfAttempts: numberOfAttempts,
-                isPasswordSet: isPasswordSet);
+                isPasswordSet: isPasswordSet,
+                isPasswordLinkVisited:isPasswordLinkVisited);
 
             user.MarkCreated(createdBy);
 
@@ -94,7 +99,8 @@ namespace Inventory.Domain.DomainObjects
             string? passwordHashKey = null,
             string? passwordSaltKey = null,
             int? numberOfAttempts = null,
-            bool? isPasswordSet = null)
+            bool? isPasswordSet = null,
+           bool? isPasswordLinkVisited = null)
         {
             Name = name.Trim();
             PhoneNo = phoneNo;
@@ -114,6 +120,9 @@ namespace Inventory.Domain.DomainObjects
 
             if (isPasswordSet.HasValue)
                 IsPasswordSet = isPasswordSet.Value;
+
+            if (isPasswordLinkVisited.HasValue)
+                IsPasswordLinkVisited = isPasswordLinkVisited.Value;
 
             MarkUpdated(updatedBy);
         }
@@ -178,6 +187,7 @@ namespace Inventory.Domain.DomainObjects
         public void ResetAttempts(string updatedBy)
         {
             NumberOfAttempts = 0;
+            IsPasswordLinkVisited = false;
             MarkUpdated(updatedBy);
         }
 
