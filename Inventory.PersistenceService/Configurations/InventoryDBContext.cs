@@ -24,6 +24,8 @@ namespace Inventory.PersistenceService.Configurations
         public DbSet<AppModuleDO> AppModules { get; set; }
         public DbSet<PermissionDO> Permissions { get; set; }
         public DbSet<RolePermissionDO> RolePermissions { get; set; }
+        public DbSet<VendorDO> Vendors { get; set; }
+        public DbSet<MaterialDO> Materials { get; set; }
 
         #endregion
 

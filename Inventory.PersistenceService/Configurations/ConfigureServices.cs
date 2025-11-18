@@ -34,6 +34,7 @@ namespace Inventory.PersistenceService.Configurations
 
             services.AddScoped<IOrganizationRepository, OrganizationRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IVendorRepository, VendorRepository>();
             services.AddScoped<IEnumTypeRepository, EnumTypeRepository>();
             services.AddScoped<IEnumValueRepository, EnumValueRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -42,6 +43,7 @@ namespace Inventory.PersistenceService.Configurations
             services.AddScoped<IAppModuleRepository, AppModuleRepository>();
             services.AddScoped<IPermissionRepository, PermissionRepository>();
             services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
+            services.AddScoped<IMaterialRepository, MaterialRepository>();
 
             return services;
         }
