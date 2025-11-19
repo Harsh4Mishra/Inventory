@@ -27,6 +27,7 @@ namespace Inventory.PersistenceService.Configurations
         public DbSet<VendorDO> Vendors { get; set; }
         public DbSet<MaterialDO> Materials { get; set; }
         public DbSet<MaterialBatchDO> MaterialBatches { get; set; }
+        public DbSet<VerifiedMaterialDO> VerifiedMaterials { get; set; }
 
         #endregion
 

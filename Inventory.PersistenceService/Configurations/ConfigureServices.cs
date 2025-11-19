@@ -45,6 +45,7 @@ namespace Inventory.PersistenceService.Configurations
             services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
             services.AddScoped<IMaterialRepository, MaterialRepository>();
             services.AddScoped<IMaterialBatchRepository, MaterialBatchRepository>();
+            services.AddScoped<IVerifiedMaterialRepository, VerifiedMaterialRepository>();
 
             return services;
         }
