@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Inventory.Application.Features.MaterialBatch.Queries.GetMaterialBatchesQuery
+{
+    public sealed record GetMaterialBatchesQueryResult
+    {
+        #region Properties
+
+        public Guid Id { get; init; }
+        public Guid MaterialId { get; init; }
+        public Guid? VendorId { get; init; }
+        public string BatchCode { get; init; } = default!;
+        public string? Barcode { get; init; }
+        public DateOnly? ManufactureDate { get; init; }
+        public DateOnly? ExpiryDate { get; init; }
+        public decimal Quantity { get; init; }
+        public decimal RemainingQuantity { get; init; }
+        public Guid? StorageSectionId { get; init; }
+        public string? LocationText { get; init; }
+        public bool IsActive { get; init; }
+        public string CreatedBy { get; init; } = default!;
+        public DateTime CreatedOn { get; init; }
+        public string? UpdatedBy { get; init; }
+        public DateTime? UpdatedOn { get; init; }
+
+        // Navigation properties
+        public string? MaterialName { get; init; }
+        public string? VendorName { get; init; }
+
+        #endregion
+    }
+}
