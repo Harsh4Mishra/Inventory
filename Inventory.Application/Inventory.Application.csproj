@@ -21,9 +21,4 @@
     <ProjectReference Include="..\Inventory.Logging\Inventory.Logging.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\StorageSection\Queries\" />
-    <Folder Include="Features\Warehouse\Queries\" />
-  </ItemGroup>
-
 </Project>

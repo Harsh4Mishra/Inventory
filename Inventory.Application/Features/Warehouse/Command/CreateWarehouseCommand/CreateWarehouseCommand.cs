@@ -12,7 +12,7 @@ namespace Inventory.Application.Features.Warehouse.Command.CreateWarehouseComman
     {
         #region Properties
         public string Name { get; set; } = string.Empty;
-        public JsonDocument? Address { get; set; }
+        public string? Address { get; set; }
 
         #endregion
     }

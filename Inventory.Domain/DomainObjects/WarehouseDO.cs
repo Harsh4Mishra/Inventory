@@ -15,7 +15,7 @@ namespace Inventory.Domain.DomainObjects
         #region Properties
 
         public string Name { get; private set; } = default!;
-        public JsonDocument? Address { get; private set; }
+        public string? Address { get; private set; }
         public bool IsActive { get; private set; } = default;
 
         #endregion
@@ -26,7 +26,7 @@ namespace Inventory.Domain.DomainObjects
 
         public WarehouseDO(
             string name,
-            JsonDocument? address)
+            string? address)
         {
             Name = name.Trim();
             Address = address;
@@ -39,7 +39,7 @@ namespace Inventory.Domain.DomainObjects
 
         public static WarehouseDO Create(
            string name,
-           JsonDocument? address,
+           string? address,
            string createdBy)
         {
             var warehouse = new WarehouseDO(name, address);
@@ -51,7 +51,7 @@ namespace Inventory.Domain.DomainObjects
 
         public void Update(
             string name,
-            JsonDocument? address,
+            string? address,
             string updatedBy)
         {
             Name = name.Trim();

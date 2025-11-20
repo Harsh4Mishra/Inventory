@@ -28,6 +28,11 @@ namespace Inventory.PersistenceService.Configurations
         public DbSet<MaterialDO> Materials { get; set; }
         public DbSet<MaterialBatchDO> MaterialBatches { get; set; }
         public DbSet<VerifiedMaterialDO> VerifiedMaterials { get; set; }
+        public DbSet<StorageSectionDO> StorageSections { get; set; }
+        public DbSet<WarehouseDO> Warehouses { get; set; }
+        public DbSet<AisleDO> Aisles { get; set; }
+        public DbSet<RowLocDO> RowLocs { get; set; }
+        public DbSet<TrayDO> Trays { get; set; }
 
         #endregion
 
