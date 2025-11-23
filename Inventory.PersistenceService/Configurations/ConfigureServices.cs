@@ -51,6 +51,11 @@ namespace Inventory.PersistenceService.Configurations
             services.AddScoped<IAisleRepository, AisleRepository>();
             services.AddScoped<IRowLocRepository, RowLocRepository>();
             services.AddScoped<ITrayRepository, TrayRepository>();
+            services.AddScoped<IWarehouseItemRepository, WarehouseItemRepository>();
+            services.AddScoped<IBomCategoryRepository, BomCategoryRepository>();
+            services.AddScoped<IMaterialStorageRuleRepository, MaterialStorageRuleRepository>();
+            services.AddScoped<IBomRepository, BomRepository>();
+            services.AddScoped<IBomItemRepository, BomItemRepository>();
 
             return services;
         }

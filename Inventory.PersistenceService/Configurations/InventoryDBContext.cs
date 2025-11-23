@@ -33,6 +33,11 @@ namespace Inventory.PersistenceService.Configurations
         public DbSet<AisleDO> Aisles { get; set; }
         public DbSet<RowLocDO> RowLocs { get; set; }
         public DbSet<TrayDO> Trays { get; set; }
+        public DbSet<WarehouseItemDO> WarehouseItems { get; set; }
+        public DbSet<BomCategoryDO> BomCategories { get; set; }
+        public DbSet<MaterialStorageRuleDO> MaterialStorageRules { get; set; }
+        public DbSet<BomDO> Boms { get; set; }
+        public DbSet<BomItemDO> BomItems { get; set; }
 
         #endregion
 
