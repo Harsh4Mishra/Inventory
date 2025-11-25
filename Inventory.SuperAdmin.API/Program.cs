@@ -5,6 +5,7 @@ using Inventory.InfrastructureServices.Configurations;
 using Inventory.Application.Configurations;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using SharedAPI.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,6 +71,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Pro
 builder.Services.InjectPersistenceServices(builder.Configuration);
 builder.Services.InjectInfrastructureServiceCollection();
 builder.Services.InjectBusinessServices();
+builder.Services.SharedAPIServiceCollection();
 //builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
 
 builder.Services.AddExceptionHandler<ExceptionHandlerMiddleware>();

@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Inventory.InfrastructureServices\Inventory.InfrastructureServices.csproj" />
     <ProjectReference Include="..\Inventory.Logging\Inventory.Logging.csproj" />
     <ProjectReference Include="..\Inventory.PersistenceService\Inventory.PersistenceService.csproj" />
+    <ProjectReference Include="..\SharedAPI\SharedAPI.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,8 +3,13 @@ using Inventory.Application.Features.Aisle.Commands.DeleteAisleCommand;
 using Inventory.Application.Features.Aisle.Commands.UpdateAisleCommand;
 using Inventory.Application.Features.Aisle.Queries.GetAislesByWarehouseIdQuery;
 using Inventory.Application.Features.Aisle.Queries.GetAislesQuery;
+using Inventory.Logging.Interfaces;
+using Inventory.Logging.Models;
+using Inventory.SuperAdmin.API.Interface;
 using Inventory.SuperAdmin.API.Response;
+using Inventory.SuperAdmin.API.Response.Common;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,19 +20,43 @@ namespace Inventory.SuperAdmin.API.Controllers
     public class AisleController : Controller
     {
         private readonly IMediator _mediator;
-        public AisleController(IMediator mediator)
+        private readonly ILogWriter _logWriter;
+        private readonly IRedisCacheService _redisCacheService;
+        private readonly IConfiguration _configuration;
+
+        public AisleController(IMediator mediator, ILogWriter logWriter, IRedisCacheService redisCacheService,
+            IConfiguration configuration)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _logWriter = logWriter;
+            _redisCacheService = redisCacheService;
+            _configuration = configuration;
         }
 
         [HttpGet("GetAll")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             try
             {
+
+                var cacheKey = HttpContext.Request.Path.ToString();
+                _logWriter.WriteLog(LogLevels.Info, "Requested to get all Aisles");
+                var cachedResponse = await _redisCacheService.GetAsync<SuccessAPIResponse<IEnumerable<GetAislesQueryResult>>>(cacheKey);
+
+                if (cachedResponse != null)
+                {
+                    _logWriter.WriteLog(LogLevels.Info, "All Aisles retrieved successfully");
+                    return Ok(cachedResponse);
+                }
+
                 var response = await _mediator.Send(new GetAislesQuery());
 
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetAislesQueryResult>>(response, true, "All Aisles Retrieved Successfully", 200);
+
+                double timespanduration = Double.Parse(_configuration["RedisCacheSettings:TimeDuration"]!.ToString());
+                await _redisCacheService.SetAsync(cacheKey, successApiResponse, TimeSpan.FromMinutes(timespanduration));
+                _logWriter.WriteLog(LogLevels.Info, "All areas retrieved successfully");
 
                 return Ok(successApiResponse);
             }
