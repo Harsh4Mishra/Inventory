@@ -71,7 +71,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Pro
 builder.Services.InjectPersistenceServices(builder.Configuration);
 builder.Services.InjectInfrastructureServiceCollection();
 builder.Services.InjectBusinessServices();
-builder.Services.SharedAPIServiceCollection();
+//builder.Services.SharedAPIServiceCollection();
 //builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
 
 builder.Services.AddExceptionHandler<ExceptionHandlerMiddleware>();

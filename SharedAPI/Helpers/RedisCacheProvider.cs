@@ -14,13 +14,13 @@ namespace SharedAPI.Helpers
     {
         private readonly IDistributedCache _cache;
         private readonly IConnectionMultiplexer _redis;
-        private readonly IDatabase _database;
+        //private readonly IDatabase _database;
 
         public RedisCacheProvider(IDistributedCache cache, IConnectionMultiplexer redis)
         {
             _cache = cache;
             _redis = redis;
-            _database = _redis.GetDatabase();
+            //_database = _redis.GetDatabase();
         }
 
         public async Task<T> GetAsync<T>(string key)
@@ -61,7 +61,7 @@ namespace SharedAPI.Helpers
 
                 foreach (var key in keys)
                 {
-                    await _database.KeyDeleteAsync(key);
+                    await _cache.RemoveAsync(key);
                 }
             }
         }

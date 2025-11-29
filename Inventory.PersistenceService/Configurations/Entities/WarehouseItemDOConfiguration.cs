@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory.PersistenceService.Configurations
+namespace Inventory.PersistenceService.Configurations.Entities
 {
     public sealed class WarehouseItemDOConfiguration : IEntityTypeConfiguration<WarehouseItemDO>
     {

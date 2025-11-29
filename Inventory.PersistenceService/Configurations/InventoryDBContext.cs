@@ -1,6 +1,7 @@
-﻿using System.Reflection;
-using Inventory.Domain.DomainObjects;
+﻿using Inventory.Domain.DomainObjects;
+using Inventory.PersistenceService.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Inventory.PersistenceService.Configurations
 {
@@ -38,6 +39,8 @@ namespace Inventory.PersistenceService.Configurations
         public DbSet<MaterialStorageRuleDO> MaterialStorageRules { get; set; }
         public DbSet<BomDO> Boms { get; set; }
         public DbSet<BomItemDO> BomItems { get; set; }
+        public DbSet<BomItemDispositionDO> BomItemDispositions { get; set; }
+        public DbSet<ProductDO> Products { get; set; }
 
         #endregion
 

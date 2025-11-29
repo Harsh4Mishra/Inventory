@@ -42,20 +42,20 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 var cacheKey = HttpContext.Request.Path.ToString();
                 _logWriter.WriteLog(LogLevels.Info, "Requested to get all Aisles");
-                var cachedResponse = await _redisCacheService.GetAsync<SuccessAPIResponse<IEnumerable<GetAislesQueryResult>>>(cacheKey);
+                //var cachedResponse = await _redisCacheService.GetAsync<SuccessAPIResponse<IEnumerable<GetAislesQueryResult>>>(cacheKey);
 
-                if (cachedResponse != null)
-                {
-                    _logWriter.WriteLog(LogLevels.Info, "All Aisles retrieved successfully");
-                    return Ok(cachedResponse);
-                }
+                //if (cachedResponse != null)
+                //{
+                //    _logWriter.WriteLog(LogLevels.Info, "All Aisles retrieved successfully");
+                //    return Ok(cachedResponse);
+                //}
 
                 var response = await _mediator.Send(new GetAislesQuery());
 
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetAislesQueryResult>>(response, true, "All Aisles Retrieved Successfully", 200);
 
-                double timespanduration = Double.Parse(_configuration["RedisCacheSettings:TimeDuration"]!.ToString());
-                await _redisCacheService.SetAsync(cacheKey, successApiResponse, TimeSpan.FromMinutes(timespanduration));
+                //double timespanduration = Double.Parse(_configuration["RedisCacheSettings:TimeDuration"]!.ToString());
+                //await _redisCacheService.SetAsync(cacheKey, successApiResponse, TimeSpan.FromMinutes(timespanduration));
                 _logWriter.WriteLog(LogLevels.Info, "All areas retrieved successfully");
 
                 return Ok(successApiResponse);
