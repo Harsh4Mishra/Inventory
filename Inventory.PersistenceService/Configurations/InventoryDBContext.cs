@@ -41,6 +41,7 @@ namespace Inventory.PersistenceService.Configurations
         public DbSet<BomItemDO> BomItems { get; set; }
         public DbSet<BomItemDispositionDO> BomItemDispositions { get; set; }
         public DbSet<ProductDO> Products { get; set; }
+        public DbSet<InventoryTransactionDO> InventoryTransactions { get; set; }
 
         #endregion
 
