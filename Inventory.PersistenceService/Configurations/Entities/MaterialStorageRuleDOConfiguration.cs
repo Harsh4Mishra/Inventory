@@ -28,7 +28,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.MaterialId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder
@@ -45,7 +45,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.PreferredSectionId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(5);
 
             builder

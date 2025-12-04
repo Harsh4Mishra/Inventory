@@ -14,7 +14,7 @@ namespace Inventory.Application.Features.VerifiedMaterial.Commands.CreateVerifie
         public int MaterialBatchId { get; set; }
         public decimal Quantity { get; set; }
         public int? EmpId { get; set; }
-        public JsonDocument? Specification { get; set; }
+        public string? Specification { get; set; }
         public bool? IsQualified { get; set; }
         public string? Reason { get; set; }
 

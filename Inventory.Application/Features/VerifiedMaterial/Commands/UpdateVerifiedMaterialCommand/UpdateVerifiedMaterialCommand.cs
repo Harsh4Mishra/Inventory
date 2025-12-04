@@ -15,7 +15,7 @@ namespace Inventory.Application.Features.VerifiedMaterial.Commands.UpdateVerifie
         public bool? IsQualified { get; set; }
         public string? Reason { get; set; }
         public int? EmpId { get; set; }
-        public JsonDocument? Specification { get; set; }
+        public string? Specification { get; set; }
 
         #endregion
     }

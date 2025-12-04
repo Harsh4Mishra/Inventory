@@ -16,7 +16,7 @@ namespace Inventory.Application.Features.VerifiedMaterial.Queries.GetQualifiedVe
         public bool IsAllotted { get; init; }
         public decimal Quantity { get; init; }
         public int? EmpId { get; init; }
-        public JsonDocument? Specification { get; init; }
+        public string? Specification { get; init; }
         public string CreatedBy { get; init; } = default!;
         public DateTime CreatedOn { get; init; }
         public string? UpdatedBy { get; init; }

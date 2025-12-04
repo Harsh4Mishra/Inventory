@@ -30,19 +30,19 @@ namespace Inventory.PersistenceService.Configurations.Entities
             builder
                 .Property(e => e.OrderId)
                 .HasColumnName("order_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.ProductId)
                 .HasColumnName("product_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.MaterialBatchId)
                 .HasColumnName("material_batch_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(4);
 
             builder

@@ -23,7 +23,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasColumnOrder(1);
 
             builder.Property(e => e.RowId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder.Property(e => e.Capacity)
@@ -58,7 +58,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             // Configure foreign keys and relationships
             builder.HasOne<RowLocDO>()
-                 .WithMany("_trays")
+                 .WithMany()
                  .HasForeignKey(c => c.RowId)
                  .HasConstraintName("FK_tray_row_id")
                  .OnDelete(DeleteBehavior.Cascade);

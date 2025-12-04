@@ -19,7 +19,7 @@ namespace Inventory.Application.Features.WarehouseItem.Queries.GetWarehouseItems
         public int TrayId { get; init; }
         public decimal Quantity { get; init; }
         public string Name { get; init; } = default!;
-        public JsonDocument? Specification { get; init; }
+        public string? Specification { get; init; }
         public string CreatedBy { get; init; } = default!;
         public DateTime CreatedOn { get; init; }
         public string? UpdatedBy { get; init; }

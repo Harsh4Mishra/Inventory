@@ -18,7 +18,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasColumnOrder(1);
 
             builder.Property(e => e.TenantId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder.Property(e => e.Code)

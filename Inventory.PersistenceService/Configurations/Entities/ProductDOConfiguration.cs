@@ -39,7 +39,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.BomId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(4);
 
             builder

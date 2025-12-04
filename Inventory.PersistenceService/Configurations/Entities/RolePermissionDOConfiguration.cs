@@ -18,15 +18,15 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasColumnOrder(1);
 
             builder.Property(e => e.RoleId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder.Property(e => e.ModuleId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(3);
 
             builder.Property(e => e.PermissionId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(4);
 
             builder.Property(e => e.IsActive)

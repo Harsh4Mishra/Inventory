@@ -33,7 +33,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.CreatedBy)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(3);
 
             builder
@@ -50,7 +50,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.BomCategoryId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(6);
 
             builder
@@ -66,7 +66,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.UpdatedBy)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 

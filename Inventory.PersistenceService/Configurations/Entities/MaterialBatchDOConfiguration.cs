@@ -28,13 +28,13 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.MaterialId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired()
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.VendorId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(3);
 
@@ -76,7 +76,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.StorageSectionId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(10);
 

@@ -18,7 +18,7 @@ namespace Inventory.Application.Features.WarehouseItem.Command.CreateWarehouseIt
         public int TrayId { get; set; }
         public decimal Quantity { get; set; }
         public string Name { get; set; } = string.Empty;
-        public JsonDocument? Specification { get; set; }
+        public string? Specification { get; set; }
         #endregion
     }
 }

@@ -21,7 +21,7 @@ namespace Inventory.Domain.DomainObjects
         public int TrayId { get; private set; }
         public decimal Quantity { get; private set; }
         public string Name { get; private set; } = default!;
-        public JsonDocument? Specification { get; private set; }
+        public string? Specification { get; private set; }
 
         #endregion
 
@@ -37,7 +37,7 @@ namespace Inventory.Domain.DomainObjects
             int trayId,
             decimal quantity,
             string name,
-            JsonDocument? specification)
+            string? specification)
         {
             MaterialBatchId = materialBatchId;
             WarehouseId = warehouseId;
@@ -61,7 +61,7 @@ namespace Inventory.Domain.DomainObjects
             int trayId,
             decimal quantity,
             string name,
-            JsonDocument? specification,
+            string? specification,
             string createdBy)
         {
             var warehouseItem = new WarehouseItemDO(
@@ -102,7 +102,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public void UpdateSpecification(
-            JsonDocument? specification,
+            string? specification,
             string updatedBy)
         {
             Specification = specification;

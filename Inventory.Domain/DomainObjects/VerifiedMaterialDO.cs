@@ -18,7 +18,7 @@ namespace Inventory.Domain.DomainObjects
         public bool IsAllotted { get; private set; } = false;
         public decimal Quantity { get; private set; }
         public int? EmpId { get; private set; }
-        public JsonDocument? Specification { get; private set; }
+        public string? Specification { get; private set; }
         public bool? IsQualified { get; private set; }
         public string? Reason { get; private set; }
 
@@ -32,7 +32,7 @@ namespace Inventory.Domain.DomainObjects
             int materialBatchId,
             decimal quantity,
             int? empId = null,
-            JsonDocument? specification = null,
+            string? specification = null,
             bool? isQualified = null,
             string? reason = null)
         {
@@ -53,7 +53,7 @@ namespace Inventory.Domain.DomainObjects
             int materialBatchId,
             decimal quantity,
             int? empId = null,
-            JsonDocument? specification = null,
+            string? specification = null,
             bool? isQualified = null,
             string? reason = null,
             string createdBy = "system")
@@ -75,7 +75,7 @@ namespace Inventory.Domain.DomainObjects
             bool? isQualified,
             string? reason,
             int? empId = null,
-            JsonDocument? specification = null,
+            string? specification = null,
             string updatedBy = "system")
         {
             IsQualified = isQualified;

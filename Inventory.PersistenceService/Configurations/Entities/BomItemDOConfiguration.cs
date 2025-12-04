@@ -28,17 +28,17 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.BomId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.MaterialBatchId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.WarehouseItemId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(4);
 
             builder

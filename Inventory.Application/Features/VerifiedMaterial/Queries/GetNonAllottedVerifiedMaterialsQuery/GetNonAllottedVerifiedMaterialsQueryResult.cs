@@ -15,7 +15,7 @@ namespace Inventory.Application.Features.VerifiedMaterial.Queries.GetNonAllotted
         public int MaterialBatchId { get; init; }
         public decimal Quantity { get; init; }
         public int? EmpId { get; init; }
-        public JsonDocument? Specification { get; init; }
+        public string? Specification { get; init; }
         public bool? IsQualified { get; init; }
         public string? Reason { get; init; }
         public string CreatedBy { get; init; } = default!;

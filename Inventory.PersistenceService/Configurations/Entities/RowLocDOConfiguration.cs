@@ -23,7 +23,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasColumnOrder(1);
 
             builder.Property(e => e.AisleId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder.Property(e => e.Name)
@@ -53,11 +53,16 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasName("PK_row_loc_id");
 
             // Configure foreign keys and relationships
+            //builder.HasOne<AisleDO>()
+            //     .WithMany("_rowLocs")
+            //     .HasForeignKey(c => c.AisleId)
+            //     .HasConstraintName("FK_row_loc_aisle_id")
+            //     .OnDelete(DeleteBehavior.Cascade);
             builder.HasOne<AisleDO>()
-                 .WithMany("_rowLocs")
-                 .HasForeignKey(c => c.AisleId)
-                 .HasConstraintName("FK_row_loc_aisle_id")
-                 .OnDelete(DeleteBehavior.Cascade);
+       .WithMany()  // no navigation on this side
+       .HasForeignKey(c => c.AisleId)
+       .HasConstraintName("FK_row_loc_aisle_id")
+       .OnDelete(DeleteBehavior.Cascade);
 
             // Configure relationship(s) for trays
             builder.HasMany(e => e.Trays)

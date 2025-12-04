@@ -54,7 +54,6 @@ namespace Inventory.PersistenceService.Configurations
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            //HRADBContextConfiguration.ConfigureModel(modelBuilder);
 
             modelBuilder.Entity<EnumTypeDO>().ToTable("RefEnumType", schema: "system");
             modelBuilder.Entity<EnumValueDO>().ToTable("RefEnumValue", schema: "system");

@@ -28,7 +28,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.MaterialBatchId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder
@@ -44,7 +44,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.EmpId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(5);
 

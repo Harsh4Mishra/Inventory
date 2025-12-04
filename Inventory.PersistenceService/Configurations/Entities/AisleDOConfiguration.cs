@@ -23,7 +23,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasColumnOrder(1);
 
             builder.Property(e => e.WarehouseId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(2);
 
             builder.Property(e => e.Name)
@@ -31,15 +31,15 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasColumnOrder(3);
 
             builder.Property(e => e.StorageSectionId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(4);
 
             builder.Property(e => e.StorageTypeId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(5);
 
             builder.Property(e => e.InventoryTypeId)
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .HasColumnOrder(6);
 
             builder.Property(e => e.CreatedBy)
@@ -78,14 +78,14 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasDatabaseName("IX_aisle_name");
 
             // Configure relationship(s) - using field-backed navigation
-            builder.HasMany(e => e.RowLocs)
-                   .WithOne()
-                   .HasForeignKey(e => e.AisleId)
-                   .OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany<RowLocDO>("_rowLocs")     // explicitly tell EF which field to use
+       .WithOne()
+       .HasForeignKey(e => e.AisleId)
+       .OnDelete(DeleteBehavior.Cascade);
 
-            // Use field-backed navigation for encapsulation
-            builder.Navigation(e => e.RowLocs)
-                   .UsePropertyAccessMode(PropertyAccessMode.Field);
+            builder.Metadata
+                   .FindNavigation(nameof(AisleDO.RowLocs))!
+                   .SetPropertyAccessMode(PropertyAccessMode.Field);
         }
     }
 }

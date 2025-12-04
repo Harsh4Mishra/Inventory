@@ -57,7 +57,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder.Property(e => e.CreatedBy)
                 .HasColumnName("created_by")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired()
                 .HasColumnOrder(7);
 
@@ -69,7 +69,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder.Property(e => e.UpdatedBy)
                 .HasColumnName("updated_by")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 

@@ -29,8 +29,8 @@ namespace Inventory.PersistenceService.Configurations.Entities
             builder
                 .Property(e => e.TransactionUUID)
                 .HasColumnName("tx_uuid")
-                .HasColumnType("uuid")
-                .HasDefaultValueSql("gen_random_uuid()")
+                .HasColumnType("int")
+                //.HasDefaultValueSql("")
                 .HasColumnOrder(2);
 
             builder
@@ -50,14 +50,14 @@ namespace Inventory.PersistenceService.Configurations.Entities
             builder
                 .Property(e => e.MaterialBatchId)
                 .HasColumnName("material_batch_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(5);
 
             builder
                 .Property(e => e.ProductId)
                 .HasColumnName("product_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(6);
 
@@ -71,56 +71,56 @@ namespace Inventory.PersistenceService.Configurations.Entities
             builder
                 .Property(e => e.FromWarehouseId)
                 .HasColumnName("from_warehouse_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(8);
 
             builder
                 .Property(e => e.ToWarehouseId)
                 .HasColumnName("to_warehouse_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 
             builder
                 .Property(e => e.FromAisleId)
                 .HasColumnName("from_aisle_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(10);
 
             builder
                 .Property(e => e.ToAisleId)
                 .HasColumnName("to_aisle_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(11);
 
             builder
                 .Property(e => e.FromRowId)
                 .HasColumnName("from_row_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(12);
 
             builder
                 .Property(e => e.ToRowId)
                 .HasColumnName("to_row_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(13);
 
             builder
                 .Property(e => e.FromTrayId)
                 .HasColumnName("from_tray_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(14);
 
             builder
                 .Property(e => e.ToTrayId)
                 .HasColumnName("to_tray_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(15);
 
@@ -134,14 +134,14 @@ namespace Inventory.PersistenceService.Configurations.Entities
             builder
                 .Property(e => e.ReferenceId)
                 .HasColumnName("ref_id")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired(false)
                 .HasColumnOrder(17);
 
             builder
                 .Property(e => e.CreatedBy)
                 .HasColumnName("created_by")
-                .HasColumnType("uuid")
+                .HasColumnType("int")
                 .IsRequired()
                 .HasColumnOrder(18);
 
@@ -187,7 +187,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
             // Configure index(s)
             builder
                 .HasIndex(e => e.TransactionUUID)
-                .IsUnique()
+                //.IsUnique()
                 .HasDatabaseName("IX_inventory_transaction_uuid");
 
             builder
