@@ -9,6 +9,6 @@ namespace Inventory.Application.Features.Warehouse.Queries.GetWarehouseByIdQuery
 {
     public sealed record GetWarehouseByIdQuery : IRequest<GetWarehouseByIdQueryResult?>
     {
-        public Guid Id { get; init; }
+        public int Id { get; init; }
     }
 }

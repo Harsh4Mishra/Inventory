@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.StorageSection.Command.CreateStorageSectionCommand
 {
-    public sealed record CreateStorageSectionCommand : IRequest<Guid>
+    public sealed record CreateStorageSectionCommand : IRequest<int>
     {
         #region Properties
         public string Name { get; set; } = string.Empty;

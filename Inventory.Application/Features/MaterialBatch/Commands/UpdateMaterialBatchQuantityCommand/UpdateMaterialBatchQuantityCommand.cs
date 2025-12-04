@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.MaterialBatch.Commands.UpdateMaterialBa
     public sealed record UpdateMaterialBatchQuantityCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public decimal NewQuantity { get; set; }
         #endregion
     }

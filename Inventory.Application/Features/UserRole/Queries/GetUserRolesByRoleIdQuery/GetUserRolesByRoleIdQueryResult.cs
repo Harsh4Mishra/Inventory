@@ -5,9 +5,9 @@ namespace Inventory.Application.Features.UserRole.Queries.GetUserRolesByRoleIdQu
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid UserId { get; init; }
-        public Guid RoleId { get; init; }
+        public int Id { get; init; }
+        public int UserId { get; init; }
+        public int RoleId { get; init; }
         public string UserName { get; init; } = default!; // You might want to include user name for better UX
         public string UserEmail { get; init; } = default!; // You might want to include user email
         public bool IsActive { get; init; }

@@ -29,7 +29,7 @@ namespace Inventory.PersistenceService.Repositories
 
         #region Methods
 
-        public async Task<IReadOnlyCollection<RowLocDO>> GetAllByAisleIdAsync(Guid aisleId, CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyCollection<RowLocDO>> GetAllByAisleIdAsync(int aisleId, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -44,11 +44,11 @@ namespace Inventory.PersistenceService.Repositories
             }
         }
 
-        public async Task<RowLocDO?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<RowLocDO?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -63,11 +63,11 @@ namespace Inventory.PersistenceService.Repositories
             }
         }
 
-        public async Task<RowLocDO?> GetByIdToMutateAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<RowLocDO?> GetByIdToMutateAsync(int id, CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }

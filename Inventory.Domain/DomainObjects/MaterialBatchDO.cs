@@ -13,15 +13,15 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid MaterialId { get; private set; }
-        public Guid? VendorId { get; private set; }
+        public int MaterialId { get; private set; }
+        public int? VendorId { get; private set; }
         public string BatchCode { get; private set; } = default!;
         public string? Barcode { get; private set; }
         public DateOnly? ManufactureDate { get; private set; }
         public DateOnly? ExpiryDate { get; private set; }
         public decimal Quantity { get; private set; }
         public decimal RemainingQuantity { get; private set; }
-        public Guid? StorageSectionId { get; private set; }
+        public int? StorageSectionId { get; private set; }
         public string? LocationText { get; private set; }
         public bool IsActive { get; private set; } = default;
 
@@ -36,14 +36,14 @@ namespace Inventory.Domain.DomainObjects
         public MaterialBatchDO() { } //For ORM
 
         public MaterialBatchDO(
-            Guid materialId,
-            Guid? vendorId,
+            int materialId,
+            int? vendorId,
             string batchCode,
             string? barcode,
             DateOnly? manufactureDate,
             DateOnly? expiryDate,
             decimal quantity,
-            Guid? storageSectionId,
+            int? storageSectionId,
             string? locationText)
         {
             MaterialId = materialId;
@@ -64,14 +64,14 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static MaterialBatchDO Create(
-           Guid materialId,
-           Guid? vendorId,
+           int materialId,
+           int? vendorId,
            string batchCode,
            string? barcode,
            DateOnly? manufactureDate,
            DateOnly? expiryDate,
            decimal quantity,
-           Guid? storageSectionId,
+           int? storageSectionId,
            string? locationText,
            string createdBy)
         {
@@ -86,11 +86,11 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public void Update(
-            Guid? vendorId,
+            int? vendorId,
             string? barcode,
             DateOnly? manufactureDate,
             DateOnly? expiryDate,
-            Guid? storageSectionId,
+            int? storageSectionId,
             string? locationText,
             string updatedBy)
         {

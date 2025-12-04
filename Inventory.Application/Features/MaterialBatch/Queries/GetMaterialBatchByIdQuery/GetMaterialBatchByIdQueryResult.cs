@@ -10,16 +10,16 @@ namespace Inventory.Application.Features.MaterialBatch.Queries.GetMaterialBatchB
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid MaterialId { get; init; }
-        public Guid? VendorId { get; init; }
+        public int Id { get; init; }
+        public int MaterialId { get; init; }
+        public int? VendorId { get; init; }
         public string BatchCode { get; init; } = default!;
         public string? Barcode { get; init; }
         public DateOnly? ManufactureDate { get; init; }
         public DateOnly? ExpiryDate { get; init; }
         public decimal Quantity { get; init; }
         public decimal RemainingQuantity { get; init; }
-        public Guid? StorageSectionId { get; init; }
+        public int? StorageSectionId { get; init; }
         public string? LocationText { get; init; }
         public bool IsActive { get; init; }
         public string CreatedBy { get; init; } = default!;

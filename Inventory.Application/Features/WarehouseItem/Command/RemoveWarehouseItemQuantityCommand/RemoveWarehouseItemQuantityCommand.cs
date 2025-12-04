@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.WarehouseItem.Command.RemoveWarehouseIt
     public sealed record RemoveWarehouseItemQuantityCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public decimal QuantityToRemove { get; set; }
         #endregion
     }

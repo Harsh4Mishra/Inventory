@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 namespace Inventory.Application.Features.Organization.Commands.CreateOrganizationCommand
 {
     public class CreateOrganizationCommandHandler
-        : IRequestHandler<CreateOrganizationCommand, Guid>
+        : IRequestHandler<CreateOrganizationCommand, int>
     {
         #region Fields
 
@@ -33,7 +33,7 @@ namespace Inventory.Application.Features.Organization.Commands.CreateOrganizatio
 
         #region Methods
 
-        public async Task<Guid> Handle(CreateOrganizationCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateOrganizationCommand request, CancellationToken cancellationToken)
         {
             try
             {

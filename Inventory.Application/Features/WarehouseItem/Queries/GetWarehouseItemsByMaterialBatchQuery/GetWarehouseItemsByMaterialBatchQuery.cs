@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.WarehouseItem.Queries.GetWarehouseItems
     public sealed record GetWarehouseItemsByMaterialBatchQuery : IRequest<IEnumerable<GetWarehouseItemsByMaterialBatchQueryResult>>
     {
         #region Properties
-        public Guid MaterialBatchId { get; init; }
+        public int MaterialBatchId { get; init; }
         #endregion
     }
 }

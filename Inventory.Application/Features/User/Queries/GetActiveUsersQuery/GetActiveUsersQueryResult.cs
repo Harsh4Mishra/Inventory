@@ -8,7 +8,7 @@ namespace Inventory.Application.Features.User.Queries.GetActiveUsersQuery
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public string Name { get; init; } = default!;
         public PhoneVO PhoneNo { get; init; } = default!;
         public EmailVO EmailId { get; init; } = default!;

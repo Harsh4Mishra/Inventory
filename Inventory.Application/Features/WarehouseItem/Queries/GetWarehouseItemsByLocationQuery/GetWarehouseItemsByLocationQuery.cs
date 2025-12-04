@@ -10,10 +10,10 @@ namespace Inventory.Application.Features.WarehouseItem.Queries.GetWarehouseItems
     public sealed record GetWarehouseItemsByLocationQuery : IRequest<IEnumerable<GetWarehouseItemsByLocationQueryResult>>
     {
         #region Properties
-        public Guid WarehouseId { get; init; }
-        public Guid AisleId { get; init; }
-        public Guid RowId { get; init; }
-        public Guid TrayId { get; init; }
+        public int WarehouseId { get; init; }
+        public int AisleId { get; init; }
+        public int RowId { get; init; }
+        public int TrayId { get; init; }
         #endregion
     }
 }

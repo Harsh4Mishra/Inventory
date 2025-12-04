@@ -2,12 +2,12 @@
 
 namespace Inventory.Application.Features.RolePermission.Commands.CreateRolePermissionCommand
 {
-    public sealed record CreateRolePermissionCommand : IRequest<Guid>
+    public sealed record CreateRolePermissionCommand : IRequest<int>
     {
         #region Properties
-        public Guid RoleId { get; set; }
-        public Guid ModuleId { get; set; }
-        public Guid PermissionId { get; set; }
+        public int RoleId { get; set; }
+        public int ModuleId { get; set; }
+        public int PermissionId { get; set; }
         #endregion
     }
 }

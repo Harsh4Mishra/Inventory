@@ -39,7 +39,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByMaterialId/{materialId}")]
-        public async Task<IActionResult> GetByMaterialId(Guid materialId)
+        public async Task<IActionResult> GetByMaterialId(int materialId)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByPreferredSection/{preferredSectionId}")]
-        public async Task<IActionResult> GetByPreferredSection(Guid preferredSectionId)
+        public async Task<IActionResult> GetByPreferredSection(int preferredSectionId)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Material Storage Rule Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -132,10 +132,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(materialStorageRuleId, out Guid materialStorageRuleGuid))
+                if (!int.TryParse(materialStorageRuleId, out int materialStorageRuleint))
                     return BadRequest("Invalid Material Storage Rule ID.");
 
-                var command = new DeleteMaterialStorageRuleCommand { Id = materialStorageRuleGuid };
+                var command = new DeleteMaterialStorageRuleCommand { Id = materialStorageRuleint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Material Storage Rule Deleted Successfully", 200);

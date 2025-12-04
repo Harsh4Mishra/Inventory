@@ -10,8 +10,8 @@ namespace Inventory.Application.Features.InventoryTransaction.Queries.GetStockLe
     public sealed record GetStockLevelQuery : IRequest<decimal>
     {
         #region Properties
-        public Guid? MaterialBatchId { get; init; }
-        public Guid? ProductId { get; init; }
+        public int? MaterialBatchId { get; init; }
+        public int? ProductId { get; init; }
 
         #endregion
     }

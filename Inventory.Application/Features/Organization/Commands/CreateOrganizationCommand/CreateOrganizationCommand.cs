@@ -3,7 +3,7 @@
 namespace Inventory.Application.Features.Organization.Commands.CreateOrganizationCommand
 {
     public sealed record CreateOrganizationCommand
-        : IRequest<Guid>
+        : IRequest<int>
     {
         #region Properties
 

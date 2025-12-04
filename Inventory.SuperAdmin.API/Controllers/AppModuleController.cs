@@ -28,10 +28,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(tenantId, out Guid tenantGuid))
+                if (!int.TryParse(tenantId, out int tenantint))
                     return BadRequest("Invalid Tenant ID.");
 
-                var query = new GetAppModulesByTenantIdQuery { TenantId = tenantGuid };
+                var query = new GetAppModulesByTenantIdQuery { TenantId = tenantint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetAppModulesByTenantIdQueryResult>>(
                     response, true, "App Modules Retrieved Successfully", 200);
@@ -48,10 +48,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(tenantId, out Guid tenantGuid))
+                if (!int.TryParse(tenantId, out int tenantint))
                     return BadRequest("Invalid Tenant ID.");
 
-                var query = new GetActiveAppModulesByTenantIdQuery { TenantId = tenantGuid };
+                var query = new GetActiveAppModulesByTenantIdQuery { TenantId = tenantint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetActiveAppModulesByTenantIdQueryResult>>(
                     response, true, "Active App Modules Retrieved Successfully", 200);
@@ -68,10 +68,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(id, out Guid moduleGuid))
+                if (!int.TryParse(id, out int moduleint))
                     return BadRequest("Invalid App Module ID.");
 
-                var query = new GetAppModuleByIdQuery { Id = moduleGuid };
+                var query = new GetAppModuleByIdQuery { Id = moduleint };
                 var response = await _mediator.Send(query);
 
                 if (response == null)
@@ -98,7 +98,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "App Module Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -132,10 +132,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(moduleId, out Guid moduleGuid))
+                if (!int.TryParse(moduleId, out int moduleint))
                     return BadRequest("Invalid App Module ID.");
 
-                var command = new DeleteAppModuleCommand { Id = moduleGuid };
+                var command = new DeleteAppModuleCommand { Id = moduleint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "App Module Deleted Successfully", 200);

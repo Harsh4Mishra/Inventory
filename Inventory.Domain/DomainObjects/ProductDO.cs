@@ -15,7 +15,7 @@ namespace Inventory.Domain.DomainObjects
 
         public string Name { get; private set; } = default!;
         public string Sku { get; private set; } = default!;
-        public Guid BomId { get; private set; }
+        public int BomId { get; private set; }
         public bool IsActive { get; private set; } = default;
 
         #endregion
@@ -27,7 +27,7 @@ namespace Inventory.Domain.DomainObjects
         public ProductDO(
             string name,
             string sku,
-            Guid bomId)
+            int bomId)
         {
             Name = name.Trim();
             Sku = sku.Trim();
@@ -42,7 +42,7 @@ namespace Inventory.Domain.DomainObjects
         public static ProductDO Create(
            string name,
            string sku,
-           Guid bomId,
+           int bomId,
            string createdBy)
         {
             var product = new ProductDO(name, sku, bomId);
@@ -53,7 +53,7 @@ namespace Inventory.Domain.DomainObjects
         public void Update(
             string name,
             string sku,
-            Guid bomId,
+            int bomId,
             string updatedBy)
         {
             Name = name.Trim();

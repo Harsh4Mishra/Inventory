@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Inventory.Application.Features.Vendor.Commands.CreateVendorCommand
 {
-    public class CreateVendorCommandHandler : IRequestHandler<CreateVendorCommand, Guid>
+    public class CreateVendorCommandHandler : IRequestHandler<CreateVendorCommand, int>
     {
         #region Fields
 
@@ -32,7 +32,7 @@ namespace Inventory.Application.Features.Vendor.Commands.CreateVendorCommand
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateVendorCommand request,
             CancellationToken cancellationToken)
         {

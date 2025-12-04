@@ -10,12 +10,12 @@ namespace Inventory.Application.Features.MaterialBatch.Commands.UpdateMaterialBa
     public sealed record UpdateMaterialBatchCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; } = default;
-        public Guid? VendorId { get; set; }
+        public int Id { get; set; } = default;
+        public int? VendorId { get; set; }
         public string? Barcode { get; set; }
         public DateOnly? ManufactureDate { get; set; }
         public DateOnly? ExpiryDate { get; set; }
-        public Guid? StorageSectionId { get; set; }
+        public int? StorageSectionId { get; set; }
         public string? LocationText { get; set; }
         #endregion
     }

@@ -5,7 +5,7 @@ namespace Inventory.Application.Features.Permission.Queries.GetPermissionsByTena
     public sealed record GetPermissionsByTenantIdQuery : IRequest<IEnumerable<GetPermissionsByTenantIdQueryResult>>
     {
         #region Properties
-        public Guid TenantId { get; init; }
+        public int TenantId { get; init; }
         #endregion
     }
 }

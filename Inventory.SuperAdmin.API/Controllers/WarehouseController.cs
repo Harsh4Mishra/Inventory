@@ -56,7 +56,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Warehouse Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -130,10 +130,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(warehouseId, out Guid warehouseGuid))
+                if (!int.TryParse(warehouseId, out int warehouseint))
                     return BadRequest("Invalid Warehouse ID.");
 
-                var command = new DeleteWarehouseCommand { Id = warehouseGuid };
+                var command = new DeleteWarehouseCommand { Id = warehouseint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Warehouse Deleted Successfully", 200);

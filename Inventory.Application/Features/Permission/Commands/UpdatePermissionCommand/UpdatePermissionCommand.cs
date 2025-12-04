@@ -7,7 +7,7 @@ namespace Inventory.Application.Features.Permission.Commands.UpdatePermissionCom
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Code { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }

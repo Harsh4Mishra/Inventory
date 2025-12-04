@@ -51,13 +51,13 @@ namespace Inventory.Application.Features.UserRole.Commands.CreateUserRoleCommand
 
         #region Methods
 
-        private async Task<bool> ValidateIfUserExistsAndActive(Guid userId, CancellationToken cancellationToken)
+        private async Task<bool> ValidateIfUserExistsAndActive(int userId, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetByIdAsync(userId, cancellationToken);
             return user != null && user.IsActive;
         }
 
-        private async Task<bool> ValidateIfRoleExists(Guid roleId, CancellationToken cancellationToken)
+        private async Task<bool> ValidateIfRoleExists(int roleId, CancellationToken cancellationToken)
         {
             // Assuming IRoleRepository has GetActiveByIdAsync, if not, use GetByIdAsync and check IsActive
             var role = await _roleRepository.GetByIdAsync(roleId, cancellationToken);

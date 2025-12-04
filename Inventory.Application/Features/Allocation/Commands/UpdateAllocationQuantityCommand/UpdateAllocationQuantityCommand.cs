@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Allocation.Commands.UpdateAllocationQua
     public sealed record UpdateAllocationQuantityCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public decimal Quantity { get; set; }
 
         #endregion

@@ -5,7 +5,7 @@ namespace Inventory.Application.Features.UserRole.Queries.GetUserRolesByUserIdQu
     public sealed record GetUserRolesByUserIdQuery : IRequest<IEnumerable<GetUserRolesByUserIdQueryResult>>
     {
         #region Properties
-        public Guid UserId { get; init; }
+        public int UserId { get; init; }
         #endregion
     }
 }

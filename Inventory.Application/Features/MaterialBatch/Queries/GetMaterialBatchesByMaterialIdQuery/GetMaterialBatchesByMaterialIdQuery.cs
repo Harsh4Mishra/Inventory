@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.MaterialBatch.Queries.GetMaterialBatche
     public sealed record GetMaterialBatchesByMaterialIdQuery : IRequest<IEnumerable<GetMaterialBatchesByMaterialIdQueryResult>>
     {
         #region Properties
-        public Guid MaterialId { get; init; }
+        public int MaterialId { get; init; }
         #endregion
     }
 }

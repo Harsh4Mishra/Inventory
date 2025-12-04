@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Inventory.Application.Features.Aisle.Commands.CreateAisleCommand
 {
     public class CreateAisleCommandHandler
-        : IRequestHandler<CreateAisleCommand, Guid>
+        : IRequestHandler<CreateAisleCommand, int>
     {
         #region Fields
 
@@ -38,7 +38,7 @@ namespace Inventory.Application.Features.Aisle.Commands.CreateAisleCommand
 
         #region Methods
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateAisleCommand request,
             CancellationToken cancellationToken)
         {

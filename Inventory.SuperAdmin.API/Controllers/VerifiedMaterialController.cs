@@ -43,7 +43,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByBatchId/{batchId}")]
-        public async Task<IActionResult> GetByBatchId(Guid batchId)
+        public async Task<IActionResult> GetByBatchId(int batchId)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByEmpId/{empId}")]
-        public async Task<IActionResult> GetByEmpId(Guid empId)
+        public async Task<IActionResult> GetByEmpId(int empId)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Verified Material Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -184,10 +184,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(verifiedMaterialId, out Guid verifiedMaterialGuid))
+                if (!int.TryParse(verifiedMaterialId, out int verifiedMaterialint))
                     return BadRequest("Invalid Verified Material ID.");
 
-                var command = new DeleteVerifiedMaterialCommand { Id = verifiedMaterialGuid };
+                var command = new DeleteVerifiedMaterialCommand { Id = verifiedMaterialint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Verified Material Deleted Successfully", 200);

@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.MaterialBatch.Commands.DeleteMaterialBa
     public class DeleteMaterialBatchCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         #endregion
     }
 }

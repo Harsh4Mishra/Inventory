@@ -25,21 +25,21 @@ namespace Inventory.Domain.Contracts
         /// Retrieves allocations by order ID
         /// </summary>
         Task<IReadOnlyCollection<AllocationDO>> GetByOrderIdAsync(
-            Guid orderId,
+            int orderId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves allocations by product ID
         /// </summary>
         Task<IReadOnlyCollection<AllocationDO>> GetByProductIdAsync(
-            Guid productId,
+            int productId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves allocations by material batch ID
         /// </summary>
         Task<IReadOnlyCollection<AllocationDO>> GetByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -59,14 +59,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves an allocation by its unique identifier
         /// </summary>
         Task<AllocationDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an allocation by its unique identifier to make changes
         /// </summary>
         Task<AllocationDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -88,35 +88,35 @@ namespace Inventory.Domain.Contracts
         /// Checks if any allocation exists for the given order
         /// </summary>
         Task<bool> ExistsByOrderIdAsync(
-            Guid orderId,
+            int orderId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks if any allocation exists for the given product
         /// </summary>
         Task<bool> ExistsByProductIdAsync(
-            Guid productId,
+            int productId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks if any allocation exists for the given material batch
         /// </summary>
         Task<bool> ExistsByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets total allocated quantity for a product
         /// </summary>
         Task<decimal> GetTotalAllocatedQuantityByProductAsync(
-            Guid productId,
+            int productId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets total allocated quantity for a material batch
         /// </summary>
         Task<decimal> GetTotalAllocatedQuantityByMaterialBatchAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         #endregion

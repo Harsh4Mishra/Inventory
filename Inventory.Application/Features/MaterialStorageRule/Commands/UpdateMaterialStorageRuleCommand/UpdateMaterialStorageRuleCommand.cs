@@ -10,10 +10,10 @@ namespace Inventory.Application.Features.MaterialStorageRule.Commands.UpdateMate
     public sealed record UpdateMaterialStorageRuleCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public decimal MinQuantity { get; set; }
         public decimal ThresholdQuantity { get; set; }
-        public Guid PreferredSectionId { get; set; }
+        public int PreferredSectionId { get; set; }
         #endregion
     }
 }

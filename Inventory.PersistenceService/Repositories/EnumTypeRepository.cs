@@ -84,12 +84,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<EnumTypeDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -105,12 +105,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<EnumTypeDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -293,7 +293,7 @@ namespace Inventory.PersistenceService.Repositories
         //    }
         //}
 
-        public async Task<IReadOnlyCollection<EnumValueDO>> GetAllEnumValuesByTypeIdAsync(Guid enumTypeId, CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyCollection<EnumValueDO>> GetAllEnumValuesByTypeIdAsync(int enumTypeId, CancellationToken cancellationToken = default)
         {
             try
             {

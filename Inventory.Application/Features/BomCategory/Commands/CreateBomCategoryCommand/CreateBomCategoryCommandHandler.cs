@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.BomCategory.Commands.CreateBomCategoryCommand
 {
-    public class CreateBomCategoryCommandHandler : IRequestHandler<CreateBomCategoryCommand, Guid>
+    public class CreateBomCategoryCommandHandler : IRequestHandler<CreateBomCategoryCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.BomCategory.Commands.CreateBomCategoryC
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateBomCategoryCommand request,
             CancellationToken cancellationToken)
         {

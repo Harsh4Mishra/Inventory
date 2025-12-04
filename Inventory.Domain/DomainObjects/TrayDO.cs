@@ -12,7 +12,7 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid RowId { get; private set; } = default;
+        public int RowId { get; private set; } = default;
         public int Capacity { get; private set; }
         public string? Description { get; private set; }
 
@@ -23,7 +23,7 @@ namespace Inventory.Domain.DomainObjects
         private TrayDO() { } // For ORM
 
         private TrayDO(
-            Guid rowId,
+            int rowId,
             int capacity,
             string? description)
         {
@@ -37,7 +37,7 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         internal static TrayDO Create(
-            Guid rowId,
+            int rowId,
             int capacity,
             string? description,
             string createdBy)
@@ -57,7 +57,7 @@ namespace Inventory.Domain.DomainObjects
             MarkUpdated(updatedBy);
         }
 
-        internal void ChangeRow(Guid rowId, string updatedBy)
+        internal void ChangeRow(int rowId, string updatedBy)
         {
             RowId = rowId;
             MarkUpdated(updatedBy);

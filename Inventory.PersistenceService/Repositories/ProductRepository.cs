@@ -86,12 +86,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<ProductDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -107,12 +107,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<ProductDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -209,12 +209,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<ProductDO>> GetByBomIdAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomId == Guid.Empty)
+                if (bomId == 0)
                 {
                     throw new ArgumentException("Invalid BOM ID provided");
                 }
@@ -231,12 +231,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<ProductDO>> GetByBomIdToMutateAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomId == Guid.Empty)
+                if (bomId == 0)
                 {
                     throw new ArgumentException("Invalid BOM ID provided");
                 }

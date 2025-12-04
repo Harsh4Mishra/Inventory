@@ -25,14 +25,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves inventory transactions by material batch ID
         /// </summary>
         Task<IReadOnlyCollection<InventoryTransactionDO>> GetByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves inventory transactions by product ID
         /// </summary>
         Task<IReadOnlyCollection<InventoryTransactionDO>> GetByProductIdAsync(
-            Guid productId,
+            int productId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Inventory.Domain.Contracts
         /// Retrieves inventory transactions by warehouse ID
         /// </summary>
         Task<IReadOnlyCollection<InventoryTransactionDO>> GetByWarehouseIdAsync(
-            Guid warehouseId,
+            int warehouseId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -61,21 +61,21 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a transaction by its unique identifier (long - bigserial)
         /// </summary>
         Task<InventoryTransactionDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a transaction by its unique identifier to make changes (long - bigserial)
         /// </summary>
         Task<InventoryTransactionDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a transaction by its UUID
         /// </summary>
         Task<InventoryTransactionDO?> GetByUUIDAsync(
-            Guid uuid,
+            string uuid,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -97,28 +97,28 @@ namespace Inventory.Domain.Contracts
         /// Checks if any transaction exists for the given material batch
         /// </summary>
         Task<bool> ExistsByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks if any transaction exists for the given product
         /// </summary>
         Task<bool> ExistsByProductIdAsync(
-            Guid productId,
+            int productId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the current stock level for a material batch
         /// </summary>
         Task<decimal> GetCurrentStockByMaterialBatchAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the current stock level for a product
         /// </summary>
         Task<decimal> GetCurrentStockByProductAsync(
-            Guid productId,
+            int productId,
             CancellationToken cancellationToken = default);
 
         #endregion

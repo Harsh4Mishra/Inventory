@@ -57,12 +57,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<BomItemDO>> GetByBomIdAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomId == Guid.Empty)
+                if (bomId == 0)
                 {
                     throw new ArgumentException("Invalid BOM id provided");
                 }
@@ -79,12 +79,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<BomItemDO>> GetByBomIdToMutateAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomId == Guid.Empty)
+                if (bomId == 0)
                 {
                     throw new ArgumentException("Invalid BOM id provided");
                 }
@@ -100,12 +100,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<BomItemDO>> GetByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }
@@ -122,12 +122,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<BomItemDO>> GetByWarehouseItemIdAsync(
-            Guid warehouseItemId,
+            int warehouseItemId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (warehouseItemId == Guid.Empty)
+                if (warehouseItemId == 0)
                 {
                     throw new ArgumentException("Invalid warehouse item id provided");
                 }
@@ -144,12 +144,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<BomItemDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -165,12 +165,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<BomItemDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -215,12 +215,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByBomIdAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomId == Guid.Empty)
+                if (bomId == 0)
                 {
                     throw new ArgumentException("Invalid BOM id provided");
                 }
@@ -234,12 +234,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }
@@ -253,12 +253,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByWarehouseItemIdAsync(
-            Guid warehouseItemId,
+            int warehouseItemId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (warehouseItemId == Guid.Empty)
+                if (warehouseItemId == 0)
                 {
                     throw new ArgumentException("Invalid warehouse item id provided");
                 }

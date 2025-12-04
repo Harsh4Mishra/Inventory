@@ -34,12 +34,12 @@ namespace Inventory.Domain.Contracts
         /// <summary>
         /// Retrieves a material by its unique identifier.
         /// </summary>
-        Task<MaterialDO?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<MaterialDO?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a material by its unique identifier to make changes.
         /// </summary>
-        Task<MaterialDO?> GetByIdToMutateAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<MaterialDO?> GetByIdToMutateAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a material by its SKU.

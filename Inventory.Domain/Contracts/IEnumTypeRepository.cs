@@ -32,14 +32,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves an enum type by its unique identifier
         /// </summary>
         Task<EnumTypeDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an enum type by its unique identifier to make changes
         /// </summary>
         Task<EnumTypeDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>

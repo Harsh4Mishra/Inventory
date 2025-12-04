@@ -12,7 +12,7 @@ namespace Inventory.Application.Features.Aisle.Commands.DeleteAisleCommand
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         #endregion
     }

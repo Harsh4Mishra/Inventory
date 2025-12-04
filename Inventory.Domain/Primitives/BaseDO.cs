@@ -9,7 +9,7 @@ namespace Inventory.Domain.Primitives
     {
         #region Properties
 
-        public Guid Id { get; private set; } = default;//Guid.NewGuid();
+        public int Id { get; private set; } = default;//int.Newint();
 
         #endregion
 

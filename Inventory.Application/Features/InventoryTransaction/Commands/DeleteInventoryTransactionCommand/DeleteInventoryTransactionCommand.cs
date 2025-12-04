@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.InventoryTransaction.Commands.DeleteInv
     public sealed record DeleteInventoryTransactionCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         #endregion
     }

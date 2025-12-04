@@ -12,9 +12,9 @@ namespace Inventory.Application.Features.Tray.Commands.UpdateTrayCommand
     {
         #region Properties
 
-        public Guid Id { get; init; } = default;
-        public Guid AisleId { get; init; } = default;
-        public Guid RowLocId { get; init; } = default;
+        public int Id { get; init; } = default;
+        public int AisleId { get; init; } = default;
+        public int RowLocId { get; init; } = default;
         public int Capacity { get; init; }
         public string? Description { get; init; }
 

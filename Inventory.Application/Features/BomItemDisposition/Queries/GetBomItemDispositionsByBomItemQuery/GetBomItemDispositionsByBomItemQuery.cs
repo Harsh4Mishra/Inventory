@@ -10,6 +10,6 @@ namespace Inventory.Application.Features.BomItemDisposition.Queries.GetBomItemDi
 {
     public sealed record GetBomItemDispositionsByBomItemQuery : IRequest<IEnumerable<GetBomItemDispositionsByBomItemQueryResult>>
     {
-        public Guid BomItemId { get; init; }
+        public int BomItemId { get; init; }
     }
 }

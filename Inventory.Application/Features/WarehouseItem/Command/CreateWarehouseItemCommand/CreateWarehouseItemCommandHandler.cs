@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.WarehouseItem.Command.CreateWarehouseItemCommand
 {
-    public class CreateWarehouseItemCommandHandler : IRequestHandler<CreateWarehouseItemCommand, Guid>
+    public class CreateWarehouseItemCommandHandler : IRequestHandler<CreateWarehouseItemCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.WarehouseItem.Command.CreateWarehouseIt
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateWarehouseItemCommand request,
             CancellationToken cancellationToken)
         {

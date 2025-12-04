@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Inventory.Application.Features.User.Commands.CreateUserCommand
 {
-    public sealed record CreateUserCommand : IRequest<Guid>
+    public sealed record CreateUserCommand : IRequest<int>
     {
         #region Properties
 

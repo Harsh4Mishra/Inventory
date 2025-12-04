@@ -5,7 +5,7 @@ namespace Inventory.Application.Features.Organization.Queries.GetActiveOrganizat
     {
         #region Properties
 
-        public Guid Id { get; init; } = default;
+        public int Id { get; init; } = default;
         public string Name { get; init; } = default!;
         public string? Code { get; init; }
         public string? Description { get; init; }

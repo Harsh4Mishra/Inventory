@@ -2,7 +2,7 @@
 
 namespace Inventory.Application.Features.Vendor.Commands.CreateVendorCommand
 {
-    public sealed record CreateVendorCommand : IRequest<Guid>
+    public sealed record CreateVendorCommand : IRequest<int>
     {
         #region Properties
         public string Name { get; set; } = string.Empty;

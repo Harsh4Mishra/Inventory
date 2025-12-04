@@ -5,7 +5,7 @@ namespace Inventory.Application.Features.RolePermission.Queries.GetRolePermissio
     public sealed record GetRolePermissionByIdQuery : IRequest<GetRolePermissionByIdQueryResult?>
     {
         #region Properties
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         #endregion
     }
 }

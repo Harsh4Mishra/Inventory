@@ -2,10 +2,10 @@
 
 namespace Inventory.Application.Features.AppModule.Commands.CreateAppModuleCommand
 {
-    public sealed record CreateAppModuleCommand : IRequest<Guid>
+    public sealed record CreateAppModuleCommand : IRequest<int>
     {
         #region Properties
-        public Guid TenantId { get; set; }
+        public int TenantId { get; set; }
         public string Code { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }

@@ -81,12 +81,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<PermissionDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -102,12 +102,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<PermissionDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -122,12 +122,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<PermissionDO?> GetActiveByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -207,12 +207,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<PermissionDO>> GetByTenantIdAsync(
-            Guid tenantId,
+            int tenantId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (tenantId == Guid.Empty)
+                if (tenantId == 0)
                 {
                     throw new ArgumentException("Invalid tenant id provided");
                 }
@@ -229,12 +229,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<PermissionDO>> GetByTenantIdToMutateAsync(
-            Guid tenantId,
+            int tenantId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (tenantId == Guid.Empty)
+                if (tenantId == 0)
                 {
                     throw new ArgumentException("Invalid tenant id provided");
                 }
@@ -250,12 +250,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<PermissionDO>> GetActiveByTenantIdAsync(
-            Guid tenantId,
+            int tenantId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (tenantId == Guid.Empty)
+                if (tenantId == 0)
                 {
                     throw new ArgumentException("Invalid tenant id provided");
                 }
@@ -272,13 +272,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<PermissionDO?> GetByTenantAndCodeAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (tenantId == Guid.Empty || string.IsNullOrWhiteSpace(code))
+                if (tenantId == 0 || string.IsNullOrWhiteSpace(code))
                 {
                     throw new ArgumentException("Invalid tenant id or code provided");
                 }
@@ -294,13 +294,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<PermissionDO?> GetByTenantAndCodeToMutateAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (tenantId == Guid.Empty || string.IsNullOrWhiteSpace(code))
+                if (tenantId == 0 || string.IsNullOrWhiteSpace(code))
                 {
                     throw new ArgumentException("Invalid tenant id or code provided");
                 }
@@ -315,13 +315,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<PermissionDO?> GetActiveByTenantAndCodeAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (tenantId == Guid.Empty || string.IsNullOrWhiteSpace(code))
+                if (tenantId == 0 || string.IsNullOrWhiteSpace(code))
                 {
                     throw new ArgumentException("Invalid tenant id or code provided");
                 }
@@ -408,13 +408,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByTenantAndCodeAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (tenantId == Guid.Empty || string.IsNullOrWhiteSpace(code))
+                if (tenantId == 0 || string.IsNullOrWhiteSpace(code))
                 {
                     throw new ArgumentException("Invalid tenant id or code provided");
                 }
@@ -430,13 +430,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ActiveExistsByTenantAndCodeAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (tenantId == Guid.Empty || string.IsNullOrWhiteSpace(code))
+                if (tenantId == 0 || string.IsNullOrWhiteSpace(code))
                 {
                     throw new ArgumentException("Invalid tenant id or code provided");
                 }
@@ -452,12 +452,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -471,12 +471,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ActiveExistsByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }

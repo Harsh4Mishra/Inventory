@@ -61,12 +61,12 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(enumTypeId, out Guid enumTypeGuid))
+                if (!int.TryParse(enumTypeId, out int enumTypeint))
                 {
                     return BadRequest("Invalid Enum Type ID.");
                 }
 
-                var response = await _mediator.Send(new GetEnumTypeByIdQuery { Id = enumTypeGuid });
+                var response = await _mediator.Send(new GetEnumTypeByIdQuery { Id = enumTypeint });
 
                 var successApiResponse = new SuccessAPIResponse<GetEnumTypeByIdQueryResult>(response, true, "Enum Type Retrieved Successfully", 200);
 
@@ -110,7 +110,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 var response = await _mediator.Send(enumType);
 
-                var successApiResponse = new SuccessAPIResponse<Guid>(response, true, "Enum Type Created Successfully", 200);
+                var successApiResponse = new SuccessAPIResponse<int>(response, true, "Enum Type Created Successfully", 200);
 
                 return Ok(successApiResponse);
             }
@@ -148,14 +148,14 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (enumTypeId is null)
                     throw new ArgumentException("A non-empty request body is required.");
 
-                if (!Guid.TryParse(enumTypeId, out Guid enumTypeGuid))
+                if (!int.TryParse(enumTypeId, out int enumTypeint))
                 {
                     return BadRequest("Invalid Enum Type ID.");
                 }
 
                 var command = new DeleteEnumTypeCommand
                 {
-                    Id = enumTypeGuid
+                    Id = enumTypeint
                 };
 
                 var response = await _mediator.Send(command);

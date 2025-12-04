@@ -69,7 +69,7 @@ namespace Inventory.Domain.DomainObjects
             IsActive = false;
             MarkUpdated(updatedBy);
         }
-        public void DeleteEnumValue(Guid enumValueId)
+        public void DeleteEnumValue(int enumValueId)
         {
             var enumValue = _enumValues.FirstOrDefault(ev => ev.Id == enumValueId)
                 ?? throw new InvalidOperationException("Enum value not found");
@@ -94,7 +94,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public EnumValueDO UpdateEnumValue(
-            Guid enumValueId,
+            int enumValueId,
             string name,
             string description,
             string updatedBy)
@@ -106,7 +106,7 @@ namespace Inventory.Domain.DomainObjects
             return enumValue;
         }
 
-        public void ActivateEnumValue(Guid enumValueId, string updatedBy)
+        public void ActivateEnumValue(int enumValueId, string updatedBy)
         {
             if (!IsActive)
                 throw new InvalidOperationException("Cannot activate value of inactive enum type");
@@ -117,7 +117,7 @@ namespace Inventory.Domain.DomainObjects
             enumValue.Activate(updatedBy);
         }
 
-        public void DeactivateEnumValue(Guid enumValueId, string updatedBy)
+        public void DeactivateEnumValue(int enumValueId, string updatedBy)
         {
             var enumValue = _enumValues.FirstOrDefault(ev => ev.Id == enumValueId)
                 ?? throw new InvalidOperationException("Enum value not found");

@@ -12,11 +12,11 @@ namespace Inventory.Application.Features.Aisle.Commands.UpdateAisleCommand
     {
         #region Properties
 
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public string Name { get; set; } = default!;
-        public Guid StorageSectionId { get; set; }
-        public Guid StorageTypeId { get; set; }
-        public Guid InventoryTypeId { get; set; }
+        public int StorageSectionId { get; set; }
+        public int StorageTypeId { get; set; }
+        public int InventoryTypeId { get; set; }
 
         #endregion
     }

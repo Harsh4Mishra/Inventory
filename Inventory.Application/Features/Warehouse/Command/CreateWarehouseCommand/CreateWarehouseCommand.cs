@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Warehouse.Command.CreateWarehouseCommand
 {
-    public sealed record CreateWarehouseCommand : IRequest<Guid>
+    public sealed record CreateWarehouseCommand : IRequest<int>
     {
         #region Properties
         public string Name { get; set; } = string.Empty;

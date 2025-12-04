@@ -62,7 +62,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Organization Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -96,10 +96,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(organizationId, out Guid organizationGuid))
+                if (!int.TryParse(organizationId, out int organizationint))
                     return BadRequest("Invalid Organization ID.");
 
-                var command = new DeleteOrganizationCommand { Id = organizationGuid };
+                var command = new DeleteOrganizationCommand { Id = organizationint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Organization Deleted Successfully", 200);

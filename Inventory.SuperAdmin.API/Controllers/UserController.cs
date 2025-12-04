@@ -74,7 +74,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(user);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response,
                     true,
                     "User created successfully",
@@ -117,10 +117,10 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (string.IsNullOrEmpty(userId))
                     throw new ArgumentException("User ID is required.");
 
-                if (!Guid.TryParse(userId, out Guid userGuid))
+                if (!int.TryParse(userId, out int userint))
                     return BadRequest("Invalid User ID format.");
 
-                var command = new DeleteUserCommand { Id = userGuid };
+                var command = new DeleteUserCommand { Id = userint };
                 await _mediator.Send(command);
 
                 var successApiResponse = new SuccessAPIResponse<string>(

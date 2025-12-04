@@ -12,7 +12,7 @@ namespace Inventory.Application.Features.Aisle.Queries.GetAislesByWarehouseIdQue
     {
         #region Properties
 
-        public Guid WarehouseId { get; init; } = default;
+        public int WarehouseId { get; init; } = default;
 
         #endregion
     }

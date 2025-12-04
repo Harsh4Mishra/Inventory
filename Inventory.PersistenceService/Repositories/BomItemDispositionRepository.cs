@@ -57,12 +57,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<BomItemDispositionDO>> GetByBomItemIdAsync(
-            Guid bomItemId,
+            int bomItemId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomItemId == Guid.Empty)
+                if (bomItemId == 0)
                 {
                     throw new ArgumentException("Invalid bom item id provided");
                 }
@@ -79,12 +79,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<BomItemDispositionDO>> GetByBomItemIdToMutateAsync(
-            Guid bomItemId,
+            int bomItemId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomItemId == Guid.Empty)
+                if (bomItemId == 0)
                 {
                     throw new ArgumentException("Invalid bom item id provided");
                 }
@@ -100,12 +100,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<BomItemDispositionDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -121,12 +121,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<BomItemDispositionDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -214,12 +214,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByBomItemIdAsync(
-            Guid bomItemId,
+            int bomItemId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomItemId == Guid.Empty)
+                if (bomItemId == 0)
                 {
                     throw new ArgumentException("Invalid bom item id provided");
                 }

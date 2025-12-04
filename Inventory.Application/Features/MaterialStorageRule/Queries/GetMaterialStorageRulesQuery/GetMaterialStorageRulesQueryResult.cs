@@ -10,11 +10,11 @@ namespace Inventory.Application.Features.MaterialStorageRule.Queries.GetMaterial
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid MaterialId { get; init; }
+        public int Id { get; init; }
+        public int MaterialId { get; init; }
         public decimal MinQuantity { get; init; }
         public decimal ThresholdQuantity { get; init; }
-        public Guid PreferredSectionId { get; init; }
+        public int PreferredSectionId { get; init; }
         public string CreatedBy { get; init; } = default!;
         public DateTime CreatedOn { get; init; }
         public string? UpdatedBy { get; init; }

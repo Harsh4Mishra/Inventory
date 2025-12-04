@@ -9,6 +9,6 @@ namespace Inventory.Application.Features.VerifiedMaterial.Queries.GetVerifiedMat
 {
     public sealed record GetVerifiedMaterialByIdQuery : IRequest<GetVerifiedMaterialByIdQueryResult?>
     {
-        public Guid Id { get; init; }
+        public int Id { get; init; }
     }
 }

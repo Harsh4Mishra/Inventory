@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Product.Commands.CreateProductCommand
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Guid>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
     {
         #region Fields
 
@@ -41,7 +41,7 @@ namespace Inventory.Application.Features.Product.Commands.CreateProductCommand
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateProductCommand request,
             CancellationToken cancellationToken)
         {

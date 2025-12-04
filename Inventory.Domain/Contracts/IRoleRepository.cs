@@ -30,14 +30,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a role by its unique identifier.
         /// </summary>
         Task<RoleDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a role by its unique identifier to make changes.
         /// </summary>
         Task<RoleDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>

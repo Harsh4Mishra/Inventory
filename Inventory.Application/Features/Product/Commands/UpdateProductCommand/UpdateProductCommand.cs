@@ -12,10 +12,10 @@ namespace Inventory.Application.Features.Product.Commands.UpdateProductCommand
     {
         #region Properties
 
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public string Name { get; set; } = default!;
         public string Sku { get; set; } = default!;
-        public Guid BomId { get; set; }
+        public int BomId { get; set; }
 
         #endregion
     }

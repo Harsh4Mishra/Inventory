@@ -11,10 +11,10 @@ namespace Inventory.Application.Features.VerifiedMaterial.Queries.GetNonAllotted
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid MaterialBatchId { get; init; }
+        public int Id { get; init; }
+        public int MaterialBatchId { get; init; }
         public decimal Quantity { get; init; }
-        public Guid? EmpId { get; init; }
+        public int? EmpId { get; init; }
         public JsonDocument? Specification { get; init; }
         public bool? IsQualified { get; init; }
         public string? Reason { get; init; }

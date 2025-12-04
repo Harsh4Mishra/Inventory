@@ -14,11 +14,11 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid MaterialBatchId { get; private set; }
-        public Guid WarehouseId { get; private set; }
-        public Guid AisleId { get; private set; }
-        public Guid RowId { get; private set; }
-        public Guid TrayId { get; private set; }
+        public int MaterialBatchId { get; private set; }
+        public int WarehouseId { get; private set; }
+        public int AisleId { get; private set; }
+        public int RowId { get; private set; }
+        public int TrayId { get; private set; }
         public decimal Quantity { get; private set; }
         public string Name { get; private set; } = default!;
         public JsonDocument? Specification { get; private set; }
@@ -30,11 +30,11 @@ namespace Inventory.Domain.DomainObjects
         public WarehouseItemDO() { } // For ORM
 
         public WarehouseItemDO(
-            Guid materialBatchId,
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int materialBatchId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             decimal quantity,
             string name,
             JsonDocument? specification)
@@ -54,11 +54,11 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static WarehouseItemDO Create(
-            Guid materialBatchId,
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int materialBatchId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             decimal quantity,
             string name,
             JsonDocument? specification,
@@ -88,10 +88,10 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public void UpdateLocation(
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             string updatedBy)
         {
             WarehouseId = warehouseId;

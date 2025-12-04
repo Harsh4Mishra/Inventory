@@ -34,7 +34,7 @@ namespace Inventory.Application.Features.EnumType.Commands.DeleteEnumTypeCommand
             try
             {
                 // 1. Load the enum type or fail if it doesn't exist
-                var enumType = await _enumTypeRepository.GetByIdToMutateAsync((Guid)request.Id!, cancellationToken)
+                var enumType = await _enumTypeRepository.GetByIdToMutateAsync((int)request.Id!, cancellationToken)
                     ?? throw new InvalidOperationException($"No enum type found with Id '{request.Id}'.");
 
                 // 2. Check if the enum type has any values (optional business rule)

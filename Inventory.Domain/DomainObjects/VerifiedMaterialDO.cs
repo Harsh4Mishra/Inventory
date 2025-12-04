@@ -14,10 +14,10 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid MaterialBatchId { get; private set; }
+        public int MaterialBatchId { get; private set; }
         public bool IsAllotted { get; private set; } = false;
         public decimal Quantity { get; private set; }
-        public Guid? EmpId { get; private set; }
+        public int? EmpId { get; private set; }
         public JsonDocument? Specification { get; private set; }
         public bool? IsQualified { get; private set; }
         public string? Reason { get; private set; }
@@ -29,9 +29,9 @@ namespace Inventory.Domain.DomainObjects
         public VerifiedMaterialDO() { } // For ORM
 
         public VerifiedMaterialDO(
-            Guid materialBatchId,
+            int materialBatchId,
             decimal quantity,
-            Guid? empId = null,
+            int? empId = null,
             JsonDocument? specification = null,
             bool? isQualified = null,
             string? reason = null)
@@ -50,9 +50,9 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static VerifiedMaterialDO Create(
-            Guid materialBatchId,
+            int materialBatchId,
             decimal quantity,
-            Guid? empId = null,
+            int? empId = null,
             JsonDocument? specification = null,
             bool? isQualified = null,
             string? reason = null,
@@ -74,7 +74,7 @@ namespace Inventory.Domain.DomainObjects
         public void UpdateVerification(
             bool? isQualified,
             string? reason,
-            Guid? empId = null,
+            int? empId = null,
             JsonDocument? specification = null,
             string updatedBy = "system")
         {

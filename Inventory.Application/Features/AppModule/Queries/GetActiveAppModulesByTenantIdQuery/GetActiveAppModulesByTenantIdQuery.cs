@@ -5,7 +5,7 @@ namespace Inventory.Application.Features.AppModule.Queries.GetActiveAppModulesBy
     public sealed record GetActiveAppModulesByTenantIdQuery : IRequest<IEnumerable<GetActiveAppModulesByTenantIdQueryResult>>
     {
         #region Properties
-        public Guid TenantId { get; init; }
+        public int TenantId { get; init; }
         #endregion
     }
 }

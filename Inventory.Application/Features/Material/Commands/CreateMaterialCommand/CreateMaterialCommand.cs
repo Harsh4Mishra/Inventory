@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Material.Commands.CreateMaterialCommand
 {
-    public sealed record CreateMaterialCommand : IRequest<Guid>
+    public sealed record CreateMaterialCommand : IRequest<int>
     {
         #region Properties
         public string Sku { get; set; } = string.Empty;

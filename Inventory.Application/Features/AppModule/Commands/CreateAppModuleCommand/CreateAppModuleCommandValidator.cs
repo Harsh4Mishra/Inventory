@@ -56,7 +56,7 @@ namespace Inventory.Application.Features.AppModule.Commands.CreateAppModuleComma
 
         #region Methods
 
-        private async Task<bool> ValidateIfTenantExists(Guid tenantId, CancellationToken cancellationToken)
+        private async Task<bool> ValidateIfTenantExists(int tenantId, CancellationToken cancellationToken)
         {
             var tenant = await _organizationRepository.GetActiveByIdAsync(tenantId, cancellationToken);
             return tenant != null;

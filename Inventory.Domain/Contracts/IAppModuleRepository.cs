@@ -30,21 +30,21 @@ namespace Inventory.Domain.Contracts
         /// Retrieves an app module by its unique identifier.
         /// </summary>
         Task<AppModuleDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an app module by its unique identifier to make changes.
         /// </summary>
         Task<AppModuleDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an active app module by its unique identifier.
         /// </summary>
         Task<AppModuleDO?> GetActiveByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -72,28 +72,28 @@ namespace Inventory.Domain.Contracts
         /// Retrieves app modules by tenant ID.
         /// </summary>
         Task<IReadOnlyCollection<AppModuleDO>> GetByTenantIdAsync(
-            Guid tenantId,
+            int tenantId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves app modules by tenant ID to make changes.
         /// </summary>
         Task<IReadOnlyCollection<AppModuleDO>> GetByTenantIdToMutateAsync(
-            Guid tenantId,
+            int tenantId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves active app modules by tenant ID.
         /// </summary>
         Task<IReadOnlyCollection<AppModuleDO>> GetActiveByTenantIdAsync(
-            Guid tenantId,
+            int tenantId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an app module by tenant ID and code.
         /// </summary>
         Task<AppModuleDO?> GetByTenantAndCodeAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default);
 
@@ -101,7 +101,7 @@ namespace Inventory.Domain.Contracts
         /// Retrieves an app module by tenant ID and code to make changes.
         /// </summary>
         Task<AppModuleDO?> GetByTenantAndCodeToMutateAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default);
 
@@ -109,7 +109,7 @@ namespace Inventory.Domain.Contracts
         /// Retrieves an active app module by tenant ID and code.
         /// </summary>
         Task<AppModuleDO?> GetActiveByTenantAndCodeAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default);
 
@@ -146,7 +146,7 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any app module exists with the given tenant ID and code.
         /// </summary>
         Task<bool> ExistsByTenantAndCodeAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default);
 
@@ -154,7 +154,7 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any active app module exists with the given tenant ID and code.
         /// </summary>
         Task<bool> ActiveExistsByTenantAndCodeAsync(
-            Guid tenantId,
+            int tenantId,
             string code,
             CancellationToken cancellationToken = default);
 
@@ -162,14 +162,14 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any app module exists with the given ID.
         /// </summary>
         Task<bool> ExistsByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks whether any active app module exists with the given ID.
         /// </summary>
         Task<bool> ActiveExistsByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         #endregion

@@ -63,10 +63,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(materialBatchId, out Guid materialBatchGuid))
+                if (!int.TryParse(materialBatchId, out int materialBatchint))
                     return BadRequest("Invalid Material Batch ID.");
 
-                var query = new GetMaterialBatchByIdQuery { Id = materialBatchGuid };
+                var query = new GetMaterialBatchByIdQuery { Id = materialBatchint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<GetMaterialBatchByIdQueryResult>(
                     response, true, "Material Batch Retrieved Successfully", 200);
@@ -103,10 +103,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(materialId, out Guid materialGuid))
+                if (!int.TryParse(materialId, out int materialint))
                     return BadRequest("Invalid Material ID.");
 
-                var query = new GetMaterialBatchesByMaterialIdQuery { MaterialId = materialGuid };
+                var query = new GetMaterialBatchesByMaterialIdQuery { MaterialId = materialint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetMaterialBatchesByMaterialIdQueryResult>>(
                     response, true, "Material Batches Retrieved Successfully", 200);
@@ -127,7 +127,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Material Batch Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -199,10 +199,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(materialBatchId, out Guid materialBatchGuid))
+                if (!int.TryParse(materialBatchId, out int materialBatchint))
                     return BadRequest("Invalid Material Batch ID.");
 
-                var command = new DeleteMaterialBatchCommand { Id = materialBatchGuid };
+                var command = new DeleteMaterialBatchCommand { Id = materialBatchint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Material Batch Deleted Successfully", 200);

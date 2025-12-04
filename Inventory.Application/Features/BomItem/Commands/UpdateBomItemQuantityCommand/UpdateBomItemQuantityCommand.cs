@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.BomItem.Commands.UpdateBomItemQuantityC
     public sealed record UpdateBomItemQuantityCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public decimal Quantity { get; set; }
         #endregion
     }

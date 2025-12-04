@@ -61,7 +61,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Role Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -95,10 +95,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(roleId, out Guid roleGuid))
+                if (!int.TryParse(roleId, out int roleint))
                     return BadRequest("Invalid Role ID.");
 
-                var command = new DeleteRoleCommand { Id = roleGuid };
+                var command = new DeleteRoleCommand { Id = roleint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Role Deleted Successfully", 200);

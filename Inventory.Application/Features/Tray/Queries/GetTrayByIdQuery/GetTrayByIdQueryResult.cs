@@ -10,8 +10,8 @@ namespace Inventory.Application.Features.Tray.Queries.GetTrayByIdQuery
     {
         #region Properties
 
-        public Guid Id { get; init; } = default;
-        public Guid RowId { get; init; } = default;
+        public int Id { get; init; } = default;
+        public int RowId { get; init; } = default;
         public int Capacity { get; init; }
         public string? Description { get; init; }
         public string CreatedBy { get; init; } = default!;

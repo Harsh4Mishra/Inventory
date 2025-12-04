@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.MaterialStorageRule.Queries.GetMaterial
     public sealed record GetMaterialStorageRulesByPreferredSectionQuery : IRequest<IEnumerable<GetMaterialStorageRulesByPreferredSectionQueryResult>>
     {
         #region Properties
-        public Guid PreferredSectionId { get; init; }
+        public int PreferredSectionId { get; init; }
         #endregion
     }
 }

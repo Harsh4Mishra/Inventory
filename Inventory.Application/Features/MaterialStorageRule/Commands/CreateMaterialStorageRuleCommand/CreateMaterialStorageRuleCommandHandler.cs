@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.MaterialStorageRule.Commands.CreateMaterialStorageRuleCommand
 {
-    public class CreateMaterialStorageRuleCommandHandler : IRequestHandler<CreateMaterialStorageRuleCommand, Guid>
+    public class CreateMaterialStorageRuleCommandHandler : IRequestHandler<CreateMaterialStorageRuleCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.MaterialStorageRule.Commands.CreateMate
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateMaterialStorageRuleCommand request,
             CancellationToken cancellationToken)
         {

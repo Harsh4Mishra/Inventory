@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace Inventory.Application.Features.Tray.Commands.CreateTrayCommand
 {
     public sealed record CreateTrayCommand
-        : IRequest<Guid>
+        : IRequest<int>
     {
         #region Properties
 
-        public Guid AisleId { get; init; }
-        public Guid RowLocId { get; init; }
+        public int AisleId { get; init; }
+        public int RowLocId { get; init; }
         public int Capacity { get; init; }
         public string? Description { get; init; }
 

@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Vendor.Commands.DeleteVendorCommand
     public class DeleteVendorCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         #endregion
     }
 }

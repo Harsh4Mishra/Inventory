@@ -5,7 +5,7 @@ namespace Inventory.Application.Features.RolePermission.Queries.GetActiveRolePer
     public sealed record GetActiveRolePermissionsByRoleIdQuery : IRequest<IEnumerable<GetActiveRolePermissionsByRoleIdQueryResult>>
     {
         #region Properties
-        public Guid RoleId { get; init; }
+        public int RoleId { get; init; }
         #endregion
     }
 }

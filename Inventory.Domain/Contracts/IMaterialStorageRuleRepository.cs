@@ -25,35 +25,35 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a material storage rule by its unique identifier
         /// </summary>
         Task<MaterialStorageRuleDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a material storage rule by its unique identifier to make changes
         /// </summary>
         Task<MaterialStorageRuleDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves material storage rules by material ID
         /// </summary>
         Task<IReadOnlyCollection<MaterialStorageRuleDO>> GetByMaterialIdAsync(
-            Guid materialId,
+            int materialId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves material storage rules by material ID to make changes
         /// </summary>
         Task<IReadOnlyCollection<MaterialStorageRuleDO>> GetByMaterialIdToMutateAsync(
-            Guid materialId,
+            int materialId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves material storage rules by preferred section ID
         /// </summary>
         Task<IReadOnlyCollection<MaterialStorageRuleDO>> GetByPreferredSectionIdAsync(
-            Guid preferredSectionId,
+            int preferredSectionId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any material storage rule exists for the given material ID
         /// </summary>
         Task<bool> ExistsByMaterialIdAsync(
-            Guid materialId,
+            int materialId,
             CancellationToken cancellationToken = default);
 
         #endregion

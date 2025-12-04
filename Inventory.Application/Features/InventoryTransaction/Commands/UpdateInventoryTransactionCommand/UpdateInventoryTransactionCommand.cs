@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.InventoryTransaction.Commands.UpdateInv
     public sealed record UpdateInventoryTransactionCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public decimal? Cost { get; set; }
         public string? Notes { get; set; }
 

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Inventory.Application.Features.RolePermission.Commands.CreateRolePermissionCommand
 {
-    public class CreateRolePermissionCommandHandler : IRequestHandler<CreateRolePermissionCommand, Guid>
+    public class CreateRolePermissionCommandHandler : IRequestHandler<CreateRolePermissionCommand, int>
     {
         #region Fields
 
@@ -41,7 +41,7 @@ namespace Inventory.Application.Features.RolePermission.Commands.CreateRolePermi
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateRolePermissionCommand request,
             CancellationToken cancellationToken)
         {

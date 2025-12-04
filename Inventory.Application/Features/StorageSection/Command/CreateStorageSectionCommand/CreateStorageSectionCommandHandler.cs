@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.StorageSection.Command.CreateStorageSectionCommand
 {
-    public class CreateStorageSectionCommandHandler : IRequestHandler<CreateStorageSectionCommand, Guid>
+    public class CreateStorageSectionCommandHandler : IRequestHandler<CreateStorageSectionCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.StorageSection.Command.CreateStorageSec
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateStorageSectionCommand request,
             CancellationToken cancellationToken)
         {

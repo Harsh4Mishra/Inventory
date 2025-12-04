@@ -25,62 +25,62 @@ namespace Inventory.Domain.Contracts
         /// Retrieves warehouse items by material batch ID
         /// </summary>
         Task<IReadOnlyCollection<WarehouseItemDO>> GetByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves warehouse items by material batch ID to make changes
         /// </summary>
         Task<IReadOnlyCollection<WarehouseItemDO>> GetByMaterialBatchIdToMutateAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves warehouse items by warehouse ID
         /// </summary>
         Task<IReadOnlyCollection<WarehouseItemDO>> GetByWarehouseIdAsync(
-            Guid warehouseId,
+            int warehouseId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves warehouse items by warehouse ID to make changes
         /// </summary>
         Task<IReadOnlyCollection<WarehouseItemDO>> GetByWarehouseIdToMutateAsync(
-            Guid warehouseId,
+            int warehouseId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a warehouse item by its unique identifier
         /// </summary>
         Task<WarehouseItemDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a warehouse item by its unique identifier to make changes
         /// </summary>
         Task<WarehouseItemDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves warehouse items by location
         /// </summary>
         Task<IReadOnlyCollection<WarehouseItemDO>> GetByLocationAsync(
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves warehouse items by location to make changes
         /// </summary>
         Task<IReadOnlyCollection<WarehouseItemDO>> GetByLocationToMutateAsync(
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -97,17 +97,17 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any warehouse item exists with the given material batch ID
         /// </summary>
         Task<bool> ExistsByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks whether any warehouse item exists at the specified location
         /// </summary>
         Task<bool> ExistsAtLocationAsync(
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             CancellationToken cancellationToken = default);
 
         #endregion

@@ -6,7 +6,7 @@ namespace Inventory.Application.Features.Organization.Commands.DeleteOrganizatio
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         #endregion
     }

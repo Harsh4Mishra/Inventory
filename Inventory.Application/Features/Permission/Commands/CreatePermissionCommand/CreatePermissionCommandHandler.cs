@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Permission.Commands.CreatePermissionCommand
 {
-    public class CreatePermissionCommandHandler : IRequestHandler<CreatePermissionCommand, Guid>
+    public class CreatePermissionCommandHandler : IRequestHandler<CreatePermissionCommand, int>
     {
         #region Fields
 
@@ -40,7 +40,7 @@ namespace Inventory.Application.Features.Permission.Commands.CreatePermissionCom
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreatePermissionCommand request,
             CancellationToken cancellationToken)
         {

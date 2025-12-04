@@ -9,6 +9,6 @@ namespace Inventory.Application.Features.StorageSection.Queries.GetStorageSectio
 {
     public sealed record GetStorageSectionByIdQuery : IRequest<GetStorageSectionByIdQueryResult?>
     {
-        public Guid Id { get; init; }
+        public int Id { get; init; }
     }
 }

@@ -19,10 +19,10 @@ namespace Inventory.Domain.DomainObjects
         #region Properties
 
         public string Name { get; private set; } = default!;
-        public Guid WarehouseId { get; private set; }
-        public Guid StorageSectionId { get; private set; }
-        public Guid StorageTypeId { get; private set; }
-        public Guid InventoryTypeId { get; private set; }
+        public int WarehouseId { get; private set; }
+        public int StorageSectionId { get; private set; }
+        public int StorageTypeId { get; private set; }
+        public int InventoryTypeId { get; private set; }
 
         // Navigation properties
         public WarehouseDO? Warehouse { get; private set; }
@@ -42,10 +42,10 @@ namespace Inventory.Domain.DomainObjects
 
         private AisleDO(
             string name,
-            Guid warehouseId,
-            Guid storageSectionId,
-            Guid storageTypeId,
-            Guid inventoryTypeId)
+            int warehouseId,
+            int storageSectionId,
+            int storageTypeId,
+            int inventoryTypeId)
         {
             Name = name.Trim();
             WarehouseId = warehouseId;
@@ -60,10 +60,10 @@ namespace Inventory.Domain.DomainObjects
 
         public static AisleDO Create(
             string name,
-            Guid warehouseId,
-            Guid storageSectionId,
-            Guid storageTypeId,
-            Guid inventoryTypeId,
+            int warehouseId,
+            int storageSectionId,
+            int storageTypeId,
+            int inventoryTypeId,
             string createdBy)
         {
             var aisle = new AisleDO(name, warehouseId, storageSectionId, storageTypeId, inventoryTypeId);
@@ -73,9 +73,9 @@ namespace Inventory.Domain.DomainObjects
 
         public void Update(
             string name,
-            Guid storageSectionId,
-            Guid storageTypeId,
-            Guid inventoryTypeId,
+            int storageSectionId,
+            int storageTypeId,
+            int inventoryTypeId,
             string updatedBy)
         {
             Name = name.Trim();
@@ -86,7 +86,7 @@ namespace Inventory.Domain.DomainObjects
             MarkUpdated(updatedBy);
         }
 
-        public void ChangeWarehouse(Guid warehouseId, string updatedBy)
+        public void ChangeWarehouse(int warehouseId, string updatedBy)
         {
             WarehouseId = warehouseId;
             MarkUpdated(updatedBy);
@@ -109,7 +109,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public RowLocDO UpdateRowLoc(
-            Guid rowLocId,
+            int rowLocId,
             string name,
             string updatedBy)
         {
@@ -121,7 +121,7 @@ namespace Inventory.Domain.DomainObjects
             return rowLoc;
         }
 
-        public void DeleteRowLoc(Guid rowLocId)
+        public void DeleteRowLoc(int rowLocId)
         {
             var rowLoc = _rowLocs.FirstOrDefault(c => c.Id == rowLocId) ??
                 throw new InvalidOperationException($"No row location found with id {rowLocId}");
@@ -130,7 +130,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public TrayDO CreateTray(
-            Guid rowLocId,
+            int rowLocId,
             int capacity,
             string? description,
             string createdBy)
@@ -142,8 +142,8 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public TrayDO UpdateTray(
-            Guid rowLocId,
-            Guid trayId,
+            int rowLocId,
+            int trayId,
             int capacity,
             string? description,
             string updatedBy)
@@ -154,7 +154,7 @@ namespace Inventory.Domain.DomainObjects
             return rowLoc.UpdateTray(trayId, capacity, description, updatedBy);
         }
 
-        public void DeleteTray(Guid rowLocId, Guid trayId)
+        public void DeleteTray(int rowLocId, int trayId)
         {
             var rowLoc = _rowLocs.FirstOrDefault(e => e.Id == rowLocId) ??
                 throw new InvalidOperationException("Row location does not belong to this aisle.");

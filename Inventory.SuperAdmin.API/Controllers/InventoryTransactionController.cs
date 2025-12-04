@@ -43,7 +43,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByMaterialBatch/{materialBatchId}")]
-        public async Task<IActionResult> GetByMaterialBatch(Guid materialBatchId)
+        public async Task<IActionResult> GetByMaterialBatch(int materialBatchId)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByProduct/{productId}")]
-        public async Task<IActionResult> GetByProduct(Guid productId)
+        public async Task<IActionResult> GetByProduct(int productId)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByUUID/{uuid}")]
-        public async Task<IActionResult> GetByUUID(Guid uuid)
+        public async Task<IActionResult> GetByUUID(string uuid)
         {
             try
             {
@@ -132,7 +132,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetStockLevel")]
-        public async Task<IActionResult> GetStockLevel([FromQuery] Guid? materialBatchId, [FromQuery] Guid? productId)
+        public async Task<IActionResult> GetStockLevel([FromQuery] int? materialBatchId, [FromQuery] int? productId)
         {
             try
             {
@@ -161,7 +161,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Inventory Transaction Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -191,7 +191,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
-        public async Task<IActionResult> DeleteTransaction(Guid id)
+        public async Task<IActionResult> DeleteTransaction(int id)
         {
             try
             {
@@ -220,7 +220,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 command.TransactionType = "receive";
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Receive Transaction Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -240,7 +240,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 command.TransactionType = "issue";
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Issue Transaction Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -260,7 +260,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 command.TransactionType = "transfer";
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Transfer Transaction Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -280,7 +280,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 command.TransactionType = "adjust";
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Adjustment Transaction Created Successfully", 200);
                 return Ok(successApiResponse);
             }

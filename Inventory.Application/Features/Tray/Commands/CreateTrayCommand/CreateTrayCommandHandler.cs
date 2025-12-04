@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Inventory.Application.Features.Tray.Commands.CreateTrayCommand
 {
     public class CreateTrayCommandHandler
-        : IRequestHandler<CreateTrayCommand, Guid>
+        : IRequestHandler<CreateTrayCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.Tray.Commands.CreateTrayCommand
 
         #region Methods
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateTrayCommand request,
             CancellationToken cancellationToken)
         {

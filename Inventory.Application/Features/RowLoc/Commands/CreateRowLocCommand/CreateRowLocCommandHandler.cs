@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Inventory.Application.Features.RowLoc.Commands.CreateRowLocCommand
 {
     public class CreateRowLocCommandHandler
-        : IRequestHandler<CreateRowLocCommand, Guid>
+        : IRequestHandler<CreateRowLocCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.RowLoc.Commands.CreateRowLocCommand
 
         #region Methods
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateRowLocCommand request,
             CancellationToken cancellationToken)
         {

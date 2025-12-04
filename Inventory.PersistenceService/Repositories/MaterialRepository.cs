@@ -87,12 +87,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<MaterialDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -108,12 +108,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<MaterialDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }

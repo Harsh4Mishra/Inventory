@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.BomItem.Queries.GetBomItemsByBomIdQuery
     public sealed record GetBomItemsByBomIdQuery : IRequest<IEnumerable<GetBomItemsByBomIdQueryResult>>
     {
         #region Properties
-        public Guid BomId { get; init; }
+        public int BomId { get; init; }
         #endregion
     }
 }

@@ -7,9 +7,9 @@ namespace Inventory.Application.Features.RolePermission.Commands.UpdateRolePermi
     {
         #region Properties
 
-        public Guid Id { get; set; }
-        public Guid ModuleId { get; set; }
-        public Guid PermissionId { get; set; }
+        public int Id { get; set; }
+        public int ModuleId { get; set; }
+        public int PermissionId { get; set; }
 
         #endregion
     }

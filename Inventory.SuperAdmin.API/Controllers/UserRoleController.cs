@@ -59,10 +59,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(userId, out Guid userGuid))
+                if (!int.TryParse(userId, out int userint))
                     return BadRequest("Invalid User ID.");
 
-                var query = new GetUserRolesByUserIdQuery { UserId = userGuid };
+                var query = new GetUserRolesByUserIdQuery { UserId = userint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetUserRolesByUserIdQueryResult>>(
                     response, true, "User-Role Assignments Retrieved Successfully", 200);
@@ -79,10 +79,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(roleId, out Guid roleGuid))
+                if (!int.TryParse(roleId, out int roleint))
                     return BadRequest("Invalid Role ID.");
 
-                var query = new GetUserRolesByRoleIdQuery { RoleId = roleGuid };
+                var query = new GetUserRolesByRoleIdQuery { RoleId = roleint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetUserRolesByRoleIdQueryResult>>(
                     response, true, "User-Role Assignments Retrieved Successfully", 200);
@@ -99,10 +99,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(id, out Guid assignmentGuid))
+                if (!int.TryParse(id, out int assignmentint))
                     return BadRequest("Invalid Assignment ID.");
 
-                var query = new GetUserRoleByIdQuery { Id = assignmentGuid };
+                var query = new GetUserRoleByIdQuery { Id = assignmentint };
                 var response = await _mediator.Send(query);
 
                 if (response == null)
@@ -129,7 +129,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "User-Role Assignment Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -163,10 +163,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(assignmentId, out Guid assignmentGuid))
+                if (!int.TryParse(assignmentId, out int assignmentint))
                     return BadRequest("Invalid Assignment ID.");
 
-                var command = new DeleteUserRoleCommand { Id = assignmentGuid };
+                var command = new DeleteUserRoleCommand { Id = assignmentint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "User-Role Assignment Removed Successfully", 200);
@@ -205,14 +205,14 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (commands is null || !commands.Any())
                     throw new ArgumentException("A non-empty request body is required.");
 
-                var results = new List<Guid>();
+                var results = new List<int>();
                 foreach (var command in commands)
                 {
                     var result = await _mediator.Send(command);
                     results.Add(result);
                 }
 
-                var successApiResponse = new SuccessAPIResponse<List<Guid>>(
+                var successApiResponse = new SuccessAPIResponse<List<int>>(
                     results, true, "User-Role Assignments Created Successfully", 200);
                 return Ok(successApiResponse);
             }

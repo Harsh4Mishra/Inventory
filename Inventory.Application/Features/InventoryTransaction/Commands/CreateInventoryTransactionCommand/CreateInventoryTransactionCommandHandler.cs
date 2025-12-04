@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.InventoryTransaction.Commands.CreateInventoryTransactionCommand
 {
-    public class CreateInventoryTransactionCommandHandler : IRequestHandler<CreateInventoryTransactionCommand, Guid>
+    public class CreateInventoryTransactionCommandHandler : IRequestHandler<CreateInventoryTransactionCommand, int>
     {
         #region Fields
 
@@ -33,7 +33,7 @@ namespace Inventory.Application.Features.InventoryTransaction.Commands.CreateInv
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateInventoryTransactionCommand request,
             CancellationToken cancellationToken)
         {

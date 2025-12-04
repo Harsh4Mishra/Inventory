@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.VerifiedMaterial.Commands.CreateVerifiedMaterialCommand
 {
-    public class CreateVerifiedMaterialCommandHandler : IRequestHandler<CreateVerifiedMaterialCommand, Guid>
+    public class CreateVerifiedMaterialCommandHandler : IRequestHandler<CreateVerifiedMaterialCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.VerifiedMaterial.Commands.CreateVerifie
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateVerifiedMaterialCommand request,
             CancellationToken cancellationToken)
         {

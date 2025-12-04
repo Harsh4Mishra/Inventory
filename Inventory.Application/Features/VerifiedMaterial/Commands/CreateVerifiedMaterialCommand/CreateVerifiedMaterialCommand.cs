@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.VerifiedMaterial.Commands.CreateVerifiedMaterialCommand
 {
-    public sealed record CreateVerifiedMaterialCommand : IRequest<Guid>
+    public sealed record CreateVerifiedMaterialCommand : IRequest<int>
     {
         #region Properties
-        public Guid MaterialBatchId { get; set; }
+        public int MaterialBatchId { get; set; }
         public decimal Quantity { get; set; }
-        public Guid? EmpId { get; set; }
+        public int? EmpId { get; set; }
         public JsonDocument? Specification { get; set; }
         public bool? IsQualified { get; set; }
         public string? Reason { get; set; }

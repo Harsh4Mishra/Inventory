@@ -8,9 +8,9 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid RoleId { get; private set; }
-        public Guid ModuleId { get; private set; }
-        public Guid PermissionId { get; private set; }
+        public int RoleId { get; private set; }
+        public int ModuleId { get; private set; }
+        public int PermissionId { get; private set; }
         public bool IsActive { get; private set; } = default;
 
         #endregion
@@ -20,9 +20,9 @@ namespace Inventory.Domain.DomainObjects
         private RolePermissionDO() { } // For ORM
 
         private RolePermissionDO(
-            Guid roleId,
-            Guid moduleId,
-            Guid permissionId)
+            int roleId,
+            int moduleId,
+            int permissionId)
         {
             RoleId = roleId;
             ModuleId = moduleId;
@@ -35,9 +35,9 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static RolePermissionDO Create(
-           Guid roleId,
-           Guid moduleId,
-           Guid permissionId,
+           int roleId,
+           int moduleId,
+           int permissionId,
            string createdBy)
         {
             var rolePermission = new RolePermissionDO(roleId, moduleId, permissionId);
@@ -48,8 +48,8 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public void Update(
-            Guid moduleId,
-            Guid permissionId,
+            int moduleId,
+            int permissionId,
             string updatedBy)
         {
             ModuleId = moduleId;
@@ -58,19 +58,19 @@ namespace Inventory.Domain.DomainObjects
             MarkUpdated(updatedBy);
         }
 
-        public void ChangeRole(Guid roleId, string updatedBy)
+        public void ChangeRole(int roleId, string updatedBy)
         {
             RoleId = roleId;
             MarkUpdated(updatedBy);
         }
 
-        public void ChangeModule(Guid moduleId, string updatedBy)
+        public void ChangeModule(int moduleId, string updatedBy)
         {
             ModuleId = moduleId;
             MarkUpdated(updatedBy);
         }
 
-        public void ChangePermission(Guid permissionId, string updatedBy)
+        public void ChangePermission(int permissionId, string updatedBy)
         {
             PermissionId = permissionId;
             MarkUpdated(updatedBy);

@@ -6,7 +6,7 @@ namespace Inventory.Domain.DomainObjects
         : AuditableDO
     {
         #region Properties
-        public Guid EnumTypeId { get; private set; }
+        public int EnumTypeId { get; private set; }
         public string Name { get; private set; } = string.Empty;
         public string Code { get; private set; } = string.Empty;
         public string Description { get; private set; } = string.Empty;
@@ -17,7 +17,7 @@ namespace Inventory.Domain.DomainObjects
         private EnumValueDO() { } // For ORM
 
         private EnumValueDO(
-            Guid enumTypeId,
+            int enumTypeId,
             string name,
             string code,
             string description)
@@ -32,7 +32,7 @@ namespace Inventory.Domain.DomainObjects
 
         #region Methods
         internal static EnumValueDO Create(
-            Guid enumTypeId,
+            int enumTypeId,
             string name,
             string code,
             string description,

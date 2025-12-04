@@ -19,7 +19,8 @@ namespace Inventory.PersistenceService.Configurations.Entities
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("CHAR(16)")
+                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder

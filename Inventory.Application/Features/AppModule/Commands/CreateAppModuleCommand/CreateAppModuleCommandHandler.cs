@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Inventory.Application.Features.AppModule.Commands.CreateAppModuleCommand
 {
-    public class CreateAppModuleCommandHandler : IRequestHandler<CreateAppModuleCommand, Guid>
+    public class CreateAppModuleCommandHandler : IRequestHandler<CreateAppModuleCommand, int>
     {
         #region Fields
 
@@ -35,7 +35,7 @@ namespace Inventory.Application.Features.AppModule.Commands.CreateAppModuleComma
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateAppModuleCommand request,
             CancellationToken cancellationToken)
         {

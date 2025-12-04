@@ -13,9 +13,9 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid BomId { get; private set; }
-        public Guid MaterialBatchId { get; private set; }
-        public Guid WarehouseItemId { get; private set; }
+        public int BomId { get; private set; }
+        public int MaterialBatchId { get; private set; }
+        public int WarehouseItemId { get; private set; }
         public decimal Quantity { get; private set; }
 
         #endregion
@@ -25,9 +25,9 @@ namespace Inventory.Domain.DomainObjects
         public BomItemDO() { } // For ORM
 
         public BomItemDO(
-            Guid bomId,
-            Guid materialBatchId,
-            Guid warehouseItemId,
+            int bomId,
+            int materialBatchId,
+            int warehouseItemId,
             decimal quantity)
         {
             BomId = bomId;
@@ -41,9 +41,9 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static BomItemDO Create(
-            Guid bomId,
-            Guid materialBatchId,
-            Guid warehouseItemId,
+            int bomId,
+            int materialBatchId,
+            int warehouseItemId,
             decimal quantity,
             string createdBy)
         {
@@ -63,7 +63,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public void UpdateMaterialBatch(
-            Guid materialBatchId,
+            int materialBatchId,
             string updatedBy)
         {
             MaterialBatchId = materialBatchId;
@@ -71,7 +71,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public void UpdateWarehouseItem(
-            Guid warehouseItemId,
+            int warehouseItemId,
             string updatedBy)
         {
             WarehouseItemId = warehouseItemId;

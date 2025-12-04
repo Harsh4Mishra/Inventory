@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Vendor.Queries.GetVendorByIdQuery
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public string Name { get; init; } = default!;
         public string Type { get; init; } = default!;
         public string Contact { get; init; } = default!;

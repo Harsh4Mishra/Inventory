@@ -8,7 +8,7 @@ namespace Inventory.Application.Features.User.Commands.UpdateUserCommand
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = default!;
         public PhoneVO PhoneNo { get; set; } = default!;
         public EmailVO EmailId { get; set; } = default!;

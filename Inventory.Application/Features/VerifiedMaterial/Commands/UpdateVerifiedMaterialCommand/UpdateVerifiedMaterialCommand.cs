@@ -11,10 +11,10 @@ namespace Inventory.Application.Features.VerifiedMaterial.Commands.UpdateVerifie
     public sealed record UpdateVerifiedMaterialCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public bool? IsQualified { get; set; }
         public string? Reason { get; set; }
-        public Guid? EmpId { get; set; }
+        public int? EmpId { get; set; }
         public JsonDocument? Specification { get; set; }
 
         #endregion

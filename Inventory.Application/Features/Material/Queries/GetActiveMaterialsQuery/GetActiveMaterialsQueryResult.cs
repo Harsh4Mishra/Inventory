@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Material.Queries.GetActiveMaterialsQuer
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public string Sku { get; init; } = default!;
         public string Name { get; init; } = default!;
         public string? Category { get; init; }

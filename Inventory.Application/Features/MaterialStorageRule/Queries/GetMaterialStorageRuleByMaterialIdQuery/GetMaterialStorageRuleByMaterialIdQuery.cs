@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.MaterialStorageRule.Queries.GetMaterial
     public sealed record GetMaterialStorageRuleByMaterialIdQuery : IRequest<GetMaterialStorageRuleByMaterialIdQueryResult?>
     {
         #region Properties
-        public Guid MaterialId { get; init; }
+        public int MaterialId { get; init; }
         #endregion
     }
 }

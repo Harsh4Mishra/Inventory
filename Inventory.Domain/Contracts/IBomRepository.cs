@@ -45,28 +45,28 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a BOM by its unique identifier
         /// </summary>
         Task<BomDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a BOM by its unique identifier to make changes
         /// </summary>
         Task<BomDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves BOMs by category ID
         /// </summary>
         Task<IReadOnlyCollection<BomDO>> GetByCategoryIdAsync(
-            Guid bomCategoryId,
+            int bomCategoryId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves BOMs by category ID to make changes
         /// </summary>
         Task<IReadOnlyCollection<BomDO>> GetByCategoryIdToMutateAsync(
-            Guid bomCategoryId,
+            int bomCategoryId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any BOM exists in the given category
         /// </summary>
         Task<bool> ExistsByCategoryIdAsync(
-            Guid bomCategoryId,
+            int bomCategoryId,
             CancellationToken cancellationToken = default);
 
         #endregion

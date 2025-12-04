@@ -30,14 +30,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a vendor by its unique identifier.
         /// </summary>
         Task<VendorDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a vendor by its unique identifier to make changes.
         /// </summary>
         Task<VendorDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>

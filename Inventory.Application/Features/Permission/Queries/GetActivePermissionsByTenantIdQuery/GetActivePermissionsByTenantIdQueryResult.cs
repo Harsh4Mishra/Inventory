@@ -6,8 +6,8 @@ namespace Inventory.Application.Features.Permission.Queries.GetActivePermissions
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid TenantId { get; init; }
+        public int Id { get; init; }
+        public int TenantId { get; init; }
         public string Code { get; init; } = default!;
         public string Name { get; init; } = default!;
         public string? Description { get; init; }

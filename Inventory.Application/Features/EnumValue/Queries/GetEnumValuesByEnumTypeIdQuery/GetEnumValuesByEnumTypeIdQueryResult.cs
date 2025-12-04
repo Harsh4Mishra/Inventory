@@ -5,8 +5,8 @@ namespace Inventory.Application.Features.EnumValue.Queries.GetEnumValuesByEnumTy
     {
         #region Properties
 
-        public Guid Id { get; init; } = default;
-        public Guid EnumTypeId { get; init; } = default;
+        public int Id { get; init; } = default;
+        public int EnumTypeId { get; init; } = default;
         public string Name { get; init; } = default!;
         public string Code { get; init; } = default!;
         public string Description { get; init; } = default!;

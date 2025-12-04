@@ -86,12 +86,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<VerifiedMaterialDO>> GetByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }
@@ -108,12 +108,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<VerifiedMaterialDO>> GetByMaterialBatchIdToMutateAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }
@@ -129,12 +129,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<VerifiedMaterialDO>> GetByEmpIdAsync(
-            Guid empId,
+            int empId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (empId == Guid.Empty)
+                if (empId == 0)
                 {
                     throw new ArgumentException("Invalid employee id provided");
                 }
@@ -181,12 +181,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<VerifiedMaterialDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -202,12 +202,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<VerifiedMaterialDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -242,12 +242,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }
@@ -261,12 +261,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<decimal> GetTotalQuantityByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }

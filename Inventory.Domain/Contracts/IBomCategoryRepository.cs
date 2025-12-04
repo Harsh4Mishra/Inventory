@@ -25,14 +25,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a BOM category by its unique identifier
         /// </summary>
         Task<BomCategoryDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a BOM category by its unique identifier to make changes
         /// </summary>
         Task<BomCategoryDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>

@@ -6,14 +6,14 @@ namespace Inventory.Application.Features.RolePermission.Queries.GetActiveRolePer
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid RoleId { get; init; }
+        public int Id { get; init; }
+        public int RoleId { get; init; }
         public string RoleName { get; init; } = default!;
-        public Guid ModuleId { get; init; }
+        public int ModuleId { get; init; }
         public string ModuleName { get; init; } = default!;
-        public Guid PermissionId { get; init; }
+        public int PermissionId { get; init; }
         public string PermissionName { get; init; } = default!;
-        public Guid TenantId { get; init; }
+        public int TenantId { get; init; }
         public bool IsActive { get; init; }
         public string CreatedBy { get; init; } = default!;
         public DateTime CreatedOn { get; init; }

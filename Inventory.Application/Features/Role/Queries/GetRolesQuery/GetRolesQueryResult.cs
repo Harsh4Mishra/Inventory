@@ -4,7 +4,7 @@
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public string Name { get; init; } = default!;
         public string Code { get; init; } = default!;
         public string? Description { get; init; }

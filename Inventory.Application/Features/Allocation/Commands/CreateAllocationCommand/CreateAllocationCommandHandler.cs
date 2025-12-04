@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Allocation.Commands.CreateAllocationCommand
 {
-    public class CreateAllocationCommandHandler : IRequestHandler<CreateAllocationCommand, Guid>
+    public class CreateAllocationCommandHandler : IRequestHandler<CreateAllocationCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.Allocation.Commands.CreateAllocationCom
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateAllocationCommand request,
             CancellationToken cancellationToken)
         {

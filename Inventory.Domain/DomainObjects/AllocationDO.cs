@@ -13,9 +13,9 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid OrderId { get; private set; }
-        public Guid ProductId { get; private set; }
-        public Guid MaterialBatchId { get; private set; }
+        public int OrderId { get; private set; }
+        public int ProductId { get; private set; }
+        public int MaterialBatchId { get; private set; }
         public decimal Quantity { get; private set; }
         public string Status { get; private set; } = default!;
 
@@ -26,9 +26,9 @@ namespace Inventory.Domain.DomainObjects
         public AllocationDO() { } // For ORM
 
         private AllocationDO(
-            Guid orderId,
-            Guid productId,
-            Guid materialBatchId,
+            int orderId,
+            int productId,
+            int materialBatchId,
             decimal quantity,
             string status)
         {
@@ -44,9 +44,9 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static AllocationDO Create(
-            Guid orderId,
-            Guid productId,
-            Guid materialBatchId,
+            int orderId,
+            int productId,
+            int materialBatchId,
             decimal quantity,
             string createdBy)
         {

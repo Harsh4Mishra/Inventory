@@ -11,7 +11,7 @@ namespace Inventory.Application.Features.VerifiedMaterial.Commands.UpdateQuantit
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public decimal Quantity { get; init; }
 
         #endregion

@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.InventoryTransaction.Queries.GetInvento
     public sealed record GetInventoryTransactionsByProductQuery : IRequest<IEnumerable<GetInventoryTransactionsByProductQueryResult>>
     {
         #region Properties
-        public Guid ProductId { get; init; }
+        public int ProductId { get; init; }
 
         #endregion
     }

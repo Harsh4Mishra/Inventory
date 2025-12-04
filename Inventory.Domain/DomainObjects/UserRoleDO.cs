@@ -13,8 +13,8 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid UserId { get; private set; }
-        public Guid RoleId { get; private set; }
+        public int UserId { get; private set; }
+        public int RoleId { get; private set; }
         public bool IsActive { get; private set; } = default;
 
         #endregion
@@ -24,8 +24,8 @@ namespace Inventory.Domain.DomainObjects
         private UserRoleDO() { } // For ORM
 
         private UserRoleDO(
-            Guid userId,
-            Guid roleId)
+            int userId,
+            int roleId)
         {
             UserId = userId;
             RoleId = roleId;
@@ -37,8 +37,8 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static UserRoleDO Create(
-           Guid userId,
-           Guid roleId,
+           int userId,
+           int roleId,
            string createdBy)
         {
             var userRole = new UserRoleDO(userId, roleId);
@@ -49,7 +49,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public void Update(
-            Guid roleId,
+            int roleId,
             string updatedBy)
         {
             RoleId = roleId;
@@ -71,14 +71,14 @@ namespace Inventory.Domain.DomainObjects
             MarkUpdated(updatedBy);
         }
 
-        public void AssignToUser(Guid userId, string updatedBy)
+        public void AssignToUser(int userId, string updatedBy)
         {
             UserId = userId;
 
             MarkUpdated(updatedBy);
         }
 
-        public void AssignToRole(Guid roleId, string updatedBy)
+        public void AssignToRole(int roleId, string updatedBy)
         {
             RoleId = roleId;
 

@@ -26,12 +26,12 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(aisleId, out Guid aisleIdGuid))
+                if (!int.TryParse(aisleId, out int aisleIdint))
                 {
                     return BadRequest("Invalid Aisle ID.");
                 }
 
-                var response = await _mediator.Send(new GetRowLocsByAisleIdQuery() { AisleId = aisleIdGuid });
+                var response = await _mediator.Send(new GetRowLocsByAisleIdQuery() { AisleId = aisleIdint });
 
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetRowLocsByAisleIdQueryResult>>(response, true, "Row Locations Retrieved Successfully", 200);
 
@@ -48,12 +48,12 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(rowLocId, out Guid rowLocIdGuid))
+                if (!int.TryParse(rowLocId, out int rowLocIdint))
                 {
                     return BadRequest("Invalid Row Location ID.");
                 }
 
-                var response = await _mediator.Send(new GetRowLocByIdQuery() { Id = rowLocIdGuid });
+                var response = await _mediator.Send(new GetRowLocByIdQuery() { Id = rowLocIdint });
 
                 var successApiResponse = new SuccessAPIResponse<GetRowLocByIdQueryResult>(response, true, "Row Location Retrieved Successfully", 200);
 
@@ -75,7 +75,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 var response = await _mediator.Send(rowLoc);
 
-                var successApiResponse = new SuccessAPIResponse<Guid>(response, true, "Row Location Created Successfully", 200);
+                var successApiResponse = new SuccessAPIResponse<int>(response, true, "Row Location Created Successfully", 200);
 
                 return Ok(successApiResponse);
             }
@@ -113,7 +113,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (rowLocId is null)
                     throw new ArgumentException("A non-empty request body is required.");
 
-                if (!Guid.TryParse(rowLocId, out Guid rowLocGuid))
+                if (!int.TryParse(rowLocId, out int rowLocint))
                 {
                     return BadRequest("Invalid Row Location ID.");
                 }
@@ -121,15 +121,15 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (aisleId is null)
                     throw new ArgumentException("A non-empty request body is required.");
 
-                if (!Guid.TryParse(aisleId, out Guid aisleGuid))
+                if (!int.TryParse(aisleId, out int aisleint))
                 {
                     return BadRequest("Invalid Aisle ID.");
                 }
 
                 var command = new DeleteRowLocCommand
                 {
-                    Id = rowLocGuid,
-                    AisleId = aisleGuid
+                    Id = rowLocint,
+                    AisleId = aisleint
                 };
 
                 var response = await _mediator.Send(command);

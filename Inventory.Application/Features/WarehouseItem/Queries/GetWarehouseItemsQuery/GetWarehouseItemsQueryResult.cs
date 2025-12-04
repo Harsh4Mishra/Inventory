@@ -11,12 +11,12 @@ namespace Inventory.Application.Features.WarehouseItem.Queries.GetWarehouseItems
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid MaterialBatchId { get; init; }
-        public Guid WarehouseId { get; init; }
-        public Guid AisleId { get; init; }
-        public Guid RowId { get; init; }
-        public Guid TrayId { get; init; }
+        public int Id { get; init; }
+        public int MaterialBatchId { get; init; }
+        public int WarehouseId { get; init; }
+        public int AisleId { get; init; }
+        public int RowId { get; init; }
+        public int TrayId { get; init; }
         public decimal Quantity { get; init; }
         public string Name { get; init; } = default!;
         public JsonDocument? Specification { get; init; }

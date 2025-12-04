@@ -40,21 +40,21 @@ namespace Inventory.Domain.Contracts
         /// Retrieves an organization by its unique identifier (including inactive and deleted)
         /// </summary>
         Task<OrganizationDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an organization by its unique identifier to make changes (including inactive and deleted)
         /// </summary>
         Task<OrganizationDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an active organization by its unique identifier (excluding inactive and deleted)
         /// </summary>
         Task<OrganizationDO?> GetActiveByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -146,14 +146,14 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any organization exists with the given ID (including inactive and deleted)
         /// </summary>
         Task<bool> ExistsByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks whether any active organization exists with the given ID (excluding inactive and deleted)
         /// </summary>
         Task<bool> ActiveExistsByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         #endregion

@@ -10,10 +10,10 @@ namespace Inventory.Application.Features.Product.Queries.GetActiveProductsQuery
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public string Name { get; init; } = default!;
         public string Sku { get; init; } = default!;
-        public Guid BomId { get; init; }
+        public int BomId { get; init; }
         public string CreatedBy { get; init; } = default!;
         public DateTime CreatedOn { get; init; }
         public string? UpdatedBy { get; init; }

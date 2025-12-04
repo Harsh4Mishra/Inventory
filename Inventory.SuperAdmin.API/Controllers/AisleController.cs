@@ -71,12 +71,12 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(warehouseId, out Guid warehouseIdGuid))
+                if (!int.TryParse(warehouseId, out int warehouseIdint))
                 {
                     return BadRequest("Invalid Warehouse ID.");
                 }
 
-                var response = await _mediator.Send(new GetAislesByWarehouseIdQuery() { WarehouseId = warehouseIdGuid });
+                var response = await _mediator.Send(new GetAislesByWarehouseIdQuery() { WarehouseId = warehouseIdint });
 
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetAislesByWarehouseIdQueryResult>>(response, true, "Aisles by Warehouse Retrieved Successfully", 200);
 
@@ -98,7 +98,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 var response = await _mediator.Send(aisle);
 
-                var successApiResponse = new SuccessAPIResponse<Guid>(response, true, "Aisle Created Successfully", 200);
+                var successApiResponse = new SuccessAPIResponse<int>(response, true, "Aisle Created Successfully", 200);
 
                 return Ok(successApiResponse);
             }
@@ -136,14 +136,14 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (aisleId is null)
                     throw new ArgumentException("A non-empty request body is required.");
 
-                if (!Guid.TryParse(aisleId, out Guid aisleGuid))
+                if (!int.TryParse(aisleId, out int aisleint))
                 {
                     return BadRequest("Invalid Aisle ID.");
                 }
 
                 var command = new DeleteAisleCommand
                 {
-                    Id = aisleGuid
+                    Id = aisleint
                 };
 
                 var response = await _mediator.Send(command);

@@ -26,7 +26,7 @@ namespace Inventory.Application.Features.UserRole.Commands.UpdateUserRoleCommand
 
         #region Methods
 
-        private async Task<bool> ValidateIfRoleExists(Guid roleId, CancellationToken cancellationToken)
+        private async Task<bool> ValidateIfRoleExists(int roleId, CancellationToken cancellationToken)
         {
             var role = await _roleRepository.GetByIdAsync(roleId, cancellationToken);
             return role != null;

@@ -44,7 +44,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByWarehouse/{warehouseId}")]
-        public async Task<IActionResult> GetByWarehouse(Guid warehouseId)
+        public async Task<IActionResult> GetByWarehouse(int warehouseId)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByMaterialBatch/{materialBatchId}")]
-        public async Task<IActionResult> GetByMaterialBatch(Guid materialBatchId)
+        public async Task<IActionResult> GetByMaterialBatch(int materialBatchId)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByLocation")]
-        public async Task<IActionResult> GetByLocation([FromQuery] Guid warehouseId, [FromQuery] Guid aisleId, [FromQuery] Guid rowId, [FromQuery] Guid trayId)
+        public async Task<IActionResult> GetByLocation([FromQuery] int warehouseId, [FromQuery] int aisleId, [FromQuery] int rowId, [FromQuery] int trayId)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -143,7 +143,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Warehouse Item Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -234,10 +234,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(warehouseItemId, out Guid warehouseItemGuid))
+                if (!int.TryParse(warehouseItemId, out int warehouseItemint))
                     return BadRequest("Invalid Warehouse Item ID.");
 
-                var command = new DeleteWarehouseItemCommand { Id = warehouseItemGuid };
+                var command = new DeleteWarehouseItemCommand { Id = warehouseItemint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Warehouse Item Deleted Successfully", 200);

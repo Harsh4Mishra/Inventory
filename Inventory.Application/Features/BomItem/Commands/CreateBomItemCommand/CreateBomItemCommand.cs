@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.BomItem.Commands.CreateBomItemCommand
 {
-    public sealed record CreateBomItemCommand : IRequest<Guid>
+    public sealed record CreateBomItemCommand : IRequest<int>
     {
         #region Properties
-        public Guid BomId { get; set; }
-        public Guid MaterialBatchId { get; set; }
-        public Guid WarehouseItemId { get; set; }
+        public int BomId { get; set; }
+        public int MaterialBatchId { get; set; }
+        public int WarehouseItemId { get; set; }
         public decimal Quantity { get; set; }
         #endregion
     }

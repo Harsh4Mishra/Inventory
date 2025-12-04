@@ -7,7 +7,7 @@ namespace Inventory.Application.Features.Role.Commands.DeleteRoleCommand
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         #endregion
     }

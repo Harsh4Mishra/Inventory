@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Allocation.Queries.GetAllocationByIdQue
     public sealed record GetAllocationByIdQuery : IRequest<GetAllocationByIdQueryResult?>
     {
         #region Properties
-        public Guid Id { get; init; }
+        public int Id { get; init; }
 
         #endregion
     }

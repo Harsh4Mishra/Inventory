@@ -56,7 +56,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Storage Section Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -130,10 +130,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(storageSectionId, out Guid storageSectionGuid))
+                if (!int.TryParse(storageSectionId, out int storageSectionint))
                     return BadRequest("Invalid Storage Section ID.");
 
-                var command = new DeleteStorageSectionCommand { Id = storageSectionGuid };
+                var command = new DeleteStorageSectionCommand { Id = storageSectionint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Storage Section Deleted Successfully", 200);

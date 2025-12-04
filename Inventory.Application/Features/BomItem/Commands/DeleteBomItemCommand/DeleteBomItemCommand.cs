@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.BomItem.Commands.DeleteBomItemCommand
     public class DeleteBomItemCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         #endregion
     }
 }

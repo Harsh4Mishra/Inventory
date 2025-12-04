@@ -25,21 +25,21 @@ namespace Inventory.Domain.Contracts
         /// Retrieves verified materials by material batch ID
         /// </summary>
         Task<IReadOnlyCollection<VerifiedMaterialDO>> GetByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves verified materials by material batch ID to make changes
         /// </summary>
         Task<IReadOnlyCollection<VerifiedMaterialDO>> GetByMaterialBatchIdToMutateAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves verified materials by employee ID (verifier)
         /// </summary>
         Task<IReadOnlyCollection<VerifiedMaterialDO>> GetByEmpIdAsync(
-            Guid empId,
+            int empId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -56,14 +56,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a verified material by its unique identifier
         /// </summary>
         Task<VerifiedMaterialDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a verified material by its unique identifier to make changes
         /// </summary>
         Task<VerifiedMaterialDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -80,14 +80,14 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any verified material exists for the given material batch ID
         /// </summary>
         Task<bool> ExistsByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the total quantity of verified materials for a specific material batch
         /// </summary>
         Task<decimal> GetTotalQuantityByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         #endregion

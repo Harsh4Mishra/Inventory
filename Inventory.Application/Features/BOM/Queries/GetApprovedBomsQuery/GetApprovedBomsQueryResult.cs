@@ -10,9 +10,9 @@ namespace Inventory.Application.Features.BOM.Queries.GetApprovedBomsQuery
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public string Name { get; init; } = default!;
-        public Guid BomCategoryId { get; init; }
+        public int BomCategoryId { get; init; }
         public string? Result { get; init; }
         public decimal Quantity { get; init; }
         public string CreatedBy { get; init; } = default!;

@@ -2,11 +2,11 @@
 
 namespace Inventory.Application.Features.UserRole.Commands.CreateUserRoleCommand
 {
-    public sealed record CreateUserRoleCommand : IRequest<Guid>
+    public sealed record CreateUserRoleCommand : IRequest<int>
     {
         #region Properties
-        public Guid UserId { get; set; }
-        public Guid RoleId { get; set; }
+        public int UserId { get; set; }
+        public int RoleId { get; set; }
         #endregion
     }
 }

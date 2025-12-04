@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Material.Commands.CreateMaterialCommand
 {
-    public class CreateMaterialCommandHandler : IRequestHandler<CreateMaterialCommand, Guid>
+    public class CreateMaterialCommandHandler : IRequestHandler<CreateMaterialCommand, int>
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace Inventory.Application.Features.Material.Commands.CreateMaterialCommand
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateMaterialCommand request,
             CancellationToken cancellationToken)
         {

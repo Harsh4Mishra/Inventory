@@ -7,7 +7,7 @@ namespace Inventory.Application.Features.Organization.Commands.ToggleOrganizatio
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public bool IsActive { get; init; }
 
         #endregion

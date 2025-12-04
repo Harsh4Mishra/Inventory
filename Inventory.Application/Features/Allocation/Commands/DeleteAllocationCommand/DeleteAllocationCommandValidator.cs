@@ -16,7 +16,7 @@ namespace Inventory.Application.Features.Allocation.Commands.DeleteAllocationCom
             RuleFor(x => x.Id)
                 .NotEmpty().WithMessage("ID cannot be empty.")
                 .NotNull().WithMessage("ID is required.")
-                .NotEqual(Guid.Empty).WithMessage("ID cannot be empty GUID.");
+                .NotEqual(0).WithMessage("ID cannot be empty int.");
         }
 
         #endregion

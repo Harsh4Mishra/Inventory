@@ -12,7 +12,7 @@ namespace Inventory.Application.Features.Product.Commands.DeleteProductCommand
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         #endregion
     }

@@ -13,7 +13,7 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid BomItemId { get; private set; }
+        public int BomItemId { get; private set; }
         public string Disposition { get; private set; } = default!;
         public string? Notes { get; private set; }
         public DateTime ProcessedOn { get; private set; }
@@ -25,7 +25,7 @@ namespace Inventory.Domain.DomainObjects
         public BomItemDispositionDO() { } // For ORM
 
         public BomItemDispositionDO(
-            Guid bomItemId,
+            int bomItemId,
             string disposition,
             string? notes)
         {
@@ -40,7 +40,7 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static BomItemDispositionDO Create(
-            Guid bomItemId,
+            int bomItemId,
             string disposition,
             string? notes,
             string createdBy)

@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.WarehouseItem.Command.DeleteWarehouseIt
     public class DeleteWarehouseItemCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         #endregion
     }
 }

@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.BOM.Commands.ApproveBomCommand
     public sealed record ApproveBomCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         #endregion
     }
 }

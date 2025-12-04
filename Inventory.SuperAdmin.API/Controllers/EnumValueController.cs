@@ -26,17 +26,17 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                Guid? enumTypeIdGuid = null;
-                if (!string.IsNullOrEmpty(enumTypeId) && Guid.TryParse(enumTypeId, out Guid parsedGuid))
+                int? enumTypeIdint = null;
+                if (!string.IsNullOrEmpty(enumTypeId) && int.TryParse(enumTypeId, out int parsedint))
                 {
-                    enumTypeIdGuid = parsedGuid;
+                    enumTypeIdint = parsedint;
                 }
                 else
                 {
                     return BadRequest("Invalid Enum Type ID.");
                 }
 
-                var response = await _mediator.Send(new GetEnumValuesByEnumTypeIdQuery() { EnumTypeId = (Guid)enumTypeIdGuid });
+                var response = await _mediator.Send(new GetEnumValuesByEnumTypeIdQuery() { EnumTypeId = (int)enumTypeIdint });
 
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetEnumValuesByEnumTypeIdQueryResult>>(response, true, "Enum Values Retrieved Successfully", 200);
 
@@ -53,17 +53,17 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                Guid? enumTypeIdGuid = null;
-                if (!string.IsNullOrEmpty(enumTypeId) && Guid.TryParse(enumTypeId, out Guid parsedGuid))
+                int? enumTypeIdint = null;
+                if (!string.IsNullOrEmpty(enumTypeId) && int.TryParse(enumTypeId, out int parsedint))
                 {
-                    enumTypeIdGuid = parsedGuid;
+                    enumTypeIdint = parsedint;
                 }
                 else
                 {
                     return BadRequest("Invalid Enum Type ID.");
                 }
 
-                var response = await _mediator.Send(new GetActiveEnumValuesByEnumTypeIdQuery() { EnumTypeId = (Guid)enumTypeIdGuid });
+                var response = await _mediator.Send(new GetActiveEnumValuesByEnumTypeIdQuery() { EnumTypeId = (int)enumTypeIdint });
 
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetActiveEnumValuesByEnumTypeIdQueryResult>>(response, true, "Active Enum Values Retrieved Successfully", 200);
 
@@ -85,7 +85,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 var response = await _mediator.Send(enumValue);
 
-                var successApiResponse = new SuccessAPIResponse<Guid>(response, true, "Enum Value Created Successfully", 200);
+                var successApiResponse = new SuccessAPIResponse<int>(response, true, "Enum Value Created Successfully", 200);
 
                 return Ok(successApiResponse);
             }
@@ -123,7 +123,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (enumValueId is null)
                     throw new ArgumentException("Enum Value ID is required.");
 
-                if (!Guid.TryParse(enumValueId, out Guid enumValueGuid))
+                if (!int.TryParse(enumValueId, out int enumValueint))
                 {
                     return BadRequest("Invalid Enum Value ID.");
                 }
@@ -131,15 +131,15 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (enumTypeId is null)
                     throw new ArgumentException("Enum Type ID is required.");
 
-                if (!Guid.TryParse(enumTypeId, out Guid enumTypeGuid))
+                if (!int.TryParse(enumTypeId, out int enumTypeint))
                 {
                     return BadRequest("Invalid Enum Type ID.");
                 }
 
                 var command = new DeleteEnumValueCommand
                 {
-                    Id = enumValueGuid,
-                    EnumTypeId = enumTypeGuid
+                    Id = enumValueint,
+                    EnumTypeId = enumTypeint
                 };
 
                 var response = await _mediator.Send(command);

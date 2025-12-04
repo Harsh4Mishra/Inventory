@@ -11,7 +11,7 @@ namespace Inventory.Application.Features.Warehouse.Queries.GetWarehouseByNameQue
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public string Name { get; init; } = default!;
         public string? Address { get; init; }
         public bool IsActive { get; init; }

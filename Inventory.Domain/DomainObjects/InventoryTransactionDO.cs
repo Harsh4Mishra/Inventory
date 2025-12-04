@@ -13,23 +13,23 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid TransactionUUID { get; private set; }
+        public string TransactionUUID { get; private set; }
         public DateTime TransactionTime { get; private set; }
         public string TransactionType { get; private set; } = default!;
-        public Guid? MaterialBatchId { get; private set; }
-        public Guid? ProductId { get; private set; }
+        public int? MaterialBatchId { get; private set; }
+        public int? ProductId { get; private set; }
         public decimal Quantity { get; private set; }
-        public Guid? FromWarehouseId { get; private set; }
-        public Guid? ToWarehouseId { get; private set; }
-        public Guid? FromAisleId { get; private set; }
-        public Guid? ToAisleId { get; private set; }
-        public Guid? FromRowId { get; private set; }
-        public Guid? ToRowId { get; private set; }
-        public Guid? FromTrayId { get; private set; }
-        public Guid? ToTrayId { get; private set; }
+        public int? FromWarehouseId { get; private set; }
+        public int? ToWarehouseId { get; private set; }
+        public int? FromAisleId { get; private set; }
+        public int? ToAisleId { get; private set; }
+        public int? FromRowId { get; private set; }
+        public int? ToRowId { get; private set; }
+        public int? FromTrayId { get; private set; }
+        public int? ToTrayId { get; private set; }
         public string? ReferenceType { get; private set; }
-        public Guid? ReferenceId { get; private set; }
-        public Guid CreatedBy { get; private set; }
+        public int? ReferenceId { get; private set; }
+        public int CreatedBy { get; private set; }
         public decimal? Cost { get; private set; }
         public string? Notes { get; private set; }
 
@@ -42,23 +42,23 @@ namespace Inventory.Domain.DomainObjects
         private InventoryTransactionDO(
             string transactionType,
             decimal quantity,
-            Guid createdBy,
-            Guid? materialBatchId = null,
-            Guid? productId = null,
-            Guid? fromWarehouseId = null,
-            Guid? toWarehouseId = null,
-            Guid? fromAisleId = null,
-            Guid? toAisleId = null,
-            Guid? fromRowId = null,
-            Guid? toRowId = null,
-            Guid? fromTrayId = null,
-            Guid? toTrayId = null,
+            int createdBy,
+            int? materialBatchId = null,
+            int? productId = null,
+            int? fromWarehouseId = null,
+            int? toWarehouseId = null,
+            int? fromAisleId = null,
+            int? toAisleId = null,
+            int? fromRowId = null,
+            int? toRowId = null,
+            int? fromTrayId = null,
+            int? toTrayId = null,
             string? referenceType = null,
-            Guid? referenceId = null,
+            int? referenceId = null,
             decimal? cost = null,
             string? notes = null)
         {
-            TransactionUUID = Guid.NewGuid();
+            TransactionUUID = DateTime.Now.ToString("ddMMyyHHmmss");
             TransactionTime = DateTime.UtcNow;
             TransactionType = transactionType.Trim();
             Quantity = quantity;
@@ -85,15 +85,15 @@ namespace Inventory.Domain.DomainObjects
 
         public static InventoryTransactionDO CreateReceive(
             decimal quantity,
-            Guid createdBy,
-            Guid toWarehouseId,
-            Guid? materialBatchId = null,
-            Guid? productId = null,
-            Guid? toAisleId = null,
-            Guid? toRowId = null,
-            Guid? toTrayId = null,
+            int createdBy,
+            int toWarehouseId,
+            int? materialBatchId = null,
+            int? productId = null,
+            int? toAisleId = null,
+            int? toRowId = null,
+            int? toTrayId = null,
             string? referenceType = null,
-            Guid? referenceId = null,
+            int? referenceId = null,
             decimal? cost = null,
             string? notes = null)
         {
@@ -118,15 +118,15 @@ namespace Inventory.Domain.DomainObjects
 
         public static InventoryTransactionDO CreateIssue(
             decimal quantity,
-            Guid createdBy,
-            Guid fromWarehouseId,
-            Guid? materialBatchId = null,
-            Guid? productId = null,
-            Guid? fromAisleId = null,
-            Guid? fromRowId = null,
-            Guid? fromTrayId = null,
+            int createdBy,
+            int fromWarehouseId,
+            int? materialBatchId = null,
+            int? productId = null,
+            int? fromAisleId = null,
+            int? fromRowId = null,
+            int? fromTrayId = null,
             string? referenceType = null,
-            Guid? referenceId = null,
+            int? referenceId = null,
             decimal? cost = null,
             string? notes = null)
         {
@@ -151,19 +151,19 @@ namespace Inventory.Domain.DomainObjects
 
         public static InventoryTransactionDO CreateTransfer(
             decimal quantity,
-            Guid createdBy,
-            Guid fromWarehouseId,
-            Guid toWarehouseId,
-            Guid? materialBatchId = null,
-            Guid? productId = null,
-            Guid? fromAisleId = null,
-            Guid? toAisleId = null,
-            Guid? fromRowId = null,
-            Guid? toRowId = null,
-            Guid? fromTrayId = null,
-            Guid? toTrayId = null,
+            int createdBy,
+            int fromWarehouseId,
+            int toWarehouseId,
+            int? materialBatchId = null,
+            int? productId = null,
+            int? fromAisleId = null,
+            int? toAisleId = null,
+            int? fromRowId = null,
+            int? toRowId = null,
+            int? fromTrayId = null,
+            int? toTrayId = null,
             string? referenceType = null,
-            Guid? referenceId = null,
+            int? referenceId = null,
             decimal? cost = null,
             string? notes = null)
         {
@@ -192,15 +192,15 @@ namespace Inventory.Domain.DomainObjects
 
         public static InventoryTransactionDO CreateAdjustment(
             decimal quantity,
-            Guid createdBy,
-            Guid? warehouseId,
-            Guid? materialBatchId = null,
-            Guid? productId = null,
-            Guid? aisleId = null,
-            Guid? rowId = null,
-            Guid? trayId = null,
+            int createdBy,
+            int? warehouseId,
+            int? materialBatchId = null,
+            int? productId = null,
+            int? aisleId = null,
+            int? rowId = null,
+            int? trayId = null,
             string? referenceType = null,
-            Guid? referenceId = null,
+            int? referenceId = null,
             decimal? cost = null,
             string? notes = null)
         {

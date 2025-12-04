@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.AppModule.Queries.GetAppModuleByIdQuery
     public sealed record GetAppModuleByIdQuery : IRequest<GetAppModuleByIdQueryResult?>
     {
         #region Properties
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         #endregion
     }
 }

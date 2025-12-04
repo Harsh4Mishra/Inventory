@@ -7,8 +7,8 @@ namespace Inventory.Application.Features.EnumValue.Commands.ToggleEnumValueStatu
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid EnumTypeId { get; init; }
+        public int Id { get; init; }
+        public int EnumTypeId { get; init; }
         public bool IsActive { get; init; }
 
         #endregion

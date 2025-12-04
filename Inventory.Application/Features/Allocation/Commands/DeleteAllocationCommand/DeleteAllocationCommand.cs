@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Allocation.Commands.DeleteAllocationCom
     public sealed record DeleteAllocationCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         #endregion
     }

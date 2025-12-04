@@ -60,19 +60,19 @@ namespace Inventory.Application.Features.RolePermission.Commands.CreateRolePermi
 
         #region Methods
 
-        private async Task<bool> ValidateIfRoleExists(Guid roleId, CancellationToken cancellationToken)
+        private async Task<bool> ValidateIfRoleExists(int roleId, CancellationToken cancellationToken)
         {
             var role = (await _roleRepository.GetAllActiveAsync(cancellationToken)).Where(propa=>propa.Id==roleId).FirstOrDefault();
             return role != null;
         }
 
-        private async Task<bool> ValidateIfModuleExists(Guid moduleId, CancellationToken cancellationToken)
+        private async Task<bool> ValidateIfModuleExists(int moduleId, CancellationToken cancellationToken)
         {
             var module = await _appModuleRepository.GetActiveByIdAsync(moduleId, cancellationToken);
             return module != null;
         }
 
-        private async Task<bool> ValidateIfPermissionExists(Guid permissionId, CancellationToken cancellationToken)
+        private async Task<bool> ValidateIfPermissionExists(int permissionId, CancellationToken cancellationToken)
         {
             var permission = await _permissionRepository.GetActiveByIdAsync(permissionId, cancellationToken);
             return permission != null;

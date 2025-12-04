@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace Inventory.Application.Features.RowLoc.Commands.CreateRowLocCommand
 {
     public sealed record CreateRowLocCommand
-        : IRequest<Guid>
+        : IRequest<int>
     {
         #region Properties
 
-        public Guid AisleId { get; init; }
+        public int AisleId { get; init; }
         public string Name { get; init; } = default!;
 
         #endregion

@@ -7,7 +7,7 @@ namespace Inventory.Application.Features.RolePermission.Commands.ToggleRolePermi
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public bool IsActive { get; set; }
 
         #endregion

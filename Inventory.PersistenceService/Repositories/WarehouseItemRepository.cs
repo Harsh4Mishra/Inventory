@@ -57,12 +57,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<WarehouseItemDO>> GetByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }
@@ -79,12 +79,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<WarehouseItemDO>> GetByMaterialBatchIdToMutateAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }
@@ -100,12 +100,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<WarehouseItemDO>> GetByWarehouseIdAsync(
-            Guid warehouseId,
+            int warehouseId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (warehouseId == Guid.Empty)
+                if (warehouseId == 0)
                 {
                     throw new ArgumentException("Invalid warehouse id provided");
                 }
@@ -122,12 +122,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<WarehouseItemDO>> GetByWarehouseIdToMutateAsync(
-            Guid warehouseId,
+            int warehouseId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (warehouseId == Guid.Empty)
+                if (warehouseId == 0)
                 {
                     throw new ArgumentException("Invalid warehouse id provided");
                 }
@@ -143,12 +143,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<WarehouseItemDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -164,12 +164,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<WarehouseItemDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -184,15 +184,15 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<WarehouseItemDO>> GetByLocationAsync(
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (warehouseId == Guid.Empty || aisleId == Guid.Empty || rowId == Guid.Empty || trayId == Guid.Empty)
+                if (warehouseId == 0 || aisleId == 0 || rowId == 0 || trayId == 0)
                 {
                     throw new ArgumentException("Invalid location parameters provided");
                 }
@@ -212,15 +212,15 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<WarehouseItemDO>> GetByLocationToMutateAsync(
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (warehouseId == Guid.Empty || aisleId == Guid.Empty || rowId == Guid.Empty || trayId == Guid.Empty)
+                if (warehouseId == 0 || aisleId == 0 || rowId == 0 || trayId == 0)
                 {
                     throw new ArgumentException("Invalid location parameters provided");
                 }
@@ -269,12 +269,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialBatchId == Guid.Empty)
+                if (materialBatchId == 0)
                 {
                     throw new ArgumentException("Invalid material batch id provided");
                 }
@@ -288,15 +288,15 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsAtLocationAsync(
-            Guid warehouseId,
-            Guid aisleId,
-            Guid rowId,
-            Guid trayId,
+            int warehouseId,
+            int aisleId,
+            int rowId,
+            int trayId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (warehouseId == Guid.Empty || aisleId == Guid.Empty || rowId == Guid.Empty || trayId == Guid.Empty)
+                if (warehouseId == 0 || aisleId == 0 || rowId == 0 || trayId == 0)
                 {
                     throw new ArgumentException("Invalid location parameters provided");
                 }

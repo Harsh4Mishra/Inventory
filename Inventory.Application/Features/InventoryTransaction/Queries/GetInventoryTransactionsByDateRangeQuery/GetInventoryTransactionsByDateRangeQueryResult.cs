@@ -11,16 +11,16 @@ namespace Inventory.Application.Features.InventoryTransaction.Queries.GetInvento
         #region Properties
 
         public long Id { get; init; }
-        public Guid TransactionUUID { get; init; }
+        public string TransactionUUID { get; init; }
         public DateTime TransactionTime { get; init; }
         public string TransactionType { get; init; } = default!;
-        public Guid? MaterialBatchId { get; init; }
-        public Guid? ProductId { get; init; }
+        public int? MaterialBatchId { get; init; }
+        public int? ProductId { get; init; }
         public decimal Quantity { get; init; }
-        public Guid? FromWarehouseId { get; init; }
-        public Guid? ToWarehouseId { get; init; }
+        public int? FromWarehouseId { get; init; }
+        public int? ToWarehouseId { get; init; }
         public string? ReferenceType { get; init; }
-        public Guid? ReferenceId { get; init; }
+        public int? ReferenceId { get; init; }
         public decimal? Cost { get; init; }
         public string? Notes { get; init; }
         public DateTime CreatedOn { get; init; }

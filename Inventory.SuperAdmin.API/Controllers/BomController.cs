@@ -73,7 +73,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         //[HttpGet("GetByCategory/{bomCategoryId}")]
-        //public async Task<IActionResult> GetByCategory(Guid bomCategoryId)
+        //public async Task<IActionResult> GetByCategory(int bomCategoryId)
         //{
         //    try
         //    {
@@ -115,7 +115,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "BOM Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -187,10 +187,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(bomId, out Guid bomGuid))
+                if (!int.TryParse(bomId, out int bomint))
                     return BadRequest("Invalid BOM ID.");
 
-                var command = new DeleteBomCommand { Id = bomGuid };
+                var command = new DeleteBomCommand { Id = bomint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "BOM Deleted Successfully", 200);

@@ -26,12 +26,12 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(rowId, out Guid rowIdGuid))
+                if (!int.TryParse(rowId, out int rowIdint))
                 {
                     return BadRequest("Invalid Row ID.");
                 }
 
-                var response = await _mediator.Send(new GetTraysByRowIdQuery() { RowId = rowIdGuid });
+                var response = await _mediator.Send(new GetTraysByRowIdQuery() { RowId = rowIdint });
 
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetTraysByRowIdQueryResult>>(response, true, "Trays Retrieved Successfully", 200);
 
@@ -48,12 +48,12 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(trayId, out Guid trayIdGuid))
+                if (!int.TryParse(trayId, out int trayIdint))
                 {
                     return BadRequest("Invalid Tray ID.");
                 }
 
-                var response = await _mediator.Send(new GetTrayByIdQuery() { Id = trayIdGuid });
+                var response = await _mediator.Send(new GetTrayByIdQuery() { Id = trayIdint });
 
                 var successApiResponse = new SuccessAPIResponse<GetTrayByIdQueryResult>(response, true, "Tray Retrieved Successfully", 200);
 
@@ -75,7 +75,7 @@ namespace Inventory.SuperAdmin.API.Controllers
 
                 var response = await _mediator.Send(tray);
 
-                var successApiResponse = new SuccessAPIResponse<Guid>(response, true, "Tray Created Successfully", 200);
+                var successApiResponse = new SuccessAPIResponse<int>(response, true, "Tray Created Successfully", 200);
 
                 return Ok(successApiResponse);
             }
@@ -113,7 +113,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (trayId is null)
                     throw new ArgumentException("A non-empty request body is required.");
 
-                if (!Guid.TryParse(trayId, out Guid trayGuid))
+                if (!int.TryParse(trayId, out int trayint))
                 {
                     return BadRequest("Invalid Tray ID.");
                 }
@@ -121,7 +121,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (aisleId is null)
                     throw new ArgumentException("A non-empty request body is required.");
 
-                if (!Guid.TryParse(aisleId, out Guid aisleGuid))
+                if (!int.TryParse(aisleId, out int aisleint))
                 {
                     return BadRequest("Invalid Aisle ID.");
                 }
@@ -129,16 +129,16 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (rowLocId is null)
                     throw new ArgumentException("A non-empty request body is required.");
 
-                if (!Guid.TryParse(rowLocId, out Guid rowLocGuid))
+                if (!int.TryParse(rowLocId, out int rowLocint))
                 {
                     return BadRequest("Invalid Row Location ID.");
                 }
 
                 var command = new DeleteTrayCommand
                 {
-                    Id = trayGuid,
-                    AisleId = aisleGuid,
-                    RowLocId = rowLocGuid
+                    Id = trayint,
+                    AisleId = aisleint,
+                    RowLocId = rowLocint
                 };
 
                 var response = await _mediator.Send(command);

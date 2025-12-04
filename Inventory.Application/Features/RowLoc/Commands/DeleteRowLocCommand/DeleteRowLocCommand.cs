@@ -12,8 +12,8 @@ namespace Inventory.Application.Features.RowLoc.Commands.DeleteRowLocCommand
     {
         #region Properties
 
-        public Guid AisleId { get; init; }
-        public Guid Id { get; init; }
+        public int AisleId { get; init; }
+        public int Id { get; init; }
 
         #endregion
     }

@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.WarehouseItem.Command.UpdateWarehouseIt
     public sealed record UpdateWarehouseItemQuantityCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public decimal Quantity { get; set; }
         #endregion
     }

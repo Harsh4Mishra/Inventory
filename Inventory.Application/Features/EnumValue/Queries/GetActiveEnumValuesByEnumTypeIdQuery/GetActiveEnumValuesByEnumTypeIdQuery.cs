@@ -7,7 +7,7 @@ namespace Inventory.Application.Features.EnumValue.Queries.GetActiveEnumValuesBy
     {
         #region Properties
 
-        public Guid EnumTypeId { get; init; } = default;
+        public int EnumTypeId { get; init; } = default;
 
         #endregion
     }

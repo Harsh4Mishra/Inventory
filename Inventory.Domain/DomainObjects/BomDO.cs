@@ -15,7 +15,7 @@ namespace Inventory.Domain.DomainObjects
 
         public string Name { get; private set; } = default!;
         public bool IsApproved { get; private set; }
-        public Guid BomCategoryId { get; private set; }
+        public int BomCategoryId { get; private set; }
         public string? Result { get; private set; }
         public decimal Quantity { get; private set; }
 
@@ -27,7 +27,7 @@ namespace Inventory.Domain.DomainObjects
 
         public BomDO(
             string name,
-            Guid bomCategoryId,
+            int bomCategoryId,
             string? result,
             decimal quantity)
         {
@@ -44,7 +44,7 @@ namespace Inventory.Domain.DomainObjects
 
         public static BomDO Create(
             string name,
-            Guid bomCategoryId,
+            int bomCategoryId,
             string? result,
             decimal quantity,
             string createdBy)
@@ -58,7 +58,7 @@ namespace Inventory.Domain.DomainObjects
 
         public void Update(
             string name,
-            Guid bomCategoryId,
+            int bomCategoryId,
             string? result,
             decimal quantity,
             string updatedBy)

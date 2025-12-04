@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.MaterialStorageRule.Commands.DeleteMate
     public class DeleteMaterialStorageRuleCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         #endregion
     }
 }

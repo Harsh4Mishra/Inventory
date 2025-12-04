@@ -25,28 +25,28 @@ namespace Inventory.Domain.Contracts
         /// Retrieves dispositions by bom item id
         /// </summary>
         Task<IReadOnlyCollection<BomItemDispositionDO>> GetByBomItemIdAsync(
-            Guid bomItemId,
+            int bomItemId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves dispositions by bom item id to make changes
         /// </summary>
         Task<IReadOnlyCollection<BomItemDispositionDO>> GetByBomItemIdToMutateAsync(
-            Guid bomItemId,
+            int bomItemId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a bom item disposition by its unique identifier
         /// </summary>
         Task<BomItemDispositionDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a bom item disposition by its unique identifier to make changes
         /// </summary>
         Task<BomItemDispositionDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any disposition exists for the given bom item
         /// </summary>
         Task<bool> ExistsByBomItemIdAsync(
-            Guid bomItemId,
+            int bomItemId,
             CancellationToken cancellationToken = default);
 
         #endregion

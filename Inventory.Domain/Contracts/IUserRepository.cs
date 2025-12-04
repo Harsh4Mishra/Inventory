@@ -30,14 +30,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a user by its unique identifier.
         /// </summary>
         Task<UserDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a user by its unique identifier to make changes.
         /// </summary>
         Task<UserDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>

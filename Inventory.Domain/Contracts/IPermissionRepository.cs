@@ -11,21 +11,21 @@ namespace Inventory.Domain.Contracts
         Task<IReadOnlyCollection<PermissionDO>> GetAllActiveAsync(CancellationToken cancellationToken = default);
         Task<IReadOnlyCollection<PermissionDO>> GetAllActiveToMutateAsync(CancellationToken cancellationToken = default);
 
-        Task<PermissionDO?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
-        Task<PermissionDO?> GetByIdToMutateAsync(Guid id, CancellationToken cancellationToken = default);
-        Task<PermissionDO?> GetActiveByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<PermissionDO?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<PermissionDO?> GetByIdToMutateAsync(int id, CancellationToken cancellationToken = default);
+        Task<PermissionDO?> GetActiveByIdAsync(int id, CancellationToken cancellationToken = default);
 
         Task<PermissionDO?> GetByCodeAsync(string code, CancellationToken cancellationToken = default);
         Task<PermissionDO?> GetByCodeToMutateAsync(string code, CancellationToken cancellationToken = default);
         Task<PermissionDO?> GetActiveByCodeAsync(string code, CancellationToken cancellationToken = default);
 
-        Task<IReadOnlyCollection<PermissionDO>> GetByTenantIdAsync(Guid tenantId, CancellationToken cancellationToken = default);
-        Task<IReadOnlyCollection<PermissionDO>> GetByTenantIdToMutateAsync(Guid tenantId, CancellationToken cancellationToken = default);
-        Task<IReadOnlyCollection<PermissionDO>> GetActiveByTenantIdAsync(Guid tenantId, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<PermissionDO>> GetByTenantIdAsync(int tenantId, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<PermissionDO>> GetByTenantIdToMutateAsync(int tenantId, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<PermissionDO>> GetActiveByTenantIdAsync(int tenantId, CancellationToken cancellationToken = default);
 
-        Task<PermissionDO?> GetByTenantAndCodeAsync(Guid tenantId, string code, CancellationToken cancellationToken = default);
-        Task<PermissionDO?> GetByTenantAndCodeToMutateAsync(Guid tenantId, string code, CancellationToken cancellationToken = default);
-        Task<PermissionDO?> GetActiveByTenantAndCodeAsync(Guid tenantId, string code, CancellationToken cancellationToken = default);
+        Task<PermissionDO?> GetByTenantAndCodeAsync(int tenantId, string code, CancellationToken cancellationToken = default);
+        Task<PermissionDO?> GetByTenantAndCodeToMutateAsync(int tenantId, string code, CancellationToken cancellationToken = default);
+        Task<PermissionDO?> GetActiveByTenantAndCodeAsync(int tenantId, string code, CancellationToken cancellationToken = default);
 
         void Add(PermissionDO permission);
         void Update(PermissionDO permission);
@@ -33,10 +33,10 @@ namespace Inventory.Domain.Contracts
 
         Task<bool> ExistsByCodeAsync(string code, CancellationToken cancellationToken = default);
         Task<bool> ActiveExistsByCodeAsync(string code, CancellationToken cancellationToken = default);
-        Task<bool> ExistsByTenantAndCodeAsync(Guid tenantId, string code, CancellationToken cancellationToken = default);
-        Task<bool> ActiveExistsByTenantAndCodeAsync(Guid tenantId, string code, CancellationToken cancellationToken = default);
-        Task<bool> ExistsByIdAsync(Guid id, CancellationToken cancellationToken = default);
-        Task<bool> ActiveExistsByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<bool> ExistsByTenantAndCodeAsync(int tenantId, string code, CancellationToken cancellationToken = default);
+        Task<bool> ActiveExistsByTenantAndCodeAsync(int tenantId, string code, CancellationToken cancellationToken = default);
+        Task<bool> ExistsByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<bool> ActiveExistsByIdAsync(int id, CancellationToken cancellationToken = default);
 
         #endregion
     }

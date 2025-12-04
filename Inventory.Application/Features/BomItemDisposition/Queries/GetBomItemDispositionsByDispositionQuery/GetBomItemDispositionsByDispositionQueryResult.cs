@@ -10,8 +10,8 @@ namespace Inventory.Application.Features.BomItemDisposition.Queries.GetBomItemDi
     {
         #region Properties
 
-        public Guid Id { get; init; }
-        public Guid BomItemId { get; init; }
+        public int Id { get; init; }
+        public int BomItemId { get; init; }
         public string Disposition { get; init; } = default!;
         public string? Notes { get; init; }
         public DateTime ProcessedOn { get; init; }

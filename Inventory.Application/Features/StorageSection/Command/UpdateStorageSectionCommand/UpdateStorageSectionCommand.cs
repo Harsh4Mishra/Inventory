@@ -12,7 +12,7 @@ namespace Inventory.Application.Features.StorageSection.Command.UpdateStorageSec
     {
         #region Properties
 
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public string Name { get; set; } = default!;
         public string? TemperatureRange { get; set; }
         public string? Description { get; set; }

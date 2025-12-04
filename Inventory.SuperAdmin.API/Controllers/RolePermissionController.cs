@@ -62,10 +62,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(roleId, out Guid roleGuid))
+                if (!int.TryParse(roleId, out int roleint))
                     return BadRequest("Invalid Role ID.");
 
-                var query = new GetActiveRolePermissionsByRoleIdQuery { RoleId = roleGuid };
+                var query = new GetActiveRolePermissionsByRoleIdQuery { RoleId = roleint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetActiveRolePermissionsByRoleIdQueryResult>>(
                     response, true, "Role-Permission Assignments Retrieved Successfully", 200);
@@ -82,10 +82,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(permissionId, out Guid permissionGuid))
+                if (!int.TryParse(permissionId, out int permissionint))
                     return BadRequest("Invalid Permission ID.");
 
-                var query = new GetActiveRolePermissionsByPermissionIdQuery { PermissionId = permissionGuid };
+                var query = new GetActiveRolePermissionsByPermissionIdQuery { PermissionId = permissionint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetActiveRolePermissionsByPermissionIdQueryResult>>(
                     response, true, "Role-Permission Assignments Retrieved Successfully", 200);
@@ -102,10 +102,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(tenantId, out Guid tenantGuid))
+                if (!int.TryParse(tenantId, out int tenantint))
                     return BadRequest("Invalid Tenant ID.");
 
-                var query = new GetActiveRolePermissionsByTenantIdQuery { TenantId = tenantGuid };
+                var query = new GetActiveRolePermissionsByTenantIdQuery { TenantId = tenantint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetActiveRolePermissionsByTenantIdQueryResult>>(
                     response, true, "Role-Permission Assignments Retrieved Successfully", 200);
@@ -122,10 +122,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(id, out Guid assignmentGuid))
+                if (!int.TryParse(id, out int assignmentint))
                     return BadRequest("Invalid Role-Permission Assignment ID.");
 
-                var query = new GetRolePermissionByIdQuery { Id = assignmentGuid };
+                var query = new GetRolePermissionByIdQuery { Id = assignmentint };
                 var response = await _mediator.Send(query);
 
                 if (response == null)
@@ -152,7 +152,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Role-Permission Assignment Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -186,10 +186,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(assignmentId, out Guid assignmentGuid))
+                if (!int.TryParse(assignmentId, out int assignmentint))
                     return BadRequest("Invalid Role-Permission Assignment ID.");
 
-                var command = new DeleteRolePermissionCommand { Id = assignmentGuid };
+                var command = new DeleteRolePermissionCommand { Id = assignmentint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Role-Permission Assignment Removed Successfully", 200);
@@ -228,14 +228,14 @@ namespace Inventory.SuperAdmin.API.Controllers
                 if (commands is null || !commands.Any())
                     throw new ArgumentException("A non-empty request body is required.");
 
-                var results = new List<Guid>();
+                var results = new List<int>();
                 foreach (var command in commands)
                 {
                     var result = await _mediator.Send(command);
                     results.Add(result);
                 }
 
-                var successApiResponse = new SuccessAPIResponse<List<Guid>>(
+                var successApiResponse = new SuccessAPIResponse<List<int>>(
                     results, true, "Role-Permission Assignments Created Successfully", 200);
                 return Ok(successApiResponse);
             }

@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.BomCategory.Commands.UpdateBomCategoryC
     public sealed record UpdateBomCategoryCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public string Name { get; set; } = default!;
         #endregion
     }

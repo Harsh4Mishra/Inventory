@@ -28,10 +28,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(tenantId, out Guid tenantGuid))
+                if (!int.TryParse(tenantId, out int tenantint))
                     return BadRequest("Invalid Tenant ID.");
 
-                var query = new GetPermissionsByTenantIdQuery { TenantId = tenantGuid };
+                var query = new GetPermissionsByTenantIdQuery { TenantId = tenantint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetPermissionsByTenantIdQueryResult>>(
                     response, true, "Permissions Retrieved Successfully", 200);
@@ -48,10 +48,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(tenantId, out Guid tenantGuid))
+                if (!int.TryParse(tenantId, out int tenantint))
                     return BadRequest("Invalid Tenant ID.");
 
-                var query = new GetActivePermissionsByTenantIdQuery { TenantId = tenantGuid };
+                var query = new GetActivePermissionsByTenantIdQuery { TenantId = tenantint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<IEnumerable<GetActivePermissionsByTenantIdQueryResult>>(
                     response, true, "Active Permissions Retrieved Successfully", 200);
@@ -68,10 +68,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(id, out Guid permissionGuid))
+                if (!int.TryParse(id, out int permissionint))
                     return BadRequest("Invalid Permission ID.");
 
-                var query = new GetPermissionByIdQuery { Id = permissionGuid };
+                var query = new GetPermissionByIdQuery { Id = permissionint };
                 var response = await _mediator.Send(query);
 
                 if (response == null)
@@ -98,7 +98,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Permission Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -132,10 +132,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(permissionId, out Guid permissionGuid))
+                if (!int.TryParse(permissionId, out int permissionint))
                     return BadRequest("Invalid Permission ID.");
 
-                var command = new DeletePermissionCommand { Id = permissionGuid };
+                var command = new DeletePermissionCommand { Id = permissionint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Permission Deleted Successfully", 200);

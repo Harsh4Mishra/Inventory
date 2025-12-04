@@ -24,12 +24,12 @@ namespace Inventory.Domain.Contracts
         /// <summary>
         /// Retrieves an aisle by its unique identifier.
         /// </summary>
-        Task<AisleDO?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<AisleDO?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an aisle by its unique identifier to make changes.
         /// </summary>
-        Task<AisleDO?> GetByIdToMutateAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<AisleDO?> GetByIdToMutateAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves an aisle by its name.
@@ -44,7 +44,7 @@ namespace Inventory.Domain.Contracts
         /// <summary>
         /// Retrieves aisles by warehouse id.
         /// </summary>
-        Task<IReadOnlyCollection<AisleDO>> GetByWarehouseIdAsync(Guid warehouseId, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<AisleDO>> GetByWarehouseIdAsync(int warehouseId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a new aisle

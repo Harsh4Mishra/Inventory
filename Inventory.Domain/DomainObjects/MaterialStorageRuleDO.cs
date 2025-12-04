@@ -13,10 +13,10 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid MaterialId { get; private set; }
+        public int MaterialId { get; private set; }
         public decimal MinQuantity { get; private set; }
         public decimal ThresholdQuantity { get; private set; }
-        public Guid PreferredSectionId { get; private set; }
+        public int PreferredSectionId { get; private set; }
 
         #endregion
 
@@ -25,10 +25,10 @@ namespace Inventory.Domain.DomainObjects
         public MaterialStorageRuleDO() { } // For ORM
 
         public MaterialStorageRuleDO(
-            Guid materialId,
+            int materialId,
             decimal minQuantity,
             decimal thresholdQuantity,
-            Guid preferredSectionId)
+            int preferredSectionId)
         {
             MaterialId = materialId;
             MinQuantity = minQuantity;
@@ -41,10 +41,10 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static MaterialStorageRuleDO Create(
-            Guid materialId,
+            int materialId,
             decimal minQuantity,
             decimal thresholdQuantity,
-            Guid preferredSectionId,
+            int preferredSectionId,
             string createdBy)
         {
             var rule = new MaterialStorageRuleDO(
@@ -70,7 +70,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         public void UpdatePreferredSection(
-            Guid preferredSectionId,
+            int preferredSectionId,
             string updatedBy)
         {
             PreferredSectionId = preferredSectionId;
@@ -81,7 +81,7 @@ namespace Inventory.Domain.DomainObjects
         public void UpdateAll(
             decimal minQuantity,
             decimal thresholdQuantity,
-            Guid preferredSectionId,
+            int preferredSectionId,
             string updatedBy)
         {
             MinQuantity = minQuantity;

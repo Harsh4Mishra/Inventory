@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Vendor.Queries.GetVendorByIdQuery
     public sealed record GetVendorByIdQuery : IRequest<GetVendorByIdQueryResult>
     {
         #region Properties
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         #endregion
     }
 }

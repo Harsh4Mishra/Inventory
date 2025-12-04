@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Product.Commands.CreateProductCommand
 {
-    public sealed record CreateProductCommand : IRequest<Guid>
+    public sealed record CreateProductCommand : IRequest<int>
     {
         #region Properties
         public string Name { get; set; } = string.Empty;
         public string Sku { get; set; } = string.Empty;
-        public Guid BomId { get; set; }
+        public int BomId { get; set; }
 
         #endregion
     }

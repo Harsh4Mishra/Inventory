@@ -39,7 +39,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByBom/{bomId}")]
-        public async Task<IActionResult> GetByBom(Guid bomId)
+        public async Task<IActionResult> GetByBom(int bomId)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpGet("GetByMaterialBatch/{materialBatchId}")]
-        public async Task<IActionResult> GetByMaterialBatch(Guid materialBatchId)
+        public async Task<IActionResult> GetByMaterialBatch(int materialBatchId)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "BOM Item Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -132,10 +132,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(bomItemId, out Guid bomItemGuid))
+                if (!int.TryParse(bomItemId, out int bomItemint))
                     return BadRequest("Invalid BOM Item ID.");
 
-                var command = new DeleteBomItemCommand { Id = bomItemGuid };
+                var command = new DeleteBomItemCommand { Id = bomItemint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "BOM Item Deleted Successfully", 200);

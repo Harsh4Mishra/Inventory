@@ -9,6 +9,6 @@ namespace Inventory.Application.Features.VerifiedMaterial.Queries.GetVerifiedMat
 {
     public sealed record GetVerifiedMaterialsByBatchIdQuery : IRequest<IEnumerable<GetVerifiedMaterialsByBatchIdQueryResult>>
     {
-        public Guid MaterialBatchId { get; init; }
+        public int MaterialBatchId { get; init; }
     }
 }

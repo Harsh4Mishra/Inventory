@@ -7,8 +7,8 @@ namespace Inventory.Application.Features.UserRole.Commands.UpdateUserRoleCommand
     {
         #region Properties
 
-        public Guid Id { get; set; }
-        public Guid RoleId { get; set; }
+        public int Id { get; set; }
+        public int RoleId { get; set; }
 
         #endregion
     }

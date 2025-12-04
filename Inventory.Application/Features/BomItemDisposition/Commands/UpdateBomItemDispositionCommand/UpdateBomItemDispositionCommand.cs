@@ -12,7 +12,7 @@ namespace Inventory.Application.Features.BomItemDisposition.Commands.UpdateBomIt
     {
         #region Properties
 
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public string Disposition { get; set; } = default!;
         public string? Notes { get; set; }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.BomCategory.Commands.CreateBomCategoryCommand
 {
-    public sealed record CreateBomCategoryCommand : IRequest<Guid>
+    public sealed record CreateBomCategoryCommand : IRequest<int>
     {
         #region Properties
         public string Name { get; set; } = string.Empty;

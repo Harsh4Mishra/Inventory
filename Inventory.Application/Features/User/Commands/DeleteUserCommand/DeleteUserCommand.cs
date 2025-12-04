@@ -7,7 +7,7 @@ namespace Inventory.Application.Features.User.Commands.DeleteUserCommand
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         #endregion
     }

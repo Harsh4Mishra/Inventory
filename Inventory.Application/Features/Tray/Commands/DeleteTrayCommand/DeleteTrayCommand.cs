@@ -12,9 +12,9 @@ namespace Inventory.Application.Features.Tray.Commands.DeleteTrayCommand
     {
         #region Properties
 
-        public Guid AisleId { get; init; }
-        public Guid RowLocId { get; init; }
-        public Guid Id { get; init; }
+        public int AisleId { get; init; }
+        public int RowLocId { get; init; }
+        public int Id { get; init; }
 
         #endregion
     }

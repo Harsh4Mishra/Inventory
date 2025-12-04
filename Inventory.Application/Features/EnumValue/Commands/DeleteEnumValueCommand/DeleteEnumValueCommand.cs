@@ -6,8 +6,8 @@ namespace Inventory.Application.Features.EnumValue.Commands.DeleteEnumValueComma
     {
         #region Properties
 
-        public Guid EnumTypeId { get; init; }
-        public Guid Id { get; init; }
+        public int EnumTypeId { get; init; }
+        public int Id { get; init; }
 
         #endregion
     }

@@ -15,21 +15,21 @@ namespace Inventory.Domain.Contracts
         /// Retrieves all trays by row location id.
         /// </summary>
         Task<IReadOnlyCollection<TrayDO>> GetAllByRowIdAsync(
-            Guid rowId,
+            int rowId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a tray by its unique identifier.
         /// </summary>
         Task<TrayDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a tray by its unique identifier to make changes.
         /// </summary>
         Task<TrayDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         #endregion

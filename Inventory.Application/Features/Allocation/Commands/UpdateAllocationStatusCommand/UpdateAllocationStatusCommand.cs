@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Allocation.Commands.UpdateAllocationSta
     public sealed record UpdateAllocationStatusCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Status { get; set; } = default!; // "picked", "shipped", "released", "cancelled"
 
         #endregion

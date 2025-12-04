@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 namespace Inventory.Application.Features.EnumType.Commands.CreateEnumTypeCommand
 {
     public class CreateEnumTypeCommandHandler
-        : IRequestHandler<CreateEnumTypeCommand, Guid>
+        : IRequestHandler<CreateEnumTypeCommand, int>
     {
         #region Fields
 
@@ -34,7 +34,7 @@ namespace Inventory.Application.Features.EnumType.Commands.CreateEnumTypeCommand
 
         #region Methods
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateEnumTypeCommand request,
             CancellationToken cancellationToken)
         {

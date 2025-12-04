@@ -58,11 +58,11 @@ namespace Inventory.PersistenceService.Repositories
             }
         }
 
-        public async Task<AisleDO?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<AisleDO?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -77,11 +77,11 @@ namespace Inventory.PersistenceService.Repositories
             }
         }
 
-        public async Task<AisleDO?> GetByIdToMutateAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<AisleDO?> GetByIdToMutateAsync(int id, CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -136,11 +136,11 @@ namespace Inventory.PersistenceService.Repositories
             }
         }
 
-        public async Task<IReadOnlyCollection<AisleDO>> GetByWarehouseIdAsync(Guid warehouseId, CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyCollection<AisleDO>> GetByWarehouseIdAsync(int warehouseId, CancellationToken cancellationToken = default)
         {
             try
             {
-                if (warehouseId == Guid.Empty)
+                if (warehouseId == 0)
                 {
                     throw new ArgumentException("Invalid warehouse id provided");
                 }

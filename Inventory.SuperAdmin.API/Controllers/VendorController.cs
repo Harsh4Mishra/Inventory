@@ -59,10 +59,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(vendorId, out Guid vendorGuid))
+                if (!int.TryParse(vendorId, out int vendorint))
                     return BadRequest("Invalid Vendor ID.");
 
-                var query = new GetVendorByIdQuery { Id = vendorGuid };
+                var query = new GetVendorByIdQuery { Id = vendorint };
                 var response = await _mediator.Send(query);
                 var successApiResponse = new SuccessAPIResponse<GetVendorByIdQueryResult>(
                     response, true, "Vendor Retrieved Successfully", 200);
@@ -83,7 +83,7 @@ namespace Inventory.SuperAdmin.API.Controllers
                     throw new ArgumentException("A non-empty request body is required.");
 
                 var response = await _mediator.Send(command);
-                var successApiResponse = new SuccessAPIResponse<Guid>(
+                var successApiResponse = new SuccessAPIResponse<int>(
                     response, true, "Vendor Created Successfully", 200);
                 return Ok(successApiResponse);
             }
@@ -117,10 +117,10 @@ namespace Inventory.SuperAdmin.API.Controllers
         {
             try
             {
-                if (!Guid.TryParse(vendorId, out Guid vendorGuid))
+                if (!int.TryParse(vendorId, out int vendorint))
                     return BadRequest("Invalid Vendor ID.");
 
-                var command = new DeleteVendorCommand { Id = vendorGuid };
+                var command = new DeleteVendorCommand { Id = vendorint };
                 await _mediator.Send(command);
                 var successApiResponse = new SuccessAPIResponse<string>(
                     "", true, "Vendor Deleted Successfully", 200);

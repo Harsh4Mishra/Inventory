@@ -8,7 +8,7 @@ namespace Inventory.Domain.DomainObjects
     {
         #region Properties
 
-        public Guid TenantId { get; private set; }
+        public int TenantId { get; private set; }
         public string Code { get; private set; } = default!;
         public string Name { get; private set; } = default!;
         public string? Description { get; private set; }
@@ -21,7 +21,7 @@ namespace Inventory.Domain.DomainObjects
         private AppModuleDO() { } // For ORM
 
         private AppModuleDO(
-            Guid tenantId,
+            int tenantId,
             string code,
             string name,
             string? description)
@@ -38,7 +38,7 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         public static AppModuleDO Create(
-           Guid tenantId,
+           int tenantId,
            string code,
            string name,
            string? description,
@@ -64,7 +64,7 @@ namespace Inventory.Domain.DomainObjects
             MarkUpdated(updatedBy);
         }
 
-        public void ChangeTenant(Guid tenantId, string updatedBy)
+        public void ChangeTenant(int tenantId, string updatedBy)
         {
             TenantId = tenantId;
             MarkUpdated(updatedBy);

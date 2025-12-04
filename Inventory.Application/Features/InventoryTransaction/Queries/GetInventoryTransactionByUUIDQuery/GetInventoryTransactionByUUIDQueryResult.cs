@@ -11,23 +11,23 @@ namespace Inventory.Application.Features.InventoryTransaction.Queries.GetInvento
         #region Properties
 
         public long Id { get; init; }
-        public Guid TransactionUUID { get; init; }
+        public string TransactionUUID { get; init; }
         public DateTime TransactionTime { get; init; }
         public string TransactionType { get; init; } = default!;
-        public Guid? MaterialBatchId { get; init; }
-        public Guid? ProductId { get; init; }
+        public int? MaterialBatchId { get; init; }
+        public int? ProductId { get; init; }
         public decimal Quantity { get; init; }
-        public Guid? FromWarehouseId { get; init; }
-        public Guid? ToWarehouseId { get; init; }
-        public Guid? FromAisleId { get; init; }
-        public Guid? ToAisleId { get; init; }
-        public Guid? FromRowId { get; init; }
-        public Guid? ToRowId { get; init; }
-        public Guid? FromTrayId { get; init; }
-        public Guid? ToTrayId { get; init; }
+        public int? FromWarehouseId { get; init; }
+        public int? ToWarehouseId { get; init; }
+        public int? FromAisleId { get; init; }
+        public int? ToAisleId { get; init; }
+        public int? FromRowId { get; init; }
+        public int? ToRowId { get; init; }
+        public int? FromTrayId { get; init; }
+        public int? ToTrayId { get; init; }
         public string? ReferenceType { get; init; }
-        public Guid? ReferenceId { get; init; }
-        public Guid CreatedBy { get; init; }
+        public int? ReferenceId { get; init; }
+        public int CreatedBy { get; init; }
         public decimal? Cost { get; init; }
         public string? Notes { get; init; }
         public string CreatedByUser { get; init; } = default!;

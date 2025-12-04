@@ -23,8 +23,8 @@ namespace Inventory.PersistenceService.Configurations.Entities
             builder
                 .Property(e => e.Id)
                 .HasColumnName("id")
-                .HasColumnType("uuid")
-                .HasDefaultValueSql("gen_random_uuid()")
+                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder

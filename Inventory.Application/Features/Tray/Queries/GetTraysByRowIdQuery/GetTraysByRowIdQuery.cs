@@ -12,7 +12,7 @@ namespace Inventory.Application.Features.Tray.Queries.GetTraysByRowIdQuery
     {
         #region Properties
 
-        public Guid RowId { get; init; } = default;
+        public int RowId { get; init; } = default;
 
         #endregion
     }

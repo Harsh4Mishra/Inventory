@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.WarehouseItem.Queries.GetWarehouseItemB
     public sealed record GetWarehouseItemByIdQuery : IRequest<GetWarehouseItemByIdQueryResult?>
     {
         #region Properties
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         #endregion
     }
 }

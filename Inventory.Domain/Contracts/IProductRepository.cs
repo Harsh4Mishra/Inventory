@@ -35,14 +35,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a product by its unique identifier.
         /// </summary>
         Task<ProductDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a product by its unique identifier to make changes.
         /// </summary>
         Task<ProductDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -77,14 +77,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves products by BOM ID.
         /// </summary>
         Task<IReadOnlyCollection<ProductDO>> GetByBomIdAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves products by BOM ID to make changes.
         /// </summary>
         Task<IReadOnlyCollection<ProductDO>> GetByBomIdToMutateAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default);
 
         /// <summary>

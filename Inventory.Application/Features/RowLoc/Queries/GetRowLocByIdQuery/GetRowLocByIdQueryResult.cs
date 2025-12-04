@@ -10,8 +10,8 @@ namespace Inventory.Application.Features.RowLoc.Queries.GetRowLocByIdQuery
     {
         #region Properties
 
-        public Guid Id { get; init; } = default;
-        public Guid AisleId { get; init; } = default;
+        public int Id { get; init; } = default;
+        public int AisleId { get; init; } = default;
         public string Name { get; init; } = default!;
         public string CreatedBy { get; init; } = default!;
         public DateTime CreatedOn { get; init; } = default;

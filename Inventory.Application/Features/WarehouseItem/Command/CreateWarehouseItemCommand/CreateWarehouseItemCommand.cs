@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.WarehouseItem.Command.CreateWarehouseItemCommand
 {
-    public sealed record CreateWarehouseItemCommand : IRequest<Guid>
+    public sealed record CreateWarehouseItemCommand : IRequest<int>
     {
         #region Properties
-        public Guid MaterialBatchId { get; set; }
-        public Guid WarehouseId { get; set; }
-        public Guid AisleId { get; set; }
-        public Guid RowId { get; set; }
-        public Guid TrayId { get; set; }
+        public int MaterialBatchId { get; set; }
+        public int WarehouseId { get; set; }
+        public int AisleId { get; set; }
+        public int RowId { get; set; }
+        public int TrayId { get; set; }
         public decimal Quantity { get; set; }
         public string Name { get; set; } = string.Empty;
         public JsonDocument? Specification { get; set; }

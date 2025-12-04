@@ -11,7 +11,7 @@ namespace Inventory.Application.Features.VerifiedMaterial.Commands.ToggleAllotme
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public bool IsAllotted { get; init; }
 
         #endregion

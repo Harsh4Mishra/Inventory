@@ -34,22 +34,22 @@ namespace Inventory.Domain.Contracts
         /// <summary>
         /// Retrieves a material batch by its unique identifier.
         /// </summary>
-        Task<MaterialBatchDO?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<MaterialBatchDO?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a material batch by its unique identifier to make changes.
         /// </summary>
-        Task<MaterialBatchDO?> GetByIdToMutateAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<MaterialBatchDO?> GetByIdToMutateAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves material batches by material ID.
         /// </summary>
-        Task<IReadOnlyCollection<MaterialBatchDO>> GetByMaterialIdAsync(Guid materialId, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<MaterialBatchDO>> GetByMaterialIdAsync(int materialId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves material batches by material ID to make changes.
         /// </summary>
-        Task<IReadOnlyCollection<MaterialBatchDO>> GetByMaterialIdToMutateAsync(Guid materialId, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<MaterialBatchDO>> GetByMaterialIdToMutateAsync(int materialId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a material batch by its batch code.
@@ -74,12 +74,12 @@ namespace Inventory.Domain.Contracts
         /// <summary>
         /// Retrieves material batches by vendor ID.
         /// </summary>
-        Task<IReadOnlyCollection<MaterialBatchDO>> GetByVendorIdAsync(Guid vendorId, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<MaterialBatchDO>> GetByVendorIdAsync(int vendorId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves material batches by vendor ID to make changes.
         /// </summary>
-        Task<IReadOnlyCollection<MaterialBatchDO>> GetByVendorIdToMutateAsync(Guid vendorId, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<MaterialBatchDO>> GetByVendorIdToMutateAsync(int vendorId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves material batches that are expiring soon.

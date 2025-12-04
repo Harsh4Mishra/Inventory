@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Material.Queries.GetMaterialByIdQuery
     public sealed record GetMaterialByIdQuery : IRequest<GetMaterialByIdQueryResult>
     {
         #region Properties
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         #endregion
     }
 }

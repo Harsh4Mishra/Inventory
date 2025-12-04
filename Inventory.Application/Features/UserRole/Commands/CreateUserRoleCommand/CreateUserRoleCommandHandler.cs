@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.UserRole.Commands.CreateUserRoleCommand
 {
-    public class CreateUserRoleCommandHandler : IRequestHandler<CreateUserRoleCommand, Guid>
+    public class CreateUserRoleCommandHandler : IRequestHandler<CreateUserRoleCommand, int>
     {
         #region Fields
 
@@ -43,7 +43,7 @@ namespace Inventory.Application.Features.UserRole.Commands.CreateUserRoleCommand
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateUserRoleCommand request,
             CancellationToken cancellationToken)
         {

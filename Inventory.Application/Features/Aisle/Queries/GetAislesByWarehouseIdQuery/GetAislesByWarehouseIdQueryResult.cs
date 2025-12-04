@@ -10,12 +10,12 @@ namespace Inventory.Application.Features.Aisle.Queries.GetAislesByWarehouseIdQue
     {
         #region Properties
 
-        public Guid Id { get; init; } = default;
+        public int Id { get; init; } = default;
         public string Name { get; init; } = default!;
-        public Guid WarehouseId { get; init; }
-        public Guid StorageSectionId { get; init; }
-        public Guid StorageTypeId { get; init; }
-        public Guid InventoryTypeId { get; init; }
+        public int WarehouseId { get; init; }
+        public int StorageSectionId { get; init; }
+        public int StorageTypeId { get; init; }
+        public int InventoryTypeId { get; init; }
         public string CreatedBy { get; init; } = default!;
         public DateTime CreatedOn { get; init; } = default;
         public string? UpdatedBy { get; init; }

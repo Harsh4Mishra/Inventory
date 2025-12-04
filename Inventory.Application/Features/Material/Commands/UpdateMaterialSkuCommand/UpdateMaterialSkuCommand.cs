@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Material.Commands.UpdateMaterialSkuComm
     public sealed record UpdateMaterialSkuCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public string Sku { get; set; } = default!;
         #endregion
     }

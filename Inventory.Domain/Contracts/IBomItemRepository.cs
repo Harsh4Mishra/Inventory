@@ -25,42 +25,42 @@ namespace Inventory.Domain.Contracts
         /// Retrieves BOM items by BOM ID
         /// </summary>
         Task<IReadOnlyCollection<BomItemDO>> GetByBomIdAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves BOM items by BOM ID to make changes
         /// </summary>
         Task<IReadOnlyCollection<BomItemDO>> GetByBomIdToMutateAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves BOM items by material batch ID
         /// </summary>
         Task<IReadOnlyCollection<BomItemDO>> GetByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves BOM items by warehouse item ID
         /// </summary>
         Task<IReadOnlyCollection<BomItemDO>> GetByWarehouseItemIdAsync(
-            Guid warehouseItemId,
+            int warehouseItemId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a BOM item by its unique identifier
         /// </summary>
         Task<BomItemDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a BOM item by its unique identifier to make changes
         /// </summary>
         Task<BomItemDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -82,21 +82,21 @@ namespace Inventory.Domain.Contracts
         /// Checks whether any BOM item exists for the given BOM ID
         /// </summary>
         Task<bool> ExistsByBomIdAsync(
-            Guid bomId,
+            int bomId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks whether any BOM item exists for the given material batch ID
         /// </summary>
         Task<bool> ExistsByMaterialBatchIdAsync(
-            Guid materialBatchId,
+            int materialBatchId,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks whether any BOM item exists for the given warehouse item ID
         /// </summary>
         Task<bool> ExistsByWarehouseItemIdAsync(
-            Guid warehouseItemId,
+            int warehouseItemId,
             CancellationToken cancellationToken = default);
 
         #endregion

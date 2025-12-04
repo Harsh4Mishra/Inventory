@@ -25,17 +25,17 @@ namespace Inventory.Application.Features.Allocation.Commands.CreateAllocationCom
             RuleFor(x => x.OrderId)
                 .NotEmpty().WithMessage("Order ID cannot be empty.")
                 .NotNull().WithMessage("Order ID is required.")
-                .NotEqual(Guid.Empty).WithMessage("Order ID cannot be empty GUID.");
+                .NotEqual(0).WithMessage("Order ID cannot be empty int.");
 
             RuleFor(x => x.ProductId)
                 .NotEmpty().WithMessage("Product ID cannot be empty.")
                 .NotNull().WithMessage("Product ID is required.")
-                .NotEqual(Guid.Empty).WithMessage("Product ID cannot be empty GUID.");
+                .NotEqual(0).WithMessage("Product ID cannot be empty int.");
 
             RuleFor(x => x.MaterialBatchId)
                 .NotEmpty().WithMessage("Material Batch ID cannot be empty.")
                 .NotNull().WithMessage("Material Batch ID is required.")
-                .NotEqual(Guid.Empty).WithMessage("Material Batch ID cannot be empty GUID.");
+                .NotEqual(0).WithMessage("Material Batch ID cannot be empty int.");
 
             RuleFor(x => x.Quantity)
                 .NotEmpty().WithMessage("Quantity cannot be empty.")

@@ -35,14 +35,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a storage section by its unique identifier.
         /// </summary>
         Task<StorageSectionDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a storage section by its unique identifier to make changes.
         /// </summary>
         Task<StorageSectionDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>

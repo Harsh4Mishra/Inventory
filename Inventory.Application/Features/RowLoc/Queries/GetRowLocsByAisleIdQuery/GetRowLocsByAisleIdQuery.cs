@@ -12,7 +12,7 @@ namespace Inventory.Application.Features.RowLoc.Queries.GetRowLocsByAisleIdQuery
     {
         #region Properties
 
-        public Guid AisleId { get; init; } = default;
+        public int AisleId { get; init; } = default;
 
         #endregion
     }

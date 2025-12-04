@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Inventory.Application.Features.Role.Commands.CreateRoleCommand
 {
-    public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, Guid>
+    public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, int>
     {
         #region Fields
 
@@ -33,7 +33,7 @@ namespace Inventory.Application.Features.Role.Commands.CreateRoleCommand
 
         #region Handler Implementation
 
-        public async Task<Guid> Handle(
+        public async Task<int> Handle(
             CreateRoleCommand request,
             CancellationToken cancellationToken)
         {

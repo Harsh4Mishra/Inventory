@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.Allocation.Commands.CreateAllocationCommand
 {
-    public sealed record CreateAllocationCommand : IRequest<Guid>
+    public sealed record CreateAllocationCommand : IRequest<int>
     {
         #region Properties
-        public Guid OrderId { get; set; }
-        public Guid ProductId { get; set; }
-        public Guid MaterialBatchId { get; set; }
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+        public int MaterialBatchId { get; set; }
         public decimal Quantity { get; set; }
 
         #endregion

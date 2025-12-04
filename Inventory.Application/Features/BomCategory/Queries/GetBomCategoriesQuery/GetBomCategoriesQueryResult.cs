@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.BomCategory.Queries.GetBomCategoriesQue
     {
         #region Properties
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         public string Name { get; init; } = default!;
         public string CreatedBy { get; init; } = default!;
         public DateTime CreatedOn { get; init; }

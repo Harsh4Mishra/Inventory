@@ -5,7 +5,7 @@ namespace Inventory.Application.Features.Permission.Queries.GetPermissionByIdQue
     public sealed record GetPermissionByIdQuery : IRequest<GetPermissionByIdQueryResult?>
     {
         #region Properties
-        public Guid Id { get; init; }
+        public int Id { get; init; }
         #endregion
     }
 }

@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 namespace Inventory.Application.Features.Aisle.Commands.CreateAisleCommand
 {
     public sealed record CreateAisleCommand
-        : IRequest<Guid>
+        : IRequest<int>
     {
         #region Properties
 
         public string Name { get; init; } = default!;
-        public Guid WarehouseId { get; init; }
-        public Guid StorageSectionId { get; init; }
-        public Guid StorageTypeId { get; init; }
-        public Guid InventoryTypeId { get; init; }
+        public int WarehouseId { get; init; }
+        public int StorageSectionId { get; init; }
+        public int StorageTypeId { get; init; }
+        public int InventoryTypeId { get; init; }
 
         #endregion
     }

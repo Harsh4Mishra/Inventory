@@ -115,12 +115,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<BomDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -136,12 +136,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<BomDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -156,12 +156,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<BomDO>> GetByCategoryIdAsync(
-            Guid bomCategoryId,
+            int bomCategoryId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomCategoryId == Guid.Empty)
+                if (bomCategoryId == 0)
                 {
                     throw new ArgumentException("Invalid BOM category id provided");
                 }
@@ -178,12 +178,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<BomDO>> GetByCategoryIdToMutateAsync(
-            Guid bomCategoryId,
+            int bomCategoryId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomCategoryId == Guid.Empty)
+                if (bomCategoryId == 0)
                 {
                     throw new ArgumentException("Invalid BOM category id provided");
                 }
@@ -289,12 +289,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByCategoryIdAsync(
-            Guid bomCategoryId,
+            int bomCategoryId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (bomCategoryId == Guid.Empty)
+                if (bomCategoryId == 0)
                 {
                     throw new ArgumentException("Invalid BOM category id provided");
                 }

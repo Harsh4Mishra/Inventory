@@ -18,7 +18,7 @@ namespace Inventory.Domain.DomainObjects
 
         #region Properties
 
-        public Guid AisleId { get; private set; } = default;
+        public int AisleId { get; private set; } = default;
         public string Name { get; private set; } = default!;
 
         #region Navigation Properties
@@ -34,7 +34,7 @@ namespace Inventory.Domain.DomainObjects
         private RowLocDO() { } // For ORM
 
         private RowLocDO(
-            Guid aisleId,
+            int aisleId,
             string name)
         {
             AisleId = aisleId;
@@ -46,7 +46,7 @@ namespace Inventory.Domain.DomainObjects
         #region Methods
 
         internal static RowLocDO Create(
-            Guid aisleId,
+            int aisleId,
             string name,
             string createdBy)
         {
@@ -74,7 +74,7 @@ namespace Inventory.Domain.DomainObjects
         }
 
         internal TrayDO UpdateTray(
-            Guid trayId,
+            int trayId,
             int capacity,
             string? description,
             string updatedBy)
@@ -86,7 +86,7 @@ namespace Inventory.Domain.DomainObjects
             return tray;
         }
 
-        internal void DeleteTray(Guid trayId)
+        internal void DeleteTray(int trayId)
         {
             var tray = _trays.FirstOrDefault(c => c.Id == trayId) ??
                 throw new InvalidOperationException($"No tray found with id {trayId}");

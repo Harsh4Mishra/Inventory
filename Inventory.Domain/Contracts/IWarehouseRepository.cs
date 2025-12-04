@@ -35,14 +35,14 @@ namespace Inventory.Domain.Contracts
         /// Retrieves a warehouse by its unique identifier.
         /// </summary>
         Task<WarehouseDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves a warehouse by its unique identifier to make changes.
         /// </summary>
         Task<WarehouseDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default);
 
         /// <summary>

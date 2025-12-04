@@ -108,12 +108,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<UserRoleDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -129,12 +129,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<UserRoleDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -149,12 +149,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<UserRoleDO?> GetActiveByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -171,12 +171,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<UserRoleDO>> GetByUserIdAsync(
-            Guid userId,
+            int userId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty)
+                if (userId == 0)
                 {
                     throw new ArgumentException("Invalid user id provided");
                 }
@@ -193,12 +193,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<UserRoleDO>> GetByUserIdToMutateAsync(
-            Guid userId,
+            int userId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty)
+                if (userId == 0)
                 {
                     throw new ArgumentException("Invalid user id provided");
                 }
@@ -214,12 +214,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<UserRoleDO>> GetActiveByUserIdAsync(
-            Guid userId,
+            int userId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty)
+                if (userId == 0)
                 {
                     throw new ArgumentException("Invalid user id provided");
                 }
@@ -236,12 +236,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<UserRoleDO>> GetByRoleIdAsync(
-            Guid roleId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (roleId == Guid.Empty)
+                if (roleId == 0)
                 {
                     throw new ArgumentException("Invalid role id provided");
                 }
@@ -258,12 +258,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<UserRoleDO>> GetByRoleIdToMutateAsync(
-            Guid roleId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (roleId == Guid.Empty)
+                if (roleId == 0)
                 {
                     throw new ArgumentException("Invalid role id provided");
                 }
@@ -279,12 +279,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<UserRoleDO>> GetActiveByRoleIdAsync(
-            Guid roleId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (roleId == Guid.Empty)
+                if (roleId == 0)
                 {
                     throw new ArgumentException("Invalid role id provided");
                 }
@@ -301,13 +301,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<UserRoleDO?> GetByUserAndRoleAsync(
-            Guid userId,
-            Guid roleId,
+            int userId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty || roleId == Guid.Empty)
+                if (userId == 0 || roleId == 0)
                 {
                     throw new ArgumentException("Invalid user id or role id provided");
                 }
@@ -323,13 +323,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<UserRoleDO?> GetByUserAndRoleToMutateAsync(
-            Guid userId,
-            Guid roleId,
+            int userId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty || roleId == Guid.Empty)
+                if (userId == 0 || roleId == 0)
                 {
                     throw new ArgumentException("Invalid user id or role id provided");
                 }
@@ -344,13 +344,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<UserRoleDO?> GetActiveByUserAndRoleAsync(
-            Guid userId,
-            Guid roleId,
+            int userId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty || roleId == Guid.Empty)
+                if (userId == 0 || roleId == 0)
                 {
                     throw new ArgumentException("Invalid user id or role id provided");
                 }
@@ -397,13 +397,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByUserAndRoleAsync(
-            Guid userId,
-            Guid roleId,
+            int userId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty || roleId == Guid.Empty)
+                if (userId == 0 || roleId == 0)
                 {
                     throw new ArgumentException("Invalid user id or role id provided");
                 }
@@ -419,13 +419,13 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ActiveExistsByUserAndRoleAsync(
-            Guid userId,
-            Guid roleId,
+            int userId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty || roleId == Guid.Empty)
+                if (userId == 0 || roleId == 0)
                 {
                     throw new ArgumentException("Invalid user id or role id provided");
                 }
@@ -441,12 +441,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByUserIdAsync(
-            Guid userId,
+            int userId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty)
+                if (userId == 0)
                 {
                     throw new ArgumentException("Invalid user id provided");
                 }
@@ -460,12 +460,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ActiveExistsByUserIdAsync(
-            Guid userId,
+            int userId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (userId == Guid.Empty)
+                if (userId == 0)
                 {
                     throw new ArgumentException("Invalid user id provided");
                 }
@@ -481,12 +481,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByRoleIdAsync(
-            Guid roleId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (roleId == Guid.Empty)
+                if (roleId == 0)
                 {
                     throw new ArgumentException("Invalid role id provided");
                 }
@@ -500,12 +500,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ActiveExistsByRoleIdAsync(
-            Guid roleId,
+            int roleId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (roleId == Guid.Empty)
+                if (roleId == 0)
                 {
                     throw new ArgumentException("Invalid role id provided");
                 }
@@ -521,12 +521,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -540,12 +540,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ActiveExistsByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }

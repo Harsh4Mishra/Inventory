@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.BomItem.Queries.GetBomItemsByMaterialBa
     public sealed record GetBomItemsByMaterialBatchQuery : IRequest<IEnumerable<GetBomItemsByMaterialBatchQueryResult>>
     {
         #region Properties
-        public Guid MaterialBatchId { get; init; }
+        public int MaterialBatchId { get; init; }
         #endregion
     }
 }

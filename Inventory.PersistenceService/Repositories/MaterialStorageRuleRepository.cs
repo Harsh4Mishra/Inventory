@@ -57,12 +57,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<MaterialStorageRuleDO?> GetByIdAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -78,12 +78,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<MaterialStorageRuleDO?> GetByIdToMutateAsync(
-            Guid id,
+            int id,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (id == Guid.Empty)
+                if (id == 0)
                 {
                     throw new ArgumentException("Invalid id provided");
                 }
@@ -98,12 +98,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<MaterialStorageRuleDO>> GetByMaterialIdAsync(
-            Guid materialId,
+            int materialId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialId == Guid.Empty)
+                if (materialId == 0)
                 {
                     throw new ArgumentException("Invalid material id provided");
                 }
@@ -120,12 +120,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<MaterialStorageRuleDO>> GetByMaterialIdToMutateAsync(
-            Guid materialId,
+            int materialId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialId == Guid.Empty)
+                if (materialId == 0)
                 {
                     throw new ArgumentException("Invalid material id provided");
                 }
@@ -141,12 +141,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<MaterialStorageRuleDO>> GetByPreferredSectionIdAsync(
-            Guid preferredSectionId,
+            int preferredSectionId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (preferredSectionId == Guid.Empty)
+                if (preferredSectionId == 0)
                 {
                     throw new ArgumentException("Invalid preferred section id provided");
                 }
@@ -193,12 +193,12 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<bool> ExistsByMaterialIdAsync(
-            Guid materialId,
+            int materialId,
             CancellationToken cancellationToken = default)
         {
             try
             {
-                if (materialId == Guid.Empty)
+                if (materialId == 0)
                 {
                     throw new ArgumentException("Invalid material id provided");
                 }

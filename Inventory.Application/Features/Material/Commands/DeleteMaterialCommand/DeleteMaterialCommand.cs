@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.Material.Commands.DeleteMaterialCommand
     public class DeleteMaterialCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         #endregion
     }
 }

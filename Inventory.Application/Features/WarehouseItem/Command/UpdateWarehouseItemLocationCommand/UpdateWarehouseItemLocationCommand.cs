@@ -10,11 +10,11 @@ namespace Inventory.Application.Features.WarehouseItem.Command.UpdateWarehouseIt
     public sealed record UpdateWarehouseItemLocationCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; }
-        public Guid WarehouseId { get; set; }
-        public Guid AisleId { get; set; }
-        public Guid RowId { get; set; }
-        public Guid TrayId { get; set; }
+        public int Id { get; set; }
+        public int WarehouseId { get; set; }
+        public int AisleId { get; set; }
+        public int RowId { get; set; }
+        public int TrayId { get; set; }
         #endregion
     }
 }

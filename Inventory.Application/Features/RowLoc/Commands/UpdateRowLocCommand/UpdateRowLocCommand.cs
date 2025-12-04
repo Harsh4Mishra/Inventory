@@ -12,8 +12,8 @@ namespace Inventory.Application.Features.RowLoc.Commands.UpdateRowLocCommand
     {
         #region Properties
 
-        public Guid Id { get; init; } = default;
-        public Guid AisleId { get; init; } = default;
+        public int Id { get; init; } = default;
+        public int AisleId { get; init; } = default;
         public string Name { get; init; } = default!;
 
         #endregion

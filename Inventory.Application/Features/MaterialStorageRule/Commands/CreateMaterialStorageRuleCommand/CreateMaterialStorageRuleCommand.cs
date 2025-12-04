@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Inventory.Application.Features.MaterialStorageRule.Commands.CreateMaterialStorageRuleCommand
 {
-    public sealed record CreateMaterialStorageRuleCommand : IRequest<Guid>
+    public sealed record CreateMaterialStorageRuleCommand : IRequest<int>
     {
         #region Properties
-        public Guid MaterialId { get; set; }
+        public int MaterialId { get; set; }
         public decimal MinQuantity { get; set; }
         public decimal ThresholdQuantity { get; set; }
-        public Guid PreferredSectionId { get; set; }
+        public int PreferredSectionId { get; set; }
         #endregion
     }
 }

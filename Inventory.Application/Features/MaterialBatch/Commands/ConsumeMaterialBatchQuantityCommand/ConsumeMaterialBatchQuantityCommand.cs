@@ -10,7 +10,7 @@ namespace Inventory.Application.Features.MaterialBatch.Commands.ConsumeMaterialB
     public sealed record ConsumeMaterialBatchQuantityCommand : IRequest<Unit>
     {
         #region Properties
-        public Guid Id { get; set; } = default;
+        public int Id { get; set; } = default;
         public decimal ConsumedQuantity { get; set; }
         #endregion
     }

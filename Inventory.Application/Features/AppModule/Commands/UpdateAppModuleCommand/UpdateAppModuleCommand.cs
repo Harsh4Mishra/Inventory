@@ -7,7 +7,7 @@ namespace Inventory.Application.Features.AppModule.Commands.UpdateAppModuleComma
     {
         #region Properties
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Code { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
