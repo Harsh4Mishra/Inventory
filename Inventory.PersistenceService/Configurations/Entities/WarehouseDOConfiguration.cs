@@ -17,45 +17,45 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("warehouse");
+                .ToTable("RefWarehouse");
 
             //Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
             builder
                 .Property(e => e.Name)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(2);
             builder
                 .Property(e => e.Address)
-                .HasColumnType("jsonb")
+                .HasColumnType("VARCHAR(500)")
                 .IsRequired(false)
                 .HasColumnOrder(3);
             builder
                 .Property(e => e.CreatedBy)
-                .HasColumnType("varchar(50)")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(4);
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnType("timestamptz")
-                .HasDefaultValueSql("now()")
+                .HasColumnType("DATETIME")
+                .HasDefaultValueSql("GETDATE()")
                 .HasColumnOrder(5);
             builder
                 .Property(e => e.UpdatedBy)
-                .HasColumnType("varchar(50)")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(6);
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(7);
             builder
               .Property(e => e.IsActive)
-              .HasColumnType("boolean")
+              .HasColumnType("BIT")
               .HasDefaultValue(true)
               .HasColumnOrder(8);
 

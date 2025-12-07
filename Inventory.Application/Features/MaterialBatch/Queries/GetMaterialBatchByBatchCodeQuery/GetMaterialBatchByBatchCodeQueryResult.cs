@@ -15,8 +15,8 @@ namespace Inventory.Application.Features.MaterialBatch.Queries.GetMaterialBatchB
         public int? VendorId { get; init; }
         public string BatchCode { get; init; } = default!;
         public string? Barcode { get; init; }
-        public DateOnly? ManufactureDate { get; init; }
-        public DateOnly? ExpiryDate { get; init; }
+        public DateTime? ManufactureDate { get; init; }
+        public DateTime? ExpiryDate { get; init; }
         public decimal Quantity { get; init; }
         public decimal RemainingQuantity { get; init; }
         public int? StorageSectionId { get; init; }

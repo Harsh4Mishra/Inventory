@@ -17,73 +17,73 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("allocation");
+                .ToTable("RefAllocation");
 
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnName("id")
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnName("Id")
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.OrderId)
-                .HasColumnName("order_id")
-                .HasColumnType("int")
+                .HasColumnName("OrderId")
+                .HasColumnType("INT")
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.ProductId)
-                .HasColumnName("product_id")
-                .HasColumnType("int")
+                .HasColumnName("ProductId")
+                .HasColumnType("INT")
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.MaterialBatchId)
-                .HasColumnName("material_batch_id")
-                .HasColumnType("int")
+                .HasColumnName("MaterialBatchId")
+                .HasColumnType("INT")
                 .HasColumnOrder(4);
 
             builder
                 .Property(e => e.Quantity)
-                .HasColumnName("qty")
-                .HasColumnType("numeric")
+                .HasColumnName("Quantity")
+                .HasColumnType("Decimal(10,2)")
                 .IsRequired()
                 .HasColumnOrder(5);
 
             builder
                 .Property(e => e.Status)
-                .HasColumnName("status")
-                .HasColumnType("text")
-                .HasDefaultValue("allocated")
+                .HasColumnName("Status")
+                .HasColumnType("VARCHAR(50)")
+                .HasDefaultValue("Allocated")
                 .HasConversion<string>()
                 .HasColumnOrder(6);
 
             builder
                 .Property(e => e.CreatedBy)
-                .HasColumnName("created_by")
+                .HasColumnName("CreatedBy")
                 .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(7);
 
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnName("created_on")
-                .HasColumnType("timestamptz")
-                .HasDefaultValueSql("now()")
+                .HasColumnName("CreatedOn")
+                .HasColumnType("DATETIME")
+                .HasDefaultValueSql("GETDATE()")
                 .HasColumnOrder(8);
 
             builder
                 .Property(e => e.UpdatedBy)
-                .HasColumnName("updated_by")
+                .HasColumnName("UpdatedBy")
                 .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnName("updated_on")
-                .HasColumnType("timestamptz")
+                .HasColumnName("UpdatedOn")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(10);
 
@@ -115,9 +115,9 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .IsUnique();
 
             // Configure check constraint for status
-            builder
-                .HasCheckConstraint("CK_allocation_status",
-                    "status IN ('allocated','picked','shipped','released','cancelled')");
+            //builder
+            //    .HasCheckConstraint("CK_allocation_status",
+            //        "status IN ('allocated','picked','shipped','released','cancelled')");
 
             // Configure foreign key(s) and relations
             // Note: Uncomment and configure when you have these entities

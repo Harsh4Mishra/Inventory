@@ -17,34 +17,34 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("product");
+                .ToTable("RefProduct");
 
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.Name)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired()
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.Sku)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.BomId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(4);
 
             builder
                 .Property(e => e.IsActive)
-                .HasColumnType("boolean")
+                .HasColumnType("BIT")
                 .HasDefaultValue(true)
                 .HasColumnOrder(5);
 
@@ -55,7 +55,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .HasColumnOrder(7);
 
             builder
@@ -66,7 +66,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 

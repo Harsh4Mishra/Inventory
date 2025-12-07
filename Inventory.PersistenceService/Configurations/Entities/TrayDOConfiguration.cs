@@ -14,24 +14,24 @@ namespace Inventory.PersistenceService.Configurations.Entities
         public void Configure(EntityTypeBuilder<TrayDO> builder)
         {
             // Configure table name
-            builder.ToTable("tray");
+            builder.ToTable("RefTray");
 
             // Configure column(s)
             builder.Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder.Property(e => e.RowId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(2);
 
             builder.Property(e => e.Capacity)
-                .HasColumnType("integer")
+                .HasColumnType("INT")
                 .HasColumnOrder(3);
 
             builder.Property(e => e.Description)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(4);
 
             builder.Property(e => e.CreatedBy)

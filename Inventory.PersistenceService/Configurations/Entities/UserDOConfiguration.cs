@@ -14,12 +14,12 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("User");
+                .ToTable("RefUser");
 
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
@@ -58,16 +58,13 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.DateOfBirth)
-                .HasColumnType("DATE")
+                .HasColumnType("DATETIME")
                 .HasColumnOrder(5);
 
             builder
                 .Property(e => e.Gender)
-                .HasColumnType("TINYINT")
-                .HasColumnOrder(6)
-                .HasConversion(
-                    v => (byte)v,
-                    v => (Gender)v);
+                .HasColumnType("VARCHAR(100)")
+                .HasColumnOrder(6);
 
             builder
                 .Property(e => e.IsActive)

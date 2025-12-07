@@ -17,18 +17,18 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("bom_category");
+                .ToTable("RefBomCategory");
 
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.Name)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(2);
 
             builder
@@ -38,7 +38,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .HasColumnOrder(4);
 
             builder
@@ -49,7 +49,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(6);
 

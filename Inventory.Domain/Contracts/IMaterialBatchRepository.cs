@@ -84,7 +84,7 @@ namespace Inventory.Domain.Contracts
         /// <summary>
         /// Retrieves material batches that are expiring soon.
         /// </summary>
-        Task<IReadOnlyCollection<MaterialBatchDO>> GetExpiringBatchesAsync(DateOnly expiryDate, CancellationToken cancellationToken = default);
+        Task<IReadOnlyCollection<MaterialBatchDO>> GetExpiringBatchesAsync(DateTime expiryDate, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a new material batch

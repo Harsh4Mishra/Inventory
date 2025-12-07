@@ -17,50 +17,50 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("storage_section");
+                .ToTable("RefStorageSection");
 
             //Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
             builder
                 .Property(e => e.Name)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(2);
             builder
                 .Property(e => e.TemperatureRange)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(3);
             builder
                 .Property(e => e.Description)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(4);
             builder
                 .Property(e => e.CreatedBy)
-                .HasColumnType("varchar(50)")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(5);
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnType("timestamptz")
-                .HasDefaultValueSql("now()")
+                .HasColumnType("DATETIME")
+                .HasDefaultValueSql("GETDATE()")
                 .HasColumnOrder(6);
             builder
                 .Property(e => e.UpdatedBy)
-                .HasColumnType("varchar(50)")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(7);
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(8);
             builder
               .Property(e => e.IsActive)
-              .HasColumnType("boolean")
+              .HasColumnType("BIT")
               .HasDefaultValue(true)
               .HasColumnOrder(9);
 

@@ -14,20 +14,20 @@ namespace Inventory.PersistenceService.Configurations.Entities
         public void Configure(EntityTypeBuilder<RowLocDO> builder)
         {
             // Configure table name
-            builder.ToTable("row_loc");
+            builder.ToTable("RefRowLoc");
 
             // Configure column(s)
             builder.Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder.Property(e => e.AisleId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(2);
 
             builder.Property(e => e.Name)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(3);
 
             builder.Property(e => e.CreatedBy)

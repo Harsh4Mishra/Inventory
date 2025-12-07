@@ -17,33 +17,33 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("bom_item");
+                .ToTable("RefBomItem");
 
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.BomId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.MaterialBatchId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.WarehouseItemId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(4);
 
             builder
                 .Property(e => e.Quantity)
-                .HasColumnType("numeric")
+                .HasColumnType("DECIMAL(10,2)")
                 .HasColumnOrder(5);
 
             builder
@@ -53,7 +53,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .HasColumnOrder(7);
 
             builder
@@ -64,7 +64,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 
@@ -78,19 +78,22 @@ namespace Inventory.PersistenceService.Configurations.Entities
                 .HasOne<BomDO>()
                 .WithMany()
                 .HasForeignKey(e => e.BomId)
-                .HasConstraintName("FK_bom_item_bom");
+                .HasConstraintName("FK_bom_item_bom")
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne<MaterialBatchDO>()
                 .WithMany()
                 .HasForeignKey(e => e.MaterialBatchId)
-                .HasConstraintName("FK_bom_item_material_batch");
+                .HasConstraintName("FK_bom_item_material_batch")
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne<WarehouseItemDO>()
                 .WithMany()
                 .HasForeignKey(e => e.WarehouseItemId)
-                .HasConstraintName("FK_bom_item_warehouse_item");
+                .HasConstraintName("FK_bom_item_warehouse_item")
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Configure index(s)
             builder

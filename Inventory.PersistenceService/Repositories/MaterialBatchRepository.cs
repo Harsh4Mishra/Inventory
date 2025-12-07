@@ -324,7 +324,7 @@ namespace Inventory.PersistenceService.Repositories
         }
 
         public async Task<IReadOnlyCollection<MaterialBatchDO>> GetExpiringBatchesAsync(
-            DateOnly expiryDate,
+            DateTime expiryDate,
             CancellationToken cancellationToken = default)
         {
             try

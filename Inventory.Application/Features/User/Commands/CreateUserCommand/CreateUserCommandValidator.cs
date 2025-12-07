@@ -26,7 +26,7 @@ namespace Inventory.Application.Features.User.Commands.CreateUserCommand
 
             RuleFor(x => x.DateOfBirth)
                 .NotEmpty().WithMessage("Date of birth is required.")
-                .LessThan(DateOnly.FromDateTime(DateTime.Today.AddYears(-10)))
+                .LessThan(DateTime.Today.AddYears(-10))
                 .WithMessage("User must be at least 13 years old.");
 
             RuleFor(x => x.Gender)

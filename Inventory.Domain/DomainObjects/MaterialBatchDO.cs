@@ -17,8 +17,8 @@ namespace Inventory.Domain.DomainObjects
         public int? VendorId { get; private set; }
         public string BatchCode { get; private set; } = default!;
         public string? Barcode { get; private set; }
-        public DateOnly? ManufactureDate { get; private set; }
-        public DateOnly? ExpiryDate { get; private set; }
+        public DateTime? ManufactureDate { get; private set; }
+        public DateTime? ExpiryDate { get; private set; }
         public decimal Quantity { get; private set; }
         public decimal RemainingQuantity { get; private set; }
         public int? StorageSectionId { get; private set; }
@@ -40,8 +40,8 @@ namespace Inventory.Domain.DomainObjects
             int? vendorId,
             string batchCode,
             string? barcode,
-            DateOnly? manufactureDate,
-            DateOnly? expiryDate,
+            DateTime? manufactureDate,
+            DateTime? expiryDate,
             decimal quantity,
             int? storageSectionId,
             string? locationText)
@@ -68,8 +68,8 @@ namespace Inventory.Domain.DomainObjects
            int? vendorId,
            string batchCode,
            string? barcode,
-           DateOnly? manufactureDate,
-           DateOnly? expiryDate,
+           DateTime? manufactureDate,
+           DateTime? expiryDate,
            decimal quantity,
            int? storageSectionId,
            string? locationText,
@@ -88,8 +88,8 @@ namespace Inventory.Domain.DomainObjects
         public void Update(
             int? vendorId,
             string? barcode,
-            DateOnly? manufactureDate,
-            DateOnly? expiryDate,
+            DateTime? manufactureDate,
+            DateTime? expiryDate,
             int? storageSectionId,
             string? locationText,
             string updatedBy)

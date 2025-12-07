@@ -12,18 +12,18 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("app_module");
+                .ToTable("RefAppModule");
 
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.TenantId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(2);
 
             builder

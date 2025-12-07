@@ -14,8 +14,8 @@ namespace Inventory.Application.Features.MaterialBatch.Commands.CreateMaterialBa
         public int? VendorId { get; set; }
         public string BatchCode { get; set; } = string.Empty;
         public string? Barcode { get; set; }
-        public DateOnly? ManufactureDate { get; set; }
-        public DateOnly? ExpiryDate { get; set; }
+        public DateTime? ManufactureDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
         public decimal Quantity { get; set; }
         public int? StorageSectionId { get; set; }
         public string? LocationText { get; set; }

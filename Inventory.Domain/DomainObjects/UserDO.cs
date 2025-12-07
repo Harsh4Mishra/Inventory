@@ -13,7 +13,7 @@ namespace Inventory.Domain.DomainObjects
         public string Name { get; private set; } = default!;
         public PhoneVO PhoneNo { get; private set; } = default!;
         public EmailVO EmailId { get; private set; } = default!;
-        public DateOnly DateOfBirth { get; private set; } = default;
+        public DateTime DateOfBirth { get; private set; } = default;
         public Gender Gender { get; private set; } = default!;
         public bool IsActive { get; private set; } = default;
         public string? PasswordHashKey { get; private set; }
@@ -32,7 +32,7 @@ namespace Inventory.Domain.DomainObjects
             string name,
             PhoneVO phoneNo,
             EmailVO emailId,
-            DateOnly dateOfBirth,
+            DateTime dateOfBirth,
             Gender gender,
             string? passwordHashKey = null,
             string? passwordSaltKey = null,
@@ -63,7 +63,7 @@ namespace Inventory.Domain.DomainObjects
            string name,
            PhoneVO phoneNo,
            EmailVO emailId,
-           DateOnly dateOfBirth,
+           DateTime dateOfBirth,
            Gender gender,
            string createdBy,
            string? passwordHashKey = null,
@@ -93,7 +93,7 @@ namespace Inventory.Domain.DomainObjects
             string name,
             PhoneVO phoneNo,
             EmailVO emailId,
-            DateOnly dateOfBirth,
+            DateTime dateOfBirth,
             Gender gender,
             string updatedBy,
             string? passwordHashKey = null,

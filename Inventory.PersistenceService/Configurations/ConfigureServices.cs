@@ -58,7 +58,7 @@ namespace Inventory.PersistenceService.Configurations
             services.AddScoped<IBomItemRepository, BomItemRepository>();
             services.AddScoped<IBomItemDispositionRepository, BomItemDispositionRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IInventoryTransactionRepository, InventoryTransactionRepository>();
+            //services.AddScoped<IInventoryTransactionRepository, InventoryTransactionRepository>();
             services.AddScoped<IAllocationRepository, AllocationRepository>();
 
             return services;

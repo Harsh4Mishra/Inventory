@@ -17,165 +17,165 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("inventory_transaction");
+                .ToTable("RefInventoryTransaction");
 
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.TransactionUUID)
-                .HasColumnName("tx_uuid")
-                .HasColumnType("int")
+                .HasColumnName("Transactionuuid")
+                .HasColumnType("INT")
                 //.HasDefaultValueSql("")
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.TransactionTime)
-                .HasColumnName("txn_time")
-                .HasColumnType("timestamptz")
-                .HasDefaultValueSql("now()")
+                .HasColumnName("TransactionTime")
+                .HasColumnType("DATETIME")
+                .HasDefaultValueSql("GETDATE()")
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.TransactionType)
-                .HasColumnName("txn_type")
-                .HasColumnType("text")
+                .HasColumnName("TransactionType")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired()
                 .HasColumnOrder(4);
 
             builder
                 .Property(e => e.MaterialBatchId)
-                .HasColumnName("material_batch_id")
-                .HasColumnType("int")
+                .HasColumnName("MaterialBatchId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(5);
 
             builder
                 .Property(e => e.ProductId)
-                .HasColumnName("product_id")
-                .HasColumnType("int")
+                .HasColumnName("ProductId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(6);
 
             builder
                 .Property(e => e.Quantity)
-                .HasColumnName("qty")
-                .HasColumnType("numeric")
+                .HasColumnName("Quantity")
+                .HasColumnType("INT")
                 .IsRequired()
                 .HasColumnOrder(7);
 
             builder
                 .Property(e => e.FromWarehouseId)
-                .HasColumnName("from_warehouse_id")
-                .HasColumnType("int")
+                .HasColumnName("FromWarehouseId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(8);
 
             builder
                 .Property(e => e.ToWarehouseId)
-                .HasColumnName("to_warehouse_id")
-                .HasColumnType("int")
+                .HasColumnName("ToWarehouseId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 
             builder
                 .Property(e => e.FromAisleId)
-                .HasColumnName("from_aisle_id")
-                .HasColumnType("int")
+                .HasColumnName("FromAisleId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(10);
 
             builder
                 .Property(e => e.ToAisleId)
-                .HasColumnName("to_aisle_id")
-                .HasColumnType("int")
+                .HasColumnName("ToAisleId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(11);
 
             builder
                 .Property(e => e.FromRowId)
-                .HasColumnName("from_row_id")
-                .HasColumnType("int")
+                .HasColumnName("FromRowId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(12);
 
             builder
                 .Property(e => e.ToRowId)
-                .HasColumnName("to_row_id")
-                .HasColumnType("int")
+                .HasColumnName("ToRowId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(13);
 
             builder
                 .Property(e => e.FromTrayId)
-                .HasColumnName("from_tray_id")
-                .HasColumnType("int")
+                .HasColumnName("FromTrayId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(14);
 
             builder
                 .Property(e => e.ToTrayId)
-                .HasColumnName("to_tray_id")
-                .HasColumnType("int")
+                .HasColumnName("ToTrayId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(15);
 
             builder
                 .Property(e => e.ReferenceType)
-                .HasColumnName("ref_type")
-                .HasColumnType("text")
+                .HasColumnName("ReferenceType")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(16);
 
             builder
                 .Property(e => e.ReferenceId)
-                .HasColumnName("ref_id")
-                .HasColumnType("int")
+                .HasColumnName("ReferenceId")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(17);
 
             builder
                 .Property(e => e.CreatedBy)
-                .HasColumnName("created_by")
-                .HasColumnType("int")
+                .HasColumnName("CreatedBy")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired()
                 .HasColumnOrder(18);
 
             builder
                 .Property(e => e.Cost)
-                .HasColumnName("cost")
-                .HasColumnType("numeric")
+                .HasColumnName("Cost")
+                .HasColumnType("DECIMAL(10,2)")
                 .IsRequired(false)
                 .HasColumnOrder(19);
 
             builder
                 .Property(e => e.Notes)
-                .HasColumnName("notes")
-                .HasColumnType("text")
+                .HasColumnName("Notes")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(20);
 
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnName("created_on")
-                .HasColumnType("timestamptz")
+                .HasColumnName("CreatedOn")
+                .HasColumnType("DATETIME")
                 .HasColumnOrder(21);
 
             builder
                 .Property(e => e.UpdatedBy)
-                .HasColumnName("updated_by")
-                .HasColumnType("text")
+                .HasColumnName("UpdatedBy")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(22);
 
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnName("updated_on")
-                .HasColumnType("timestamptz")
+                .HasColumnName("UpdatedOn")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(23);
 

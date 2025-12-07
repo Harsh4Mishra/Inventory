@@ -17,62 +17,62 @@ namespace Inventory.PersistenceService.Configurations.Entities
         {
             // Configure table name
             builder
-                .ToTable("bom");
+                .ToTable("RefBom");
 
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.Name)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.CreatedBy)
-                .HasColumnType("int")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnType("timestamptz")
-                .HasDefaultValueSql("now()")
+                .HasColumnType("DATETIME")
+                .HasDefaultValueSql("GETDATE()")
                 .HasColumnOrder(4);
 
             builder
                 .Property(e => e.IsApproved)
-                .HasColumnType("boolean")
+                .HasColumnType("BIT")
                 .HasDefaultValue(false)
                 .HasColumnOrder(5);
 
             builder
                 .Property(e => e.BomCategoryId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(6);
 
             builder
                 .Property(e => e.Result)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .HasColumnOrder(7);
 
             builder
                 .Property(e => e.Quantity)
-                .HasColumnType("numeric")
+                .HasColumnType("DECIMAL(10,2)")
                 .HasDefaultValue(0)
                 .HasColumnOrder(8);
 
             builder
                 .Property(e => e.UpdatedBy)
-                .HasColumnType("int")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(10);
 
@@ -105,7 +105,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
             // Configure default values
             builder
                 .Property(e => e.CreatedOn)
-                .HasDefaultValueSql("now()");
+                .HasDefaultValueSql("GETDATE()");
 
             builder
                 .Property(e => e.IsApproved)

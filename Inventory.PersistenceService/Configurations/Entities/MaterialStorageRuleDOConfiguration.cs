@@ -22,30 +22,30 @@ namespace Inventory.PersistenceService.Configurations.Entities
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.MaterialId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.MinQuantity)
-                .HasColumnType("numeric")
+                .HasColumnType("DECIMAL(10,2)")
                 .HasDefaultValue(0)
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.ThresholdQuantity)
-                .HasColumnType("numeric")
+                .HasColumnType("DECIMAL(10,2)")
                 .HasDefaultValue(0)
                 .HasColumnOrder(4);
 
             builder
                 .Property(e => e.PreferredSectionId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .HasColumnOrder(5);
 
             builder
@@ -55,7 +55,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .HasColumnOrder(7);
 
             builder
@@ -66,7 +66,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(9);
 

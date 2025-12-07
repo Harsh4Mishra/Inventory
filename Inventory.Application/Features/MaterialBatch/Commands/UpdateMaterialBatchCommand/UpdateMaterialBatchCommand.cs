@@ -13,8 +13,8 @@ namespace Inventory.Application.Features.MaterialBatch.Commands.UpdateMaterialBa
         public int Id { get; set; } = default;
         public int? VendorId { get; set; }
         public string? Barcode { get; set; }
-        public DateOnly? ManufactureDate { get; set; }
-        public DateOnly? ExpiryDate { get; set; }
+        public DateTime? ManufactureDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
         public int? StorageSectionId { get; set; }
         public string? LocationText { get; set; }
         #endregion

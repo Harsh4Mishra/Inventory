@@ -11,7 +11,7 @@ namespace Inventory.Application.Features.User.Commands.CreateUserCommand
         public string Name { get; init; } = default!;
         public PhoneVO PhoneNo { get; init; } = default!;
         public EmailVO EmailId { get; init; } = default!;
-        public DateOnly DateOfBirth { get; init; }
+        public DateTime DateOfBirth { get; init; }
         public Gender Gender { get; init; }
 
         #endregion

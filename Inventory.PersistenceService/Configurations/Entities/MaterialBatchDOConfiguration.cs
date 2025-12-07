@@ -22,67 +22,67 @@ namespace Inventory.PersistenceService.Configurations.Entities
             // Configure column(s)
             builder
                 .Property(e => e.Id)
-                .HasColumnType("int")  // Use "int" for SQL Server, "integer" for PostgreSQL
+                .HasColumnType("INT")  // Use "int" for SQL Server, "integer" for PostgreSQL
                 .UseIdentityColumn()  // For SQL Server identity
                 .HasColumnOrder(1);
 
             builder
                 .Property(e => e.MaterialId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .IsRequired()
                 .HasColumnOrder(2);
 
             builder
                 .Property(e => e.VendorId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(3);
 
             builder
                 .Property(e => e.BatchCode)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(10)")
                 .IsRequired()
                 .HasColumnOrder(4);
 
             builder
                 .Property(e => e.Barcode)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(5);
 
             builder
                 .Property(e => e.ManufactureDate)
-                .HasColumnType("date")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(6);
 
             builder
                 .Property(e => e.ExpiryDate)
-                .HasColumnType("date")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(7);
 
             builder
                 .Property(e => e.Quantity)
-                .HasColumnType("numeric")
+                .HasColumnType("DECIMAL(10,2)")
                 .HasDefaultValue(0)
                 .HasColumnOrder(8);
 
             builder
                 .Property(e => e.RemainingQuantity)
-                .HasColumnType("numeric")
+                .HasColumnType("DECIMAL(10,2)")
                 .HasDefaultValue(0)
                 .HasColumnOrder(9);
 
             builder
                 .Property(e => e.StorageSectionId)
-                .HasColumnType("int")
+                .HasColumnType("INT")
                 .IsRequired(false)
                 .HasColumnOrder(10);
 
             builder
                 .Property(e => e.LocationText)
-                .HasColumnType("text")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired(false)
                 .HasColumnOrder(11);
 
@@ -93,8 +93,8 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.CreatedOn)
-                .HasColumnType("timestamptz")
-                .HasDefaultValueSql("now()")
+                .HasColumnType("DATETIME")
+                .HasDefaultValueSql("GETDATE()")
                 .HasColumnOrder(13);
 
             builder
@@ -105,13 +105,13 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.UpdatedOn)
-                .HasColumnType("timestamptz")
+                .HasColumnType("DATETIME")
                 .IsRequired(false)
                 .HasColumnOrder(15);
 
             builder
                 .Property(e => e.IsActive)
-                .HasColumnType("boolean")
+                .HasColumnType("BIT")
                 .HasDefaultValue(true)
                 .HasColumnOrder(16);
 
