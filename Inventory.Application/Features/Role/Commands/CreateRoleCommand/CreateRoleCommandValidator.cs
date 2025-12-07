@@ -24,7 +24,7 @@ namespace Inventory.Application.Features.Role.Commands.CreateRoleCommand
                 .NotNull().WithMessage("Name is required.")
                 .MinimumLength(2).WithMessage("Name must be at least 2 characters.")
                 .MaximumLength(50).WithMessage("Name cannot exceed 50 characters.")
-                .Must(ValidateIfRoleDoesNotExist).WithMessage("Role already exists");
+                .MustAsync(RoleDoesNotExist).WithMessage("Role already exists");
 
             RuleFor(x => x.Description)
                 .NotEmpty().WithMessage("Description cannot be empty.")
@@ -37,11 +37,12 @@ namespace Inventory.Application.Features.Role.Commands.CreateRoleCommand
 
         #region Methods
 
-        private bool ValidateIfRoleDoesNotExist(string? activityName)
+        private async Task<bool> RoleDoesNotExist(string roleName, CancellationToken ct)
         {
-            var results = _RoleRepository.ExistsByNameAsync(activityName);
+            // Repository returns true = exists
+            bool exists = await _RoleRepository.ExistsByNameAsync(roleName, ct);
 
-            return results == null ? true : false;
+            return !exists; // true = valid, false = validation fail
         }
 
         #endregion
