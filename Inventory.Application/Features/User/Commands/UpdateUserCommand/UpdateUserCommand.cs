@@ -10,10 +10,10 @@ namespace Inventory.Application.Features.User.Commands.UpdateUserCommand
 
         public int Id { get; set; }
         public string Name { get; set; } = default!;
-        public PhoneVO PhoneNo { get; set; } = default!;
-        public EmailVO EmailId { get; set; } = default!;
+        public string PhoneNo { get; set; } = default!;
+        public string EmailId { get; set; } = default!;
         public DateTime DateOfBirth { get; set; }
-        public Gender Gender { get; set; }
+        public int Gender { get; set; }
 
         #endregion
     }

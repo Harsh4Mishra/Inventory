@@ -29,8 +29,8 @@ namespace Inventory.Application.Features.User.Commands.CreateUserCommand
                 .LessThan(DateTime.Today.AddYears(-10))
                 .WithMessage("User must be at least 13 years old.");
 
-            RuleFor(x => x.Gender)
-                .IsInEnum().WithMessage("Invalid gender value.");
+            //RuleFor(x => x.Gender)
+            //    .IsInEnum().WithMessage("Invalid gender value.");
         }
 
         #endregion

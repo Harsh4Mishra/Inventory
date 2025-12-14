@@ -63,7 +63,7 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             builder
                 .Property(e => e.Gender)
-                .HasColumnType("VARCHAR(100)")
+                .HasColumnType("INT")
                 .HasColumnOrder(6);
 
             builder

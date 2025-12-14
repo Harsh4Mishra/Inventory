@@ -2,6 +2,7 @@
 using Inventory.Application.Contracts;
 using Inventory.Domain.Contracts;
 using Inventory.Domain.DomainObjects;
+using Inventory.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
@@ -41,7 +42,7 @@ namespace Inventory.Application.Features.User.Commands.CreateUserCommand
             try
             {
                 // 1. Check for duplicates by email
-                if (await _userRepository.ExistsByMobileNumberAsync(request.PhoneNo.PhoneNo.ToString(), cancellationToken))
+                if (await _userRepository.ExistsByMobileNumberAsync(request.PhoneNo.ToString(), cancellationToken))
                 {
                     throw new InvalidOperationException($"User with phone number '{request.PhoneNo}' already exists.");
                 }
@@ -49,11 +50,14 @@ namespace Inventory.Application.Features.User.Commands.CreateUserCommand
                 // 2. Identify the creator
                 var userName = "System"; // TODO: Replace with actual user identification
 
+                var phone = PhoneVO.From(request.PhoneNo);
+                var email = EmailVO.From(request.EmailId);
+
                 // 3. Create and persist the new user
                 var user = UserDO.Create(
                     request.Name,
-                    request.PhoneNo,
-                    request.EmailId,
+                    phone,
+                    email,
                     request.DateOfBirth,
                     request.Gender,
                     userName);

@@ -14,7 +14,7 @@ namespace Inventory.Domain.DomainObjects
         public PhoneVO PhoneNo { get; private set; } = default!;
         public EmailVO EmailId { get; private set; } = default!;
         public DateTime DateOfBirth { get; private set; } = default;
-        public Gender Gender { get; private set; } = default!;
+        public int Gender { get; private set; } = default!;
         public bool IsActive { get; private set; } = default;
         public string? PasswordHashKey { get; private set; }
         public string? PasswordSaltKey { get; private set; }
@@ -33,7 +33,7 @@ namespace Inventory.Domain.DomainObjects
             PhoneVO phoneNo,
             EmailVO emailId,
             DateTime dateOfBirth,
-            Gender gender,
+            int gender,
             string? passwordHashKey = null,
             string? passwordSaltKey = null,
             int numberOfAttempts = 0,
@@ -64,7 +64,7 @@ namespace Inventory.Domain.DomainObjects
            PhoneVO phoneNo,
            EmailVO emailId,
            DateTime dateOfBirth,
-           Gender gender,
+           int gender,
            string createdBy,
            string? passwordHashKey = null,
            string? passwordSaltKey = null,
@@ -94,7 +94,7 @@ namespace Inventory.Domain.DomainObjects
             PhoneVO phoneNo,
             EmailVO emailId,
             DateTime dateOfBirth,
-            Gender gender,
+            int gender,
             string updatedBy,
             string? passwordHashKey = null,
             string? passwordSaltKey = null,

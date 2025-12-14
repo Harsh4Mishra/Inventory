@@ -1,5 +1,6 @@
 ﻿using Inventory.Application.Contracts;
 using Inventory.Domain.Contracts;
+using Inventory.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
@@ -45,11 +46,14 @@ namespace Inventory.Application.Features.User.Commands.UpdateUserCommand
                 //var userName = _httpContextAccessor.HttpContext?.User?.FindFirst(JwtRegisteredClaimNames.Sid)?.Value ?? throw new InvalidOperationException("Cannot determine the current user");
                 var userName = "System"; // TODO: Replace with actual user identification
 
+                var phone = PhoneVO.From(request.PhoneNo);
+                var email = EmailVO.From(request.EmailId);
+
                 //3. Apply updates on User
                 user.Update(
                     request.Name,
-                    request.PhoneNo,
-                    request.EmailId,
+                    phone,
+                    email,
                     request.DateOfBirth,
                     request.Gender,
                     userName);

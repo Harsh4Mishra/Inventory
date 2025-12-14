@@ -9,10 +9,10 @@ namespace Inventory.Application.Features.User.Commands.CreateUserCommand
         #region Properties
 
         public string Name { get; init; } = default!;
-        public PhoneVO PhoneNo { get; init; } = default!;
-        public EmailVO EmailId { get; init; } = default!;
+        public string PhoneNo { get; init; } = default!;
+        public string EmailId { get; init; } = default!;
         public DateTime DateOfBirth { get; init; }
-        public Gender Gender { get; init; }
+        public int Gender { get; init; }
 
         #endregion
     }
