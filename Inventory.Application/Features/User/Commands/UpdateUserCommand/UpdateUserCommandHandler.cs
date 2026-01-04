@@ -39,7 +39,7 @@ namespace Inventory.Application.Features.User.Commands.UpdateUserCommand
             try
             {
                 //1. Load existing industry or fail if it doesn't exist
-                var user = await _userRepository.GetByIdAsync(request.Id, cancellationToken)
+                var user = await _userRepository.GetByIdToMutateAsync(request.Id, cancellationToken)
                     ?? throw new InvalidOperationException($"User not found with ID: {request.Id}");
 
                 //2. Identify who’s making the change

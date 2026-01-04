@@ -9,7 +9,7 @@ namespace Inventory.Application.Features.UserRole.Commands.ToggleUserRoleCommand
         public ToggleUserRoleCommandValidator()
         {
             RuleFor(x => x.Id).NotEmpty().NotNull().WithMessage("User-role assignment ID is required.");
-            RuleFor(x => x.IsActive).NotNull().WithMessage("IsActive status is required.");
+            //RuleFor(x => x.IsActive).NotNull().WithMessage("IsActive status is required.");
         }
 
         #endregion

@@ -100,8 +100,15 @@ namespace Inventory.PersistenceService.Configurations.Entities
 
             // Configure check constraints (optional)
             builder
-                .HasCheckConstraint("CK_user_role_UserID_NotEmpty", "\"UserId\" != '00000000-0000-0000-0000-000000000000'")
-                .HasCheckConstraint("CK_user_role_RoleID_NotEmpty", "\"RoleId\" != '00000000-0000-0000-0000-000000000000'");
+    .HasCheckConstraint(
+        "CK_user_role_UserID_NotZero",
+        "[UserId] > 0");
+
+            builder
+                .HasCheckConstraint(
+                    "CK_user_role_RoleID_NotZero",
+                    "[RoleId] > 0");
+
         }
 
         #endregion

@@ -137,7 +137,7 @@ namespace Inventory.SuperAdmin.API.Controllers
         }
 
         [HttpPut("ToggleStatus")]
-        public async Task<IActionResult> ToggleUserStatus([FromQuery] ToggleUserStatusCommand command)
+        public async Task<IActionResult> ToggleUserStatus([FromBody] ToggleUserStatusCommand command)
         {
             try
             {

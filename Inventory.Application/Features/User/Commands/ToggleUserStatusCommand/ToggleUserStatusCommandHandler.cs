@@ -36,7 +36,7 @@ namespace Inventory.Application.Features.User.Commands.ToggleUserStatusCommand
             CancellationToken cancellationToken)
         {
             //1. Load the user or fail if it does'nt exist
-            var user = await _userRepository.GetByIdAsync(request.Id, cancellationToken)
+            var user = await _userRepository.GetByIdToMutateAsync(request.Id, cancellationToken)
                 ?? throw new InvalidOperationException($"User not found with ID: {request.Id}");
 
             //2. Identify who’s performing the toggle

@@ -18,8 +18,8 @@ namespace Business.Configurations.Mappers
             CreateMap<DeleteUserCommand, UserDO>();
 
             //Response Mapper(s)
-            CreateMap<UserDO, GetActiveUsersQuery>();
-            CreateMap<UserDO, GetUsersQuery>();
+            CreateMap<UserDO, GetActiveUsersQueryResult>();
+            CreateMap<UserDO, GetUsersQueryResult>();
         }
     }
 }

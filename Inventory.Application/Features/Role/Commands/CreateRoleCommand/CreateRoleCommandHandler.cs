@@ -50,7 +50,7 @@ namespace Inventory.Application.Features.Role.Commands.CreateRoleCommand
                 var userName = "System"; // TODO: Replace with actual user identification
 
                 //3. Generate the next available industry code
-                var code = "IND001"; //work on this
+                var code = "RL"+ DateTime.Now.ToString("ddMMyyyyHHmmss"); //work on this
 
                 // 4. Create and persist the new role
                 var role = RoleDO.Create(

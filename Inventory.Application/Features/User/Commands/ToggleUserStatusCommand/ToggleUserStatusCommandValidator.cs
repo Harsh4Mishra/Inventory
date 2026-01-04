@@ -19,7 +19,7 @@ namespace Inventory.Application.Features.User.Commands.ToggleUserStatusCommand
                 .NotEmpty().WithMessage("User Id cannot be empty.")
                 .NotNull().WithMessage("User Id is required.");
 
-            RuleFor(x => x.IsActive).NotEmpty().NotNull();
+            //RuleFor(x => x.IsActive).NotEmpty().NotNull();
 
         }
 

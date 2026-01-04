@@ -6,8 +6,8 @@ namespace Inventory.Application.Features.User.Commands.ToggleUserStatusCommand
     {
         #region Properties
 
-        public int Id { get; init; }
-        public bool IsActive { get; init; }
+        public int Id { get; set; }
+        public bool IsActive { get; set; }
 
         #endregion
     }
