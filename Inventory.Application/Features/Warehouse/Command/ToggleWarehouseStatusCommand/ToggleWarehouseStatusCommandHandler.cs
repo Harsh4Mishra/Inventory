@@ -41,7 +41,7 @@ namespace Inventory.Application.Features.Warehouse.Command.ToggleWarehouseStatus
             CancellationToken cancellationToken)
         {
             //1. Load the warehouse or fail if it doesn't exist
-            var warehouse = await _warehouseRepository.GetByIdAsync(request.Id, cancellationToken)
+            var warehouse = await _warehouseRepository.GetByIdToMutateAsync(request.Id, cancellationToken)
                 ?? throw new InvalidOperationException($"No warehouse found with Id '{request.Id}'.");
 
             //2. Identify who's performing the toggle

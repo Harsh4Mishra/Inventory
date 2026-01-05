@@ -27,7 +27,7 @@ namespace Inventory.Application.Features.Authentication.SetPassword
                 .NotNull().WithMessage("EmailID is required.")
                 .MinimumLength(2).WithMessage("EmailID must be at least 8 characters.")
                 .MaximumLength(50).WithMessage("EmailID cannot exceed 50 characters.")
-                .Must(ValidateIfEmployeeLinkVisited).WithMessage("Already link is used")
+                .MustAsync(ValidateIfEmployeeLinkVisited).WithMessage("Already link is used")
                 .MustAsync(ValidateIfEmployeeExist).WithMessage("emailId not exists");
 
             RuleFor(x => x.Password)
@@ -46,11 +46,13 @@ namespace Inventory.Application.Features.Authentication.SetPassword
             return await _userRepository.ExistsByEmailAsync(userName!);
         }
 
-        private bool ValidateIfEmployeeLinkVisited(string? emailId)
+        private async Task<bool> ValidateIfEmployeeLinkVisited(string? emailId, CancellationToken token)
         {
-            var results = _userRepository.ExistsByEmailAndLinkVisitedAsync(emailId!);
+            var isVisited =
+        await _userRepository.ExistsByEmailAndLinkVisitedAsync(emailId!);
 
-            return results == null ? true : false;
+            return !isVisited;
+
         }
 
 

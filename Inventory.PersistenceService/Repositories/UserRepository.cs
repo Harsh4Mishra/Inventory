@@ -159,7 +159,7 @@ namespace Inventory.PersistenceService.Repositories
                 EmailVO emailIdVO = EmailVO.From(emailId);
 
                 return await _dbContext.Users
-                    .FirstOrDefaultAsync(e => e.PhoneNo.PhoneNo == emailIdVO.EmailId, cancellationToken);
+                    .FirstOrDefaultAsync(e => e.EmailId.EmailId == emailIdVO.EmailId, cancellationToken);
             }
             catch (Exception ex)
             {

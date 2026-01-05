@@ -41,7 +41,7 @@ namespace Inventory.Application.Features.StorageSection.Command.ToggleStorageSec
             CancellationToken cancellationToken)
         {
             //1. Load the storage section or fail if it doesn't exist
-            var storageSection = await _storageSectionRepository.GetByIdAsync(request.Id, cancellationToken)
+            var storageSection = await _storageSectionRepository.GetByIdToMutateAsync(request.Id, cancellationToken)
                 ?? throw new InvalidOperationException($"No storage section found with Id '{request.Id}'.");
 
             //2. Identify who's performing the toggle

@@ -17,9 +17,9 @@ namespace Inventory.Application.Features.StorageSection.Command.ToggleStorageSec
                 .NotEmpty().WithMessage("Id is required.")
                 .NotNull().WithMessage("Id cannot be null.");
 
-            RuleFor(x => x.IsActive)
-                .NotEmpty().WithMessage("Status is required.")
-                .NotNull().WithMessage("Status cannot be null.");
+            //RuleFor(x => x.IsActive)
+            //    .NotEmpty().WithMessage("Status is required.")
+            //    .NotNull().WithMessage("Status cannot be null.");
         }
 
         #endregion
